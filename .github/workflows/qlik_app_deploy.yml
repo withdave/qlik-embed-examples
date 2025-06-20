@@ -30,4 +30,4 @@ jobs:
           QLIK_CLIENT_ID: ${{ vars.QLIK_ADMIN_CLIENT_ID }}
           QLIK_CLIENT_SECRET: ${{ secrets.QLIK_ADMIN_CLIENT_SECRET }}
         run: |
-          node embed/qlik-upload.js
+          node .github/scripts/qlik-upload.js
