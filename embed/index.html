@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qlik Sense All Charts</title>
+  <link rel="stylesheet" href="index.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "@qlik/embed-web-components": "https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js",
+      "@qlik/api": "https://cdn.jsdelivr.net/npm/@qlik/api@1/index.js"
+    }
+  }
+</script>
+<script type="module">
+  import "@qlik/embed-web-components"
+  import { auth } from "@qlik/api";
+
+  auth.registerHostConfig("anon", {
+    host: "https://{{qlikHost}}",
+    authType: "anonymous",
+    clientId: "{{qlikClientId}}",
+    accessCode: "{{qlikAccessCode}}",
+  });
+
+</script>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <h1>Qlik Sense All Charts App</h1>
+      <p>This page provides access to the hosted <a href="https://github.com/withdave/qlik-sense-all-charts">Qlik Sense all charts</a> app.</p>
+    </div>
+    <div class="qlik-container">
+      <qlik-embed ui="classic/app" app-id="{{qlikAppId}}" host-config="anon" />
+    </div>
+  </div>
+</body>
+</html>
