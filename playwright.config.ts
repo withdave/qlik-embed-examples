@@ -8,6 +8,20 @@ const config = {
     trace: 'on-first-retry',
     viewport: { width: 1900, height: 1600 },
   },
+  projects: [
+    {
+      name: 'chromium',
+      use: { browserName: 'chromium' },
+    },
+    {
+      name: 'firefox',
+      use: { browserName: 'firefox' },
+    },
+    {
+      name: 'webkit',
+      use: { browserName: 'webkit' },
+    },
+  ],
 };
 
 export default config;
