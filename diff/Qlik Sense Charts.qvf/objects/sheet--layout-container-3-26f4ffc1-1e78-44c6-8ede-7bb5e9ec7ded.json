@@ -1,0 +1,529 @@
+{
+  "qProperty": {
+    "qInfo": {
+      "qId": "26f4ffc1-1e78-44c6-8ede-7bb5e9ec7ded",
+      "qType": "sheet"
+    },
+    "qMetaDef": {
+      "title": "Layout container 3",
+      "description": ""
+    },
+    "creationDate": "2024-04-16T11:27:05.676Z",
+    "rank": 2,
+    "thumbnail": {
+      "qStaticContentUrlDef": {}
+    },
+    "columns": 24,
+    "rows": 12,
+    "cells": [
+      {
+        "name": "da6874e0-4f5c-44b5-8353-d103613fb30c",
+        "type": "sn-layout-container",
+        "col": 0,
+        "row": 0,
+        "colspan": 24,
+        "rowspan": 12,
+        "bounds": {
+          "y": 0,
+          "x": 0,
+          "width": 100,
+          "height": 100
+        }
+      }
+    ],
+    "qChildListDef": {
+      "qData": {
+        "title": "/title"
+      }
+    },
+    "customRowBase": 12,
+    "gridResolution": "small",
+    "layoutOptions": {
+      "mobileLayout": "LIST",
+      "extendable": false
+    },
+    "gridMode": "edit"
+  },
+  "qChildren": [
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "da6874e0-4f5c-44b5-8353-d103613fb30c",
+          "qType": "sn-layout-container"
+        },
+        "qMetaDef": {},
+        "objects": [
+          {
+            "childRefId": "tpmuUFp",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Variable input (dash bundle)",
+            "bounds": {
+              "height": 9.52462,
+              "width": 30,
+              "x": 34.99519,
+              "y": 64.43461
+            }
+          },
+          {
+            "childRefId": "pDkmNuKD",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Video player (dash bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30.18053,
+              "x": 69.04937,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "psUqNYjF",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Text (dash bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "pWxuxpbe",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Line (dash bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30.18053,
+              "x": 0.76047,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "SRauqww",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Date picker (dash bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30.18053,
+              "x": 69.04937,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "pDZgrVqd",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Animator (dash bundle)",
+            "bounds": {
+              "height": 9.58688,
+              "width": 30,
+              "x": 34.99519,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "pqvuBmsH",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Variance waterfall (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30.18053,
+              "x": 69.04937,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pazJXswb",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Word cloud  (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30.18053,
+              "x": 0.76047,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "ptzZZPz",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Waterfall chart",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pVYBupVJ",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Treemap",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pKmwMvjD",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Text \u0026 image",
+            "bounds": {
+              "height": 20,
+              "width": 30.18053,
+              "x": 69.04937,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "pKQctDDF",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Table",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "pnNVspJf",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Straight table (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "pXusdnwy",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Text \u0026 image",
+            "bounds": {
+              "height": 17.30323,
+              "width": 19.68977,
+              "x": 39.38502,
+              "y": -5.49725
+            }
+          }
+        ],
+        "showTitles": true,
+        "title": "Layout 3",
+        "subtitle": "",
+        "footnote": "",
+        "disableNavMenu": false,
+        "showDetails": false,
+        "showDetailsExpression": false,
+        "components": [],
+        "constrainToContainer": false,
+        "showGridLines": false,
+        "gridRowCount": 24,
+        "gridColumnCount": 36,
+        "snapToGrid": false,
+        "visualization": "sn-layout-container",
+        "qChildListDef": {
+          "qData": {
+            "visualization": "/visualization",
+            "qExtendsId": "/qExtendsId",
+            "title": "/title",
+            "childRefId": "/childRefId"
+          }
+        },
+        "version": "3.2.1",
+        "extensionMeta": {
+          "translationKey": "",
+          "icon": "layout-container",
+          "iconChar": "puzzle",
+          "isLibraryItem": true,
+          "visible": true,
+          "IconDefinition": {},
+          "name": "Layout container",
+          "description": "The layout container object has a canvas that can hold multiple objects. In this container you can freely move objects around, as well as position the objects on top of each other or overlapping.",
+          "template": "sn-layout-container",
+          "iconPath": "M14.5,9 L13,9 L13,3.3 C13,3.1 12.9,3 12.7,3 L8,3 L8,1.5 C8,0.7 7.3,0 6.5,0 C5.7,0 5,0.7 5,1.5 L5,3 L0.3,3 C0.1,3 0,3.1 0,3.3 L0,9 L1.5,9 C2.3,9 3,9.7 3,10.5 C3,11.3 2.3,12 1.5,12 L0,12 L0,15.7 C0,15.9 0.1,16 0.3,16 L5,16 L5,14.5 C5,13.7 5.7,13 6.5,13 C7.3,13 8,13.7 8,14.5 L8,16 L12.7,16 C12.9,16 13,15.9 13,15.7 L13,12 L14.5,12 C15.3,12 16,11.3 16,10.5 C16,9.7 15.3,9 14.5,9 Z",
+          "isThirdParty": true,
+          "version": "3.2.1",
+          "author": "QlikTech International AB",
+          "type": "visualization",
+          "supernova": true,
+          "bundle": {
+            "id": "qlik-dashboard-bundle",
+            "name": "Qlik Dashboard bundle",
+            "description": "This is a set of supported objects that will facilitate dashboard creation in Qlik Sense. These can be used in addition to the objects found under \"Charts\".\n\nFor limitations and support conditions, see the documentation."
+          },
+          "installer": "QlikExtensionBundler",
+          "folder": "_dashboard-bundle"
+        }
+      },
+      "qChildren": [
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "13e67511-621b-4912-bab4-164c7e2a5379",
+              "qType": "text-image"
+            },
+            "qMetaDef": {},
+            "qHyperCubeDef": {
+              "qDimensions": [],
+              "qMeasures": [],
+              "qInterColumnSortOrder": [],
+              "qInitialDataFetch": [],
+              "qReductionMode": "N",
+              "qMode": "S",
+              "qPseudoDimPos": -1,
+              "qNoOfLeftDims": -1,
+              "qMaxStackedCells": 5000,
+              "qCalcCond": {},
+              "qTitle": {},
+              "qCalcCondition": {
+                "qCond": {},
+                "qMsg": {}
+              },
+              "qColumnOrder": [],
+              "qExpansionState": [],
+              "qDynamicScript": [],
+              "qSuppressMeasureTotals": true,
+              "qLayoutExclude": {
+                "qHyperCubeDef": {
+                  "qDimensions": [],
+                  "qMeasures": [],
+                  "qInterColumnSortOrder": [],
+                  "qInitialDataFetch": [],
+                  "qReductionMode": "N",
+                  "qMode": "S",
+                  "qPseudoDimPos": -1,
+                  "qNoOfLeftDims": -1,
+                  "qMaxStackedCells": 5000,
+                  "qCalcCond": {},
+                  "qTitle": {},
+                  "qCalcCondition": {
+                    "qCond": {},
+                    "qMsg": {}
+                  },
+                  "qColumnOrder": [],
+                  "qExpansionState": [],
+                  "qDynamicScript": []
+                }
+              }
+            },
+            "script": "",
+            "showTitles": false,
+            "title": "",
+            "subtitle": "",
+            "footnote": "",
+            "disableNavMenu": false,
+            "showDetails": true,
+            "showDetailsExpression": false,
+            "components": null,
+            "responsive": "all",
+            "markdown": "![duSjna](/api/v1/apps/7973436d\\-250c\\-46a8\\-bca3\\-8448556c5457/media/files/Screenshot%202024\\-04\\-16%20at%2012.43.00.png)",
+            "images": [
+              {
+                "id": "duSjna",
+                "url": {
+                  "qStaticContentUrlDef": {
+                    "qUrl": "/api/v1/apps/<appId>/media/files/Screenshot 2024-04-16 at 12.43.00.png"
+                  }
+                }
+              }
+            ],
+            "background": {
+              "isUsed": false,
+              "size": "auto",
+              "position": "topLeft",
+              "url": {}
+            },
+            "visualization": "text-image",
+            "childRefId": "pXusdnwy"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "60ee93d7-9c00-475c-9648-892cc2cd005e",
+              "qType": "childObject"
+            },
+            "qExtendsId": "89db4909-32f2-415d-bd95-e38ab6a5af82",
+            "qMetaDef": {},
+            "childRefId": "pnNVspJf"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "deb3fd9d-557c-4da0-bcd2-7ced4d8c34ed",
+              "qType": "childObject"
+            },
+            "qExtendsId": "9ad1c89a-cf49-4c7b-ae7d-953b7ed48ead",
+            "qMetaDef": {},
+            "childRefId": "pVYBupVJ"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "9d85cf85-6585-4682-a81e-19e42126b8e1",
+              "qType": "childObject"
+            },
+            "qExtendsId": "fa624b13-4cfb-40b5-aa15-06bdf1c4f241",
+            "qMetaDef": {},
+            "childRefId": "pKQctDDF"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "4bbb39c2-5912-433a-ba6d-e1e14008f0ca",
+              "qType": "childObject"
+            },
+            "qExtendsId": "24b48e1b-d427-4cdd-8805-bd18329b0e96",
+            "qMetaDef": {},
+            "childRefId": "pKmwMvjD"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "4c6bfebc-6b3b-478e-83fb-e5b7e11693db",
+              "qType": "childObject"
+            },
+            "qExtendsId": "e4e6e7d6-ff5a-47f5-a05f-975dcfdc00f7",
+            "qMetaDef": {},
+            "childRefId": "pazJXswb"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "af9f86ef-800f-4e68-a94b-4f45237af03b",
+              "qType": "childObject"
+            },
+            "qExtendsId": "fd4eede0-b77d-48f0-b8fe-013b433b8841",
+            "qMetaDef": {},
+            "childRefId": "ptzZZPz"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "c545cf64-2a7a-4bdb-8ce9-0c796a6b7840",
+              "qType": "childObject"
+            },
+            "qExtendsId": "834f90da-78ea-4dcb-b86c-b7bf8d05aa55",
+            "qMetaDef": {},
+            "childRefId": "pqvuBmsH"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "7cba2bd3-e3a2-4a22-8c1e-9cbab3fac3bf",
+              "qType": "childObject"
+            },
+            "qExtendsId": "f493453e-dc3b-4c3d-826e-c7f90bc422a3",
+            "qMetaDef": {},
+            "childRefId": "pDZgrVqd"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "c8ca6fcc-2dfd-42ae-b964-266e68149c2f",
+              "qType": "childObject"
+            },
+            "qExtendsId": "ec3791f1-825b-411c-92ed-a2fdab16ac9d",
+            "qMetaDef": {},
+            "childRefId": "SRauqww"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "828f8d99-a7bc-4eef-a99f-97c504de9f8b",
+              "qType": "childObject"
+            },
+            "qExtendsId": "9821b2d3-82a7-4f21-84b7-c6fe5f04d903",
+            "qMetaDef": {},
+            "childRefId": "pWxuxpbe"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "b18d8fe0-5053-4233-9e7e-7ba5fdaa33f2",
+              "qType": "childObject"
+            },
+            "qExtendsId": "6d7ab95b-1765-4a9f-92ab-2624a7e7981d",
+            "qMetaDef": {},
+            "childRefId": "psUqNYjF"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "aa568f94-7231-44aa-9f14-704a56c2a110",
+              "qType": "childObject"
+            },
+            "qExtendsId": "95d000dc-f555-406e-8f7e-880fa837dee0",
+            "qMetaDef": {},
+            "childRefId": "pDkmNuKD"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "532b1e03-0324-45fd-8eef-98473788ffb2",
+              "qType": "childObject"
+            },
+            "qExtendsId": "49d12850-5115-4006-b277-cc66aad184f8",
+            "qMetaDef": {},
+            "childRefId": "tpmuUFp"
+          },
+          "qChildren": []
+        }
+      ]
+    }
+  ]
+}

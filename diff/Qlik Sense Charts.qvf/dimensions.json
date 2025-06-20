@@ -1,0 +1,104 @@
+[
+  {
+    "qInfo": {
+      "qId": "rUjMsPE",
+      "qType": "dimension"
+    },
+    "qDim": {
+      "qGrouping": "N",
+      "qFieldDefs": [
+        "Alpha"
+      ],
+      "qFieldLabels": [
+        "Alpha"
+      ],
+      "title": "Alpha",
+      "coloring": {
+        "changeHash": "0.0024738039104865717",
+        "hasValueColors": false
+      }
+    },
+    "qMetaDef": {
+      "title": "Alpha",
+      "description": "",
+      "tags": []
+    }
+  },
+  {
+    "qInfo": {
+      "qId": "417e5a34-4d36-48ef-91e5-885549e9df2b",
+      "qType": "dimension"
+    },
+    "qDim": {
+      "qGrouping": "N",
+      "qFieldDefs": [
+        "Dim3"
+      ],
+      "qFieldLabels": [
+        "Dimension 3"
+      ],
+      "title": "Dimension 3",
+      "coloring": {
+        "colorMapRef": "nCpRzbt",
+        "changeHash": "0.8519595618296203",
+        "hasValueColors": false
+      }
+    },
+    "qMetaDef": {
+      "title": "Dimension 3",
+      "description": "",
+      "tags": []
+    }
+  },
+  {
+    "qInfo": {
+      "qId": "ca7bd336-0763-49c8-b484-5d2a6571c889",
+      "qType": "dimension"
+    },
+    "qDim": {
+      "qGrouping": "N",
+      "qFieldDefs": [
+        "Dim2"
+      ],
+      "qFieldLabels": [
+        "Dimension 2"
+      ],
+      "title": "Dimension 2",
+      "coloring": {
+        "colorMapRef": "nCpRzbt",
+        "changeHash": "0.4775077560223029",
+        "hasValueColors": false
+      }
+    },
+    "qMetaDef": {
+      "title": "Dimension 2",
+      "description": "",
+      "tags": []
+    }
+  },
+  {
+    "qInfo": {
+      "qId": "nCpRzbt",
+      "qType": "dimension"
+    },
+    "qDim": {
+      "qGrouping": "N",
+      "qFieldDefs": [
+        "Dim1"
+      ],
+      "qFieldLabels": [
+        "Dimension 1"
+      ],
+      "title": "Dimension 1",
+      "coloring": {
+        "changeHash": "0.739725165061313",
+        "hasValueColors": false
+      }
+    },
+    "qMetaDef": {
+      "title": "Dimension 1",
+      "description": "",
+      "tags": []
+    }
+  }
+]

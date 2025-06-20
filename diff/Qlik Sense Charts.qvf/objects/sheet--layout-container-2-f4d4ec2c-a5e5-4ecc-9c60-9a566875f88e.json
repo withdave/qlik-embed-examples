@@ -1,0 +1,504 @@
+{
+  "qProperty": {
+    "qInfo": {
+      "qId": "f4d4ec2c-a5e5-4ecc-9c60-9a566875f88e",
+      "qType": "sheet"
+    },
+    "qMetaDef": {
+      "title": "Layout container 2",
+      "description": ""
+    },
+    "creationDate": "2024-04-16T11:27:05.676Z",
+    "rank": 1,
+    "thumbnail": {
+      "qStaticContentUrlDef": {}
+    },
+    "columns": 24,
+    "rows": 12,
+    "cells": [
+      {
+        "name": "b3ef1239-9e25-41e1-bb1c-fa9e227ee20e",
+        "type": "sn-layout-container",
+        "col": 0,
+        "row": 0,
+        "colspan": 24,
+        "rowspan": 12,
+        "bounds": {
+          "y": 0,
+          "x": 0,
+          "width": 100,
+          "height": 100
+        }
+      }
+    ],
+    "qChildListDef": {
+      "qData": {
+        "title": "/title"
+      }
+    },
+    "customRowBase": 12,
+    "gridResolution": "small",
+    "layoutOptions": {
+      "mobileLayout": "LIST",
+      "extendable": false
+    },
+    "gridMode": "edit"
+  },
+  "qChildren": [
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "b3ef1239-9e25-41e1-bb1c-fa9e227ee20e",
+          "qType": "sn-layout-container"
+        },
+        "qMetaDef": {},
+        "objects": [
+          {
+            "childRefId": "ptWpEUdj",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Scatter plot",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 69.04937,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "pRqDLabJ",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Sankey chart (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "pUZYWZgJ",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Radar chart (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "hynvuTH",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Pivot table (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30.18053,
+              "x": 69.04937,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "pXMqcbkc",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Pivot table",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "pWtckakB",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Pie chart",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "pUmpGuMQ",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "P\u0026L pivot (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 69.04937,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pfEuAsDm",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "NL Insights",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pVveuntb",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Multi KPI (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pWnGrgnb",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Mekko chart",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 69.04937,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "pmbwpLYw",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Map",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "ppGpYstQ",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Line chart",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "pXusdnwy",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Text \u0026 image",
+            "bounds": {
+              "height": 17.30323,
+              "width": 19.68977,
+              "x": 39.38502,
+              "y": -5.49725
+            }
+          }
+        ],
+        "showTitles": true,
+        "title": "Layout 2",
+        "subtitle": "",
+        "footnote": "",
+        "disableNavMenu": false,
+        "showDetails": false,
+        "showDetailsExpression": false,
+        "components": [],
+        "constrainToContainer": false,
+        "showGridLines": false,
+        "gridRowCount": 24,
+        "gridColumnCount": 36,
+        "snapToGrid": false,
+        "visualization": "sn-layout-container",
+        "qChildListDef": {
+          "qData": {
+            "visualization": "/visualization",
+            "qExtendsId": "/qExtendsId",
+            "title": "/title",
+            "childRefId": "/childRefId"
+          }
+        },
+        "version": "3.2.1",
+        "extensionMeta": {
+          "translationKey": "",
+          "icon": "layout-container",
+          "iconChar": "puzzle",
+          "isLibraryItem": true,
+          "visible": true,
+          "IconDefinition": {},
+          "name": "Layout container",
+          "description": "The layout container object has a canvas that can hold multiple objects. In this container you can freely move objects around, as well as position the objects on top of each other or overlapping.",
+          "template": "sn-layout-container",
+          "iconPath": "M14.5,9 L13,9 L13,3.3 C13,3.1 12.9,3 12.7,3 L8,3 L8,1.5 C8,0.7 7.3,0 6.5,0 C5.7,0 5,0.7 5,1.5 L5,3 L0.3,3 C0.1,3 0,3.1 0,3.3 L0,9 L1.5,9 C2.3,9 3,9.7 3,10.5 C3,11.3 2.3,12 1.5,12 L0,12 L0,15.7 C0,15.9 0.1,16 0.3,16 L5,16 L5,14.5 C5,13.7 5.7,13 6.5,13 C7.3,13 8,13.7 8,14.5 L8,16 L12.7,16 C12.9,16 13,15.9 13,15.7 L13,12 L14.5,12 C15.3,12 16,11.3 16,10.5 C16,9.7 15.3,9 14.5,9 Z",
+          "isThirdParty": true,
+          "version": "3.2.1",
+          "author": "QlikTech International AB",
+          "type": "visualization",
+          "supernova": true,
+          "bundle": {
+            "id": "qlik-dashboard-bundle",
+            "name": "Qlik Dashboard bundle",
+            "description": "This is a set of supported objects that will facilitate dashboard creation in Qlik Sense. These can be used in addition to the objects found under \"Charts\".\n\nFor limitations and support conditions, see the documentation."
+          },
+          "installer": "QlikExtensionBundler",
+          "folder": "_dashboard-bundle"
+        }
+      },
+      "qChildren": [
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "464ed62a-03d4-4ef2-8468-e669763f21ac",
+              "qType": "text-image"
+            },
+            "qMetaDef": {},
+            "qHyperCubeDef": {
+              "qDimensions": [],
+              "qMeasures": [],
+              "qInterColumnSortOrder": [],
+              "qInitialDataFetch": [],
+              "qReductionMode": "N",
+              "qMode": "S",
+              "qPseudoDimPos": -1,
+              "qNoOfLeftDims": -1,
+              "qMaxStackedCells": 5000,
+              "qCalcCond": {},
+              "qTitle": {},
+              "qCalcCondition": {
+                "qCond": {},
+                "qMsg": {}
+              },
+              "qColumnOrder": [],
+              "qExpansionState": [],
+              "qDynamicScript": [],
+              "qSuppressMeasureTotals": true,
+              "qLayoutExclude": {
+                "qHyperCubeDef": {
+                  "qDimensions": [],
+                  "qMeasures": [],
+                  "qInterColumnSortOrder": [],
+                  "qInitialDataFetch": [],
+                  "qReductionMode": "N",
+                  "qMode": "S",
+                  "qPseudoDimPos": -1,
+                  "qNoOfLeftDims": -1,
+                  "qMaxStackedCells": 5000,
+                  "qCalcCond": {},
+                  "qTitle": {},
+                  "qCalcCondition": {
+                    "qCond": {},
+                    "qMsg": {}
+                  },
+                  "qColumnOrder": [],
+                  "qExpansionState": [],
+                  "qDynamicScript": []
+                }
+              }
+            },
+            "script": "",
+            "showTitles": false,
+            "title": "",
+            "subtitle": "",
+            "footnote": "",
+            "disableNavMenu": false,
+            "showDetails": true,
+            "showDetailsExpression": false,
+            "components": null,
+            "responsive": "all",
+            "markdown": "![duSjna](/api/v1/apps/7973436d\\-250c\\-46a8\\-bca3\\-8448556c5457/media/files/Screenshot%202024\\-04\\-16%20at%2012.43.00.png)",
+            "images": [
+              {
+                "id": "duSjna",
+                "url": {
+                  "qStaticContentUrlDef": {
+                    "qUrl": "/api/v1/apps/<appId>/media/files/Screenshot 2024-04-16 at 12.43.00.png"
+                  }
+                }
+              }
+            ],
+            "background": {
+              "isUsed": false,
+              "size": "auto",
+              "position": "topLeft",
+              "url": {}
+            },
+            "visualization": "text-image",
+            "childRefId": "pXusdnwy"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "685c6e67-2b49-4e55-b63a-0c50b0ab562b",
+              "qType": "childObject"
+            },
+            "qExtendsId": "b92fa4d7-7e56-4a17-9d8e-9acf76931e9e",
+            "qMetaDef": {},
+            "childRefId": "ppGpYstQ"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "9942a7b5-b52a-4ceb-a172-70d7bcd68b7a",
+              "qType": "childObject"
+            },
+            "qExtendsId": "d27542a4-01f3-4010-8aa0-39d6ffb94210",
+            "qMetaDef": {},
+            "childRefId": "pRqDLabJ"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "b86f520d-b224-4793-bda6-6b8b47f6a7e9",
+              "qType": "childObject"
+            },
+            "qExtendsId": "08a95ead-749a-49c1-9225-254137f2c0ac",
+            "qMetaDef": {},
+            "childRefId": "pWnGrgnb"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "6bf76178-c915-4ee8-afc9-e3a91c5ded73",
+              "qType": "childObject"
+            },
+            "qExtendsId": "7fd2df74-666e-4a3d-aa5a-3e3b1194e443",
+            "qMetaDef": {},
+            "childRefId": "pmbwpLYw"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "17407a71-a159-4766-8380-eaf0076b4a81",
+              "qType": "childObject"
+            },
+            "qExtendsId": "bfd2c0cc-fa89-4dae-89ac-094b7a9a7ebe",
+            "qMetaDef": {},
+            "childRefId": "pXMqcbkc"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "8204f18d-48d9-468a-9d9d-c5269835a33a",
+              "qType": "childObject"
+            },
+            "qExtendsId": "04043bfd-836e-4173-ab28-5cee45a839c7",
+            "qMetaDef": {},
+            "childRefId": "pVveuntb"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "9cb9bbc6-5837-44a1-b2c2-5f2a992d0255",
+              "qType": "childObject"
+            },
+            "qExtendsId": "e2ff4dcd-bf85-48ab-9378-aa3120af1458",
+            "qMetaDef": {},
+            "childRefId": "pfEuAsDm"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "1f8c0494-fdfe-43d0-bfa6-19807c5e23b6",
+              "qType": "childObject"
+            },
+            "qExtendsId": "2ba091b4-63e1-4b69-a737-8565990831b8",
+            "qMetaDef": {},
+            "childRefId": "pUmpGuMQ"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "2dda49ee-2f04-47e6-add6-1752efb07a96",
+              "qType": "childObject"
+            },
+            "qExtendsId": "80b385e9-c92d-4cab-90c6-6cea49d3ea7a",
+            "qMetaDef": {},
+            "childRefId": "pWtckakB"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "241dc38a-e0bb-43ab-9178-ee3c08bbd1e8",
+              "qType": "childObject"
+            },
+            "qExtendsId": "37d9f902-1ae9-4d6b-a0ea-0bf506cb0e4b",
+            "qMetaDef": {},
+            "childRefId": "hynvuTH"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "042c8e24-40aa-4fc8-9724-a8068c00e976",
+              "qType": "childObject"
+            },
+            "qExtendsId": "220c6c13-64a9-408f-9328-6fa46390965f",
+            "qMetaDef": {},
+            "childRefId": "pUZYWZgJ"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "f0269249-cd0f-4bea-b746-f31ae2e27063",
+              "qType": "childObject"
+            },
+            "qExtendsId": "9c37c9e8-5a23-44bc-a5a9-5e45686db910",
+            "qMetaDef": {},
+            "childRefId": "ptWpEUdj"
+          },
+          "qChildren": []
+        }
+      ]
+    }
+  ]
+}

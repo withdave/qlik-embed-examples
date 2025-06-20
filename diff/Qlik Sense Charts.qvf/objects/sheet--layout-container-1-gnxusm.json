@@ -1,0 +1,504 @@
+{
+  "qProperty": {
+    "qInfo": {
+      "qId": "gnxuSM",
+      "qType": "sheet"
+    },
+    "qMetaDef": {
+      "title": "Layout container 1",
+      "description": ""
+    },
+    "creationDate": "2024-04-16T11:27:05.676Z",
+    "rank": 0,
+    "thumbnail": {
+      "qStaticContentUrlDef": {}
+    },
+    "columns": 24,
+    "rows": 12,
+    "cells": [
+      {
+        "name": "jmJAUNz",
+        "type": "sn-layout-container",
+        "col": 0,
+        "row": 0,
+        "colspan": 24,
+        "rowspan": 12,
+        "bounds": {
+          "y": 0,
+          "x": 0,
+          "width": 100,
+          "height": 100
+        }
+      }
+    ],
+    "qChildListDef": {
+      "qData": {
+        "title": "/title"
+      }
+    },
+    "customRowBase": 12,
+    "gridResolution": "small",
+    "layoutOptions": {
+      "mobileLayout": "LIST",
+      "extendable": false
+    },
+    "gridMode": "edit"
+  },
+  "qChildren": [
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "jmJAUNz",
+          "qType": "sn-layout-container"
+        },
+        "qMetaDef": {},
+        "objects": [
+          {
+            "childRefId": "NJheDpn",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "KPI",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 69.04937,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "MKrcrjd",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Histogram",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "GvVJjTD",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Grid chart (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 77.46275
+            }
+          },
+          {
+            "childRefId": "bNJmrwv",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Gauge",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 69.04937,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "pzkBxBSs",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Funnel chart (viz bundle)",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "NWPTHaP",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Filter pane",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 53.95923
+            }
+          },
+          {
+            "childRefId": "pVQFsRkJ",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Distribution plot",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 69.04937,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pHMdXbtk",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Combo chart",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pqqyzCwy",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Button",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 30.45571
+            }
+          },
+          {
+            "childRefId": "pJeTbeWw",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Bullet chart",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 69.04937,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "ppuKpGHy",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Box plot",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 34.99519,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "pjnkbwJx",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Bar chart",
+            "bounds": {
+              "height": 20,
+              "width": 30,
+              "x": 0.941,
+              "y": 6.95219
+            }
+          },
+          {
+            "childRefId": "pXusdnwy",
+            "condition": {
+              "qValueExpression": {}
+            },
+            "label": "Text \u0026 image",
+            "bounds": {
+              "height": 17.30323,
+              "width": 19.68977,
+              "x": 39.38502,
+              "y": -5.49725
+            }
+          }
+        ],
+        "showTitles": true,
+        "title": "Layout 1",
+        "subtitle": "",
+        "footnote": "",
+        "disableNavMenu": false,
+        "showDetails": false,
+        "showDetailsExpression": false,
+        "components": [],
+        "constrainToContainer": false,
+        "showGridLines": false,
+        "gridRowCount": 24,
+        "gridColumnCount": 36,
+        "snapToGrid": false,
+        "visualization": "sn-layout-container",
+        "qChildListDef": {
+          "qData": {
+            "visualization": "/visualization",
+            "qExtendsId": "/qExtendsId",
+            "title": "/title",
+            "childRefId": "/childRefId"
+          }
+        },
+        "version": "3.2.1",
+        "extensionMeta": {
+          "translationKey": "",
+          "icon": "layout-container",
+          "iconChar": "puzzle",
+          "isLibraryItem": true,
+          "visible": true,
+          "IconDefinition": {},
+          "name": "Layout container",
+          "description": "The layout container object has a canvas that can hold multiple objects. In this container you can freely move objects around, as well as position the objects on top of each other or overlapping.",
+          "template": "sn-layout-container",
+          "iconPath": "M14.5,9 L13,9 L13,3.3 C13,3.1 12.9,3 12.7,3 L8,3 L8,1.5 C8,0.7 7.3,0 6.5,0 C5.7,0 5,0.7 5,1.5 L5,3 L0.3,3 C0.1,3 0,3.1 0,3.3 L0,9 L1.5,9 C2.3,9 3,9.7 3,10.5 C3,11.3 2.3,12 1.5,12 L0,12 L0,15.7 C0,15.9 0.1,16 0.3,16 L5,16 L5,14.5 C5,13.7 5.7,13 6.5,13 C7.3,13 8,13.7 8,14.5 L8,16 L12.7,16 C12.9,16 13,15.9 13,15.7 L13,12 L14.5,12 C15.3,12 16,11.3 16,10.5 C16,9.7 15.3,9 14.5,9 Z",
+          "isThirdParty": true,
+          "version": "3.2.1",
+          "author": "QlikTech International AB",
+          "type": "visualization",
+          "supernova": true,
+          "bundle": {
+            "id": "qlik-dashboard-bundle",
+            "name": "Qlik Dashboard bundle",
+            "description": "This is a set of supported objects that will facilitate dashboard creation in Qlik Sense. These can be used in addition to the objects found under \"Charts\".\n\nFor limitations and support conditions, see the documentation."
+          },
+          "installer": "QlikExtensionBundler",
+          "folder": "_dashboard-bundle"
+        }
+      },
+      "qChildren": [
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "37142a5d-1a04-4c64-944e-51aceb4599fd",
+              "qType": "childObject"
+            },
+            "qExtendsId": "d865afc7-3bbd-4c48-abd2-54327aed8fc3",
+            "qMetaDef": {},
+            "childRefId": "pjnkbwJx"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "62258ec6-dad5-4126-9d5b-f1078173f673",
+              "qType": "childObject"
+            },
+            "qExtendsId": "87dbcb14-52c1-47f9-bd96-38e7c93b819b",
+            "qMetaDef": {},
+            "childRefId": "ppuKpGHy"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "b14cc4db-f1de-401c-a7af-d06f2e7f14aa",
+              "qType": "childObject"
+            },
+            "qExtendsId": "f4ef1aed-31d9-43b5-9f20-b54365f6a6d8",
+            "qMetaDef": {},
+            "childRefId": "pJeTbeWw"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "a1a08978-6a0a-4ac9-b539-099c6a287ff7",
+              "qType": "childObject"
+            },
+            "qExtendsId": "8410b35f-f8c9-4d5e-af99-e5ba94b92654",
+            "qMetaDef": {},
+            "childRefId": "pqqyzCwy"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "dca38b04-ed09-4003-be3f-5b59ebd50d73",
+              "qType": "childObject"
+            },
+            "qExtendsId": "8064ee58-47e8-4d9e-95f6-42f66f3a40cd",
+            "qMetaDef": {},
+            "childRefId": "pHMdXbtk"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "1c1c9539-4e08-4cdf-82c9-4f26e290a2b1",
+              "qType": "childObject"
+            },
+            "qExtendsId": "06a7f814-a6e6-4d11-804c-ae05109031b6",
+            "qMetaDef": {},
+            "childRefId": "pVQFsRkJ"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "dc796f69-f6b9-40ef-bea8-5d43a159de60",
+              "qType": "childObject"
+            },
+            "qExtendsId": "90d0298a-5c51-4482-b0e6-d22f5922d425",
+            "qMetaDef": {},
+            "childRefId": "NWPTHaP"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "13fdf50d-d778-4f83-a440-36cf0d56afc3",
+              "qType": "childObject"
+            },
+            "qExtendsId": "df15a6d1-2174-407f-aaf7-c2b0db28b82e",
+            "qMetaDef": {},
+            "childRefId": "pzkBxBSs"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "133da854-2936-455a-9929-9c5ce24e4492",
+              "qType": "childObject"
+            },
+            "qExtendsId": "cdad8bf4-489e-4cf5-ad26-d5191aa35a5c",
+            "qMetaDef": {},
+            "childRefId": "bNJmrwv"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "79e6ec9d-31b7-4de9-b9f6-b26504b5c024",
+              "qType": "childObject"
+            },
+            "qExtendsId": "31008afa-750b-40e2-82fe-b3be224cc283",
+            "qMetaDef": {},
+            "childRefId": "GvVJjTD"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "5b15e1f2-197c-4e2b-b984-47aa6e1f7312",
+              "qType": "childObject"
+            },
+            "qExtendsId": "b9c340d9-4d30-4a77-8c58-3718fbc114af",
+            "qMetaDef": {},
+            "childRefId": "MKrcrjd"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "78549868-c718-4bab-83ae-414925f89618",
+              "qType": "childObject"
+            },
+            "qExtendsId": "24a52c85-97e2-4c8e-a672-66c3d1985753",
+            "qMetaDef": {},
+            "childRefId": "NJheDpn"
+          },
+          "qChildren": []
+        },
+        {
+          "qProperty": {
+            "qInfo": {
+              "qId": "eb7ea912-fe31-4266-8787-04d0662a3ce3",
+              "qType": "text-image"
+            },
+            "qMetaDef": {},
+            "qHyperCubeDef": {
+              "qDimensions": [],
+              "qMeasures": [],
+              "qInterColumnSortOrder": [],
+              "qInitialDataFetch": [],
+              "qReductionMode": "N",
+              "qMode": "S",
+              "qPseudoDimPos": -1,
+              "qNoOfLeftDims": -1,
+              "qMaxStackedCells": 5000,
+              "qCalcCond": {},
+              "qTitle": {},
+              "qCalcCondition": {
+                "qCond": {},
+                "qMsg": {}
+              },
+              "qColumnOrder": [],
+              "qExpansionState": [],
+              "qDynamicScript": [],
+              "qSuppressMeasureTotals": true,
+              "qLayoutExclude": {
+                "qHyperCubeDef": {
+                  "qDimensions": [],
+                  "qMeasures": [],
+                  "qInterColumnSortOrder": [],
+                  "qInitialDataFetch": [],
+                  "qReductionMode": "N",
+                  "qMode": "S",
+                  "qPseudoDimPos": -1,
+                  "qNoOfLeftDims": -1,
+                  "qMaxStackedCells": 5000,
+                  "qCalcCond": {},
+                  "qTitle": {},
+                  "qCalcCondition": {
+                    "qCond": {},
+                    "qMsg": {}
+                  },
+                  "qColumnOrder": [],
+                  "qExpansionState": [],
+                  "qDynamicScript": []
+                }
+              }
+            },
+            "script": "",
+            "showTitles": false,
+            "title": "",
+            "subtitle": "",
+            "footnote": "",
+            "disableNavMenu": false,
+            "showDetails": true,
+            "showDetailsExpression": false,
+            "components": null,
+            "responsive": "all",
+            "markdown": "![duSjna](/api/v1/apps/7973436d\\-250c\\-46a8\\-bca3\\-8448556c5457/media/files/Screenshot%202024\\-04\\-16%20at%2012.43.00.png)",
+            "images": [
+              {
+                "id": "duSjna",
+                "url": {
+                  "qStaticContentUrlDef": {
+                    "qUrl": "/api/v1/apps/<appId>/media/files/Screenshot 2024-04-16 at 12.43.00.png"
+                  }
+                }
+              }
+            ],
+            "background": {
+              "isUsed": false,
+              "size": "auto",
+              "position": "topLeft",
+              "url": {}
+            },
+            "visualization": "text-image",
+            "childRefId": "pXusdnwy"
+          },
+          "qChildren": []
+        }
+      ]
+    }
+  ]
+}

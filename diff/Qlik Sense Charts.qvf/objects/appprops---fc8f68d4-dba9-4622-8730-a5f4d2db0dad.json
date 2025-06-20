@@ -1,0 +1,58 @@
+{
+  "qInfo": {
+    "qId": "fc8f68d4-dba9-4622-8730-a5f4d2db0dad",
+    "qType": "appprops"
+  },
+  "qMetaDef": {},
+  "sheetTitleBgColor": "",
+  "sheetTitleGradientColor": "",
+  "sheetTitleColor": "",
+  "sheetLogoThumbnail": {
+    "qStaticContentUrlDef": {}
+  },
+  "sheetLogoPosition": "",
+  "rtl": false,
+  "theme": "horizon",
+  "disableCellNavMenu": false,
+  "chartAnimations": true,
+  "presets": [
+    {
+      "id": "DFEfPxu",
+      "name": "Untitled preset",
+      "toolbar": {
+        "components": {
+          "assets": {
+            "show": false
+          }
+        }
+      },
+      "customContextMenu": {
+        "show": true,
+        "components": {
+          "download": {
+            "show": true
+          },
+          "view-data": {
+            "show": true
+          },
+          "fullscreen": {
+            "show": true
+          },
+          "chart-exploration": {
+            "show": true
+          },
+          "subscribe": {
+            "show": true
+          },
+          "alert-group": {
+            "show": true
+          },
+          "key-driver": {
+            "show": true
+          }
+        }
+      }
+    }
+  ],
+  "activePreset": "DFEfPxu"
+}

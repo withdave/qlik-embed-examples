@@ -1,0 +1,98 @@
+{
+  "qProperty": {
+    "qInfo": {
+      "qId": "3ec37ae2-3ec1-4df5-b3ce-f19d676260fc",
+      "qType": "masterobject"
+    },
+    "qMetaDef": {
+      "title": "Container",
+      "description": "",
+      "tags": []
+    },
+    "children": [
+      {
+        "refId": "d865afc7-3bbd-4c48-abd2-54327aed8fc3",
+        "label": "Bar chart",
+        "isMaster": true,
+        "cId": "HNvPc"
+      },
+      {
+        "refId": "f4ef1aed-31d9-43b5-9f20-b54365f6a6d8",
+        "label": "Bullet chart",
+        "isMaster": true,
+        "cId": "ADsgk"
+      },
+      {
+        "refId": "f07f2c9e-2fa9-410a-ad62-c91af16585f9",
+        "label": "Chart: Distribution plot",
+        "isMaster": true,
+        "cId": "mnSPft"
+      }
+    ],
+    "showTitles": true,
+    "title": "Container",
+    "subtitle": "",
+    "footnote": "",
+    "disableNavMenu": false,
+    "showDetails": true,
+    "showDetailsExpression": false,
+    "borders": "auto",
+    "showTabs": true,
+    "useDropdown": true,
+    "useScrollButton": true,
+    "showIcons": false,
+    "activeTab": "",
+    "defaultTab": "",
+    "visualization": "container",
+    "qChildListDef": {
+      "qData": {
+        "visualization": "/visualization",
+        "containerChildId": "/containerChildId",
+        "qExtendsId": "/qExtendsId",
+        "title": "/title",
+        "showCondition": "/showCondition"
+      }
+    },
+    "supportRefresh": false,
+    "hasExternalChildren": false,
+    "masterVersion": 0.96
+  },
+  "qChildren": [
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "b12eacf5-9a9e-467b-a71c-c6eb66734637",
+          "qType": "barchart"
+        },
+        "qExtendsId": "d865afc7-3bbd-4c48-abd2-54327aed8fc3",
+        "qMetaDef": {},
+        "visualization": "barchart"
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "bc70041b-5737-4f37-8925-2afce5c56c9d",
+          "qType": "bulletchart"
+        },
+        "qExtendsId": "f4ef1aed-31d9-43b5-9f20-b54365f6a6d8",
+        "qMetaDef": {},
+        "visualization": "bulletchart"
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "d8b9eec3-1cc1-4e4f-a99e-e806bf999130",
+          "qType": "distributionplot"
+        },
+        "qExtendsId": "f07f2c9e-2fa9-410a-ad62-c91af16585f9",
+        "qMetaDef": {},
+        "visualization": "distributionplot"
+      },
+      "qChildren": []
+    }
+  ]
+}
