@@ -1,0 +1,95 @@
+{
+  "qInfo": {
+    "qId": "8410b35f-f8c9-4d5e-af99-e5ba94b92654",
+    "qType": "masterobject"
+  },
+  "qMetaDef": {
+    "title": "Button",
+    "description": "",
+    "tags": []
+  },
+  "showTitles": true,
+  "title": "Button",
+  "subtitle": "",
+  "footnote": "",
+  "disableNavMenu": true,
+  "showDetails": false,
+  "showDetailsExpression": false,
+  "visualization": "action-button",
+  "version": "1.38.0",
+  "components": null,
+  "actions": [],
+  "props": {
+    "useEnabledCondition": null,
+    "fullWidth": "auto"
+  },
+  "qLayoutExclude": {
+    "disabled": {}
+  },
+  "navigation": {
+    "action": "openWebsite",
+    "appId": "",
+    "sheet": "",
+    "chartId": "",
+    "story": "",
+    "websiteUrl": "https://qlik.dev",
+    "sameWindow": false,
+    "odagLink": ""
+  },
+  "useEnabledCondition": false,
+  "enabledCondition": 1,
+  "style": {
+    "label": "qlik.dev ↗",
+    "showLabel": true,
+    "font": {
+      "size": 0.5,
+      "useColorExpression": false,
+      "color": {
+        "index": -1,
+        "color": "#ffffff"
+      },
+      "colorExpression": "",
+      "style": {
+        "bold": true,
+        "italic": false,
+        "underline": false
+      },
+      "align": "center",
+      "fontFamily": "Source Sans Pro",
+      "sizeFixed": 20,
+      "sizeBehavior": "responsive"
+    },
+    "background": {
+      "useColorExpression": false,
+      "color": {
+        "index": -1,
+        "color": "none"
+      },
+      "colorExpression": "",
+      "useImage": false,
+      "size": "auto",
+      "position": "centerCenter",
+      "mode": "none",
+      "url": {
+        "qStaticContentUrlDef": {}
+      }
+    },
+    "border": {
+      "useBorder": false,
+      "radius": 0,
+      "width": 0,
+      "useColorExpression": false,
+      "color": {
+        "index": -1,
+        "color": "none"
+      },
+      "colorExpression": ""
+    },
+    "icon": {
+      "useIcon": false,
+      "iconType": "",
+      "position": "left"
+    }
+  },
+  "masterVersion": 0.96
+}

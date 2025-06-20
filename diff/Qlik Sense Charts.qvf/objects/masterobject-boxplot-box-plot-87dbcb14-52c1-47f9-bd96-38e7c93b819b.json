@@ -1,0 +1,974 @@
+{
+  "qInfo": {
+    "qId": "87dbcb14-52c1-47f9-bd96-38e7c93b819b",
+    "qType": "masterobject"
+  },
+  "qMetaDef": {
+    "title": "Box plot",
+    "description": "",
+    "tags": []
+  },
+  "script": "",
+  "refLine": {
+    "refLines": [],
+    "dimRefLines": []
+  },
+  "showTitles": true,
+  "title": "Box plot",
+  "subtitle": "",
+  "footnote": "",
+  "disableNavMenu": false,
+  "showDetails": true,
+  "showDetailsExpression": false,
+  "showDisclaimer": true,
+  "orientation": "vertical",
+  "dimensionAxis": {
+    "continuousAuto": true,
+    "show": "all",
+    "label": "auto",
+    "dock": "near",
+    "axisDisplayMode": "auto",
+    "maxVisibleItems": 10
+  },
+  "measureAxis": {
+    "show": "all",
+    "dock": "near",
+    "spacing": 1,
+    "autoMinMax": true,
+    "minMax": "min",
+    "min": 0,
+    "max": 10
+  },
+  "visualization": "boxplot",
+  "version": "1.34.6",
+  "components": [],
+  "boxplotDef": {
+    "qHyperCubeDef": {
+      "qDimensions": [
+        {
+          "qLibraryId": "nCpRzbt",
+          "qDef": {
+            "qGrouping": "N",
+            "qFieldDefs": [],
+            "qFieldLabels": [],
+            "qSortCriterias": [
+              {
+                "qSortByNumeric": 1,
+                "qSortByAscii": 1,
+                "qSortByLoadOrder": 1,
+                "qExpression": {}
+              }
+            ],
+            "qNumberPresentations": [],
+            "qActiveField": 0,
+            "autoSort": true,
+            "cId": "GdvCf",
+            "othersLabel": "Others"
+          },
+          "qOtherTotalSpec": {
+            "qOtherMode": "OTHER_OFF",
+            "qOtherCounted": {
+              "qv": "10"
+            },
+            "qOtherLimit": {
+              "qv": "0"
+            },
+            "qOtherLimitMode": "OTHER_GE_LIMIT",
+            "qSuppressOther": true,
+            "qForceBadValueKeeping": true,
+            "qApplyEvenWhenPossiblyWrongResult": true,
+            "qOtherSortMode": "OTHER_SORT_DESCENDING",
+            "qTotalMode": "TOTAL_OFF",
+            "qReferencedExpression": {}
+          },
+          "qOtherLabel": {
+            "qv": "Others"
+          },
+          "qTotalLabel": {},
+          "qCalcCond": {},
+          "qAttributeExpressions": [],
+          "qAttributeDimensions": [],
+          "qCalcCondition": {
+            "qCond": {},
+            "qMsg": {}
+          }
+        },
+        {
+          "qLibraryId": "rUjMsPE",
+          "qDef": {
+            "qGrouping": "N",
+            "qFieldDefs": [],
+            "qFieldLabels": [
+              ""
+            ],
+            "qSortCriterias": [
+              {
+                "qSortByNumeric": 1,
+                "qSortByAscii": 1,
+                "qSortByLoadOrder": 1,
+                "qExpression": {}
+              }
+            ],
+            "qNumberPresentations": [],
+            "qActiveField": 0,
+            "autoSort": true,
+            "cId": "mRxYCEE",
+            "othersLabel": "Others"
+          },
+          "qOtherTotalSpec": {
+            "qOtherMode": "OTHER_OFF",
+            "qOtherCounted": {
+              "qv": "10"
+            },
+            "qOtherLimit": {
+              "qv": "0"
+            },
+            "qOtherLimitMode": "OTHER_GE_LIMIT",
+            "qSuppressOther": true,
+            "qForceBadValueKeeping": true,
+            "qApplyEvenWhenPossiblyWrongResult": true,
+            "qOtherSortMode": "OTHER_SORT_DESCENDING",
+            "qTotalMode": "TOTAL_OFF",
+            "qReferencedExpression": {}
+          },
+          "qOtherLabel": {
+            "qv": "Others"
+          },
+          "qTotalLabel": {},
+          "qCalcCond": {},
+          "qAttributeExpressions": [],
+          "qAttributeDimensions": [],
+          "qCalcCondition": {
+            "qCond": {},
+            "qMsg": {}
+          }
+        }
+      ],
+      "qMeasures": [
+        {
+          "qLibraryId": "hZrZKqx",
+          "qDef": {
+            "qTags": [],
+            "qGrouping": "N",
+            "qAccumulate": 0,
+            "qActiveExpression": 0,
+            "qExpressions": [],
+            "autoSort": true,
+            "cId": "rHQvPWT",
+            "numFormatFromTemplate": true,
+            "quarantine": {
+              "qNumFormat": {},
+              "isCustomFormatted": false
+            }
+          },
+          "qSortBy": {
+            "qSortByNumeric": -1,
+            "qSortByLoadOrder": 1,
+            "qExpression": {}
+          },
+          "qAttributeExpressions": [],
+          "qAttributeDimensions": [],
+          "qCalcCond": {},
+          "qCalcCondition": {
+            "qCond": {},
+            "qMsg": {}
+          },
+          "qTrendLines": [],
+          "qMiniChartDef": {
+            "qSortBy": {
+              "qExpression": {}
+            },
+            "qOtherTotalSpec": {
+              "qOtherMode": "OTHER_OFF",
+              "qOtherCounted": {},
+              "qOtherLimit": {},
+              "qOtherLimitMode": "OTHER_GT_LIMIT",
+              "qForceBadValueKeeping": true,
+              "qApplyEvenWhenPossiblyWrongResult": true,
+              "qOtherSortMode": "OTHER_SORT_DESCENDING",
+              "qTotalMode": "TOTAL_OFF",
+              "qReferencedExpression": {}
+            },
+            "qMaxNumberPoints": -1,
+            "qAttributeExpressions": []
+          }
+        }
+      ],
+      "qInterColumnSortOrder": [
+        0,
+        2,
+        1
+      ],
+      "qSuppressMissing": true,
+      "qInitialDataFetch": [
+        {
+          "qLeft": 0,
+          "qTop": 0,
+          "qWidth": 0,
+          "qHeight": 0
+        }
+      ],
+      "qReductionMode": "N",
+      "qMode": "S",
+      "qPseudoDimPos": -1,
+      "qNoOfLeftDims": -1,
+      "qMaxStackedCells": 5000,
+      "qCalcCond": {},
+      "qTitle": {},
+      "qCalcCondition": {
+        "qCond": {},
+        "qMsg": {}
+      },
+      "qColumnOrder": [],
+      "qExpansionState": [],
+      "qDynamicScript": [],
+      "qLayoutExclude": {
+        "qHyperCubeDef": {
+          "qDimensions": [],
+          "qMeasures": [],
+          "qInterColumnSortOrder": [],
+          "qInitialDataFetch": [],
+          "qReductionMode": "N",
+          "qMode": "S",
+          "qPseudoDimPos": -1,
+          "qNoOfLeftDims": -1,
+          "qMaxStackedCells": 5000,
+          "qCalcCond": {},
+          "qTitle": {},
+          "qCalcCondition": {
+            "qCond": {},
+            "qMsg": {}
+          },
+          "qColumnOrder": [],
+          "qExpansionState": [],
+          "qDynamicScript": []
+        }
+      }
+    },
+    "calculations": {
+      "auto": true,
+      "mode": "tukey",
+      "parameters": {
+        "tukey": 1.5,
+        "fractiles": 0.01,
+        "stdDev": 3
+      }
+    },
+    "elements": {
+      "firstWhisker": {
+        "name": "",
+        "expression": null
+      },
+      "boxStart": {
+        "name": "",
+        "expression": null
+      },
+      "boxMiddle": {
+        "name": "",
+        "expression": null
+      },
+      "boxEnd": {
+        "name": "",
+        "expression": null
+      },
+      "lastWhisker": {
+        "name": "",
+        "expression": null
+      },
+      "outliers": {
+        "include": true,
+        "sortOutliers": true
+      }
+    },
+    "presentation": {
+      "whiskers": {
+        "show": true
+      }
+    },
+    "color": {
+      "auto": true,
+      "mode": "primary",
+      "box": {
+        "paletteColor": {
+          "color": "#e6e6e6",
+          "index": -1
+        }
+      },
+      "point": {
+        "paletteColor": {
+          "color": "#4477aa",
+          "index": 6
+        }
+      },
+      "expressionIsColor": true,
+      "useBaseColors": "off",
+      "expressionLabel": ""
+    },
+    "sorting": {
+      "autoSort": true
+    }
+  },
+  "gridlines": {
+    "auto": true,
+    "spacing": 2
+  },
+  "sorting": {
+    "autoSort": true,
+    "elementId": "firstWhisker",
+    "sortCriteria": {
+      "sortByAscii": 0,
+      "sortByExpression": 0,
+      "sortByNumeric": 0
+    }
+  },
+  "qLayoutExclude": {
+    "disabled": {
+      "qExtendsId": "",
+      "barGrouping": {
+        "grouping": "grouped"
+      },
+      "scrollbar": "miniChart",
+      "scrollStartPos": 0,
+      "gridLine": {
+        "auto": true,
+        "spacing": 2
+      },
+      "dataPoint": {
+        "showLabels": false,
+        "showSegmentLabels": false,
+        "showTotalLabels": true
+      },
+      "color": {
+        "auto": true,
+        "mode": "primary",
+        "formatting": {
+          "numFormatFromTemplate": true
+        },
+        "useBaseColors": "off",
+        "paletteColor": {
+          "index": 6
+        },
+        "useDimColVal": true,
+        "useMeasureGradient": true,
+        "persistent": false,
+        "expressionIsColor": true,
+        "expressionLabel": "",
+        "measureScheme": "sg",
+        "reverseScheme": false,
+        "dimensionScheme": "12",
+        "autoMinMax": true,
+        "measureMin": 0,
+        "measureMax": 10
+      },
+      "legend": {
+        "show": true,
+        "dock": "auto",
+        "showTitle": true
+      },
+      "preferContinuousAxis": true,
+      "tooltip": {
+        "auto": true,
+        "hideBasic": false,
+        "chart": {
+          "style": {
+            "size": "medium"
+          }
+        },
+        "data": {}
+      },
+      "showMiniChartForContinuousAxis": true,
+      "appId": "425b023a-8bb8-4c04-a6a2-fc255b7939d0"
+    },
+    "quarantine": {
+      "supportedAutoMinMax": {
+        "measureAxis.min": 0,
+        "measureAxis.max": 10
+      }
+    }
+  },
+  "qUndoExclude": {
+    "hashCode": 940411047,
+    "box": {
+      "qHyperCubeDef": {
+        "qDimensions": [
+          {
+            "qLibraryId": "rUjMsPE",
+            "qDef": {
+              "qGrouping": "N",
+              "qFieldDefs": [],
+              "qFieldLabels": [
+                ""
+              ],
+              "qSortCriterias": [
+                {
+                  "qSortByNumeric": 1,
+                  "qSortByAscii": 1,
+                  "qSortByLoadOrder": 1,
+                  "qSortByExpression": 1,
+                  "qExpression": {
+                    "qv": "Median( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )"
+                  }
+                }
+              ],
+              "qNumberPresentations": [],
+              "qActiveField": 0,
+              "autoSort": true,
+              "cId": "mRxYCEE",
+              "othersLabel": "Others"
+            },
+            "qOtherTotalSpec": {
+              "qOtherMode": "OTHER_OFF",
+              "qOtherCounted": {
+                "qv": "10"
+              },
+              "qOtherLimit": {
+                "qv": "0"
+              },
+              "qOtherLimitMode": "OTHER_GE_LIMIT",
+              "qSuppressOther": true,
+              "qForceBadValueKeeping": true,
+              "qApplyEvenWhenPossiblyWrongResult": true,
+              "qOtherSortMode": "OTHER_SORT_DESCENDING",
+              "qTotalMode": "TOTAL_OFF",
+              "qReferencedExpression": {}
+            },
+            "qOtherLabel": {
+              "qv": "Others"
+            },
+            "qTotalLabel": {},
+            "qCalcCond": {},
+            "qAttributeExpressions": [],
+            "qAttributeDimensions": [],
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            }
+          }
+        ],
+        "qMeasures": [
+          {
+            "qDef": {
+              "qLabel": "First whisker",
+              "qTags": [],
+              "qGrouping": "N",
+              "qDef": "Rangemax(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 ) - ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Min( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  ))",
+              "qNumFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qAccumulate": 0,
+              "qActiveExpression": 0,
+              "qExpressions": [],
+              "cId": "hFxdJ"
+            },
+            "qSortBy": {
+              "qExpression": {}
+            },
+            "qAttributeExpressions": [
+              {
+                "qExpression": "='Box start - 1.5 IQR'",
+                "qAttribute": true,
+                "id": "tooltip"
+              }
+            ],
+            "qAttributeDimensions": [],
+            "qCalcCond": {},
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            },
+            "qTrendLines": [],
+            "qMiniChartDef": {
+              "qSortBy": {
+                "qExpression": {}
+              },
+              "qOtherTotalSpec": {
+                "qOtherMode": "OTHER_OFF",
+                "qOtherCounted": {},
+                "qOtherLimit": {},
+                "qOtherLimitMode": "OTHER_GT_LIMIT",
+                "qForceBadValueKeeping": true,
+                "qApplyEvenWhenPossiblyWrongResult": true,
+                "qOtherSortMode": "OTHER_SORT_DESCENDING",
+                "qTotalMode": "TOTAL_OFF",
+                "qReferencedExpression": {}
+              },
+              "qMaxNumberPoints": -1,
+              "qAttributeExpressions": []
+            },
+            "boxElement": "firstWhisker"
+          },
+          {
+            "qDef": {
+              "qLabel": "Box start",
+              "qTags": [],
+              "qGrouping": "N",
+              "qDef": "Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )",
+              "qNumFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qAccumulate": 0,
+              "qActiveExpression": 0,
+              "qExpressions": [],
+              "cId": "zUUC"
+            },
+            "qSortBy": {
+              "qExpression": {}
+            },
+            "qAttributeExpressions": [
+              {
+                "qExpression": "='First quartile'",
+                "qAttribute": true,
+                "id": "tooltip"
+              }
+            ],
+            "qAttributeDimensions": [],
+            "qCalcCond": {},
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            },
+            "qTrendLines": [],
+            "qMiniChartDef": {
+              "qSortBy": {
+                "qExpression": {}
+              },
+              "qOtherTotalSpec": {
+                "qOtherMode": "OTHER_OFF",
+                "qOtherCounted": {},
+                "qOtherLimit": {},
+                "qOtherLimitMode": "OTHER_GT_LIMIT",
+                "qForceBadValueKeeping": true,
+                "qApplyEvenWhenPossiblyWrongResult": true,
+                "qOtherSortMode": "OTHER_SORT_DESCENDING",
+                "qTotalMode": "TOTAL_OFF",
+                "qReferencedExpression": {}
+              },
+              "qMaxNumberPoints": -1,
+              "qAttributeExpressions": []
+            },
+            "boxElement": "boxStart"
+          },
+          {
+            "qDef": {
+              "qLabel": "Center line",
+              "qTags": [],
+              "qGrouping": "N",
+              "qDef": "Median( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )",
+              "qNumFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qAccumulate": 0,
+              "qActiveExpression": 0,
+              "qExpressions": [],
+              "cId": "uxEmbA"
+            },
+            "qSortBy": {
+              "qExpression": {}
+            },
+            "qAttributeExpressions": [
+              {
+                "qExpression": "='Median'",
+                "qAttribute": true,
+                "id": "tooltip"
+              }
+            ],
+            "qAttributeDimensions": [],
+            "qCalcCond": {},
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            },
+            "qTrendLines": [],
+            "qMiniChartDef": {
+              "qSortBy": {
+                "qExpression": {}
+              },
+              "qOtherTotalSpec": {
+                "qOtherMode": "OTHER_OFF",
+                "qOtherCounted": {},
+                "qOtherLimit": {},
+                "qOtherLimitMode": "OTHER_GT_LIMIT",
+                "qForceBadValueKeeping": true,
+                "qApplyEvenWhenPossiblyWrongResult": true,
+                "qOtherSortMode": "OTHER_SORT_DESCENDING",
+                "qTotalMode": "TOTAL_OFF",
+                "qReferencedExpression": {}
+              },
+              "qMaxNumberPoints": -1,
+              "qAttributeExpressions": []
+            },
+            "boxElement": "boxMiddle"
+          },
+          {
+            "qDef": {
+              "qLabel": "Box end",
+              "qTags": [],
+              "qGrouping": "N",
+              "qDef": "Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 )",
+              "qNumFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qAccumulate": 0,
+              "qActiveExpression": 0,
+              "qExpressions": [],
+              "cId": "QYaRHZj"
+            },
+            "qSortBy": {
+              "qExpression": {}
+            },
+            "qAttributeExpressions": [
+              {
+                "qExpression": "='Third quartile'",
+                "qAttribute": true,
+                "id": "tooltip"
+              }
+            ],
+            "qAttributeDimensions": [],
+            "qCalcCond": {},
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            },
+            "qTrendLines": [],
+            "qMiniChartDef": {
+              "qSortBy": {
+                "qExpression": {}
+              },
+              "qOtherTotalSpec": {
+                "qOtherMode": "OTHER_OFF",
+                "qOtherCounted": {},
+                "qOtherLimit": {},
+                "qOtherLimitMode": "OTHER_GT_LIMIT",
+                "qForceBadValueKeeping": true,
+                "qApplyEvenWhenPossiblyWrongResult": true,
+                "qOtherSortMode": "OTHER_SORT_DESCENDING",
+                "qTotalMode": "TOTAL_OFF",
+                "qReferencedExpression": {}
+              },
+              "qMaxNumberPoints": -1,
+              "qAttributeExpressions": []
+            },
+            "boxElement": "boxEnd"
+          },
+          {
+            "qDef": {
+              "qLabel": "Last whisker",
+              "qTags": [],
+              "qGrouping": "N",
+              "qDef": "Rangemin(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) + ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Max( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  ))",
+              "qNumFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qAccumulate": 0,
+              "qActiveExpression": 0,
+              "qExpressions": [],
+              "cId": "BzRGmh"
+            },
+            "qSortBy": {
+              "qExpression": {}
+            },
+            "qAttributeExpressions": [
+              {
+                "qExpression": "='Box end + 1.5 IQR'",
+                "qAttribute": true,
+                "id": "tooltip"
+              }
+            ],
+            "qAttributeDimensions": [],
+            "qCalcCond": {},
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            },
+            "qTrendLines": [],
+            "qMiniChartDef": {
+              "qSortBy": {
+                "qExpression": {}
+              },
+              "qOtherTotalSpec": {
+                "qOtherMode": "OTHER_OFF",
+                "qOtherCounted": {},
+                "qOtherLimit": {},
+                "qOtherLimitMode": "OTHER_GT_LIMIT",
+                "qForceBadValueKeeping": true,
+                "qApplyEvenWhenPossiblyWrongResult": true,
+                "qOtherSortMode": "OTHER_SORT_DESCENDING",
+                "qTotalMode": "TOTAL_OFF",
+                "qReferencedExpression": {}
+              },
+              "qMaxNumberPoints": -1,
+              "qAttributeExpressions": []
+            },
+            "boxElement": "lastWhisker"
+          }
+        ],
+        "qInterColumnSortOrder": [],
+        "qInitialDataFetch": [],
+        "qReductionMode": "N",
+        "qMode": "S",
+        "qPseudoDimPos": -1,
+        "qNoOfLeftDims": -1,
+        "qMaxStackedCells": 5000,
+        "qCalcCond": {},
+        "qTitle": {},
+        "qCalcCondition": {
+          "qCond": {},
+          "qMsg": {}
+        },
+        "qColumnOrder": [],
+        "qExpansionState": [],
+        "qDynamicScript": []
+      }
+    },
+    "outliers": {
+      "qHyperCubeDef": {
+        "qDimensions": [
+          {
+            "qDef": {
+              "qGrouping": "N",
+              "qFieldDefs": [
+                "=aggr( If( Sum(Expression1) \u003c Rangemax(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 ) - ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Min( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )) or Sum(Expression1) \u003e Rangemin(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) + ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Max( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )) or Alt( Aggr( RowNo(), [Alpha], [Dim1] ), 1 ) = 1, [Alpha] \u0026 [Dim1] ), [Dim1], [Alpha] )"
+              ],
+              "qFieldLabels": [
+                ""
+              ],
+              "qSortCriterias": [
+                {
+                  "qSortByNumeric": 1,
+                  "qSortByAscii": 1,
+                  "qSortByLoadOrder": 1,
+                  "qSortByExpression": 1,
+                  "qExpression": {
+                    "qv": "=aggr( If( Sum(Expression1) \u003c Rangemax(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 ) - ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Min( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )), Rangemax(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 ) - ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Min( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )) - Sum(Expression1), Sum(Expression1) - Rangemin(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) + ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Max( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )) ), [Dim1], [Alpha] )"
+                  }
+                }
+              ],
+              "qNumberPresentations": [],
+              "qActiveField": 0,
+              "autoSort": true,
+              "cId": "xthpvE",
+              "othersLabel": "Others"
+            },
+            "qNullSuppression": true,
+            "qOtherTotalSpec": {
+              "qOtherMode": "OTHER_OFF",
+              "qOtherCounted": {
+                "qv": "10"
+              },
+              "qOtherLimit": {
+                "qv": "0"
+              },
+              "qOtherLimitMode": "OTHER_GE_LIMIT",
+              "qSuppressOther": true,
+              "qForceBadValueKeeping": true,
+              "qApplyEvenWhenPossiblyWrongResult": true,
+              "qOtherSortMode": "OTHER_SORT_DESCENDING",
+              "qTotalMode": "TOTAL_OFF",
+              "qReferencedExpression": {}
+            },
+            "qOtherLabel": {
+              "qv": "Others"
+            },
+            "qTotalLabel": {},
+            "qCalcCond": {},
+            "qAttributeExpressions": [],
+            "qAttributeDimensions": [],
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            }
+          },
+          {
+            "qLibraryId": "rUjMsPE",
+            "qDef": {
+              "qGrouping": "N",
+              "qFieldDefs": [],
+              "qFieldLabels": [
+                ""
+              ],
+              "qSortCriterias": [
+                {
+                  "qSortByNumeric": 1,
+                  "qSortByAscii": 1,
+                  "qSortByLoadOrder": 1,
+                  "qSortByExpression": 1,
+                  "qExpression": {
+                    "qv": "Median( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )"
+                  }
+                }
+              ],
+              "qNumberPresentations": [],
+              "qActiveField": 0,
+              "autoSort": true,
+              "cId": "mRxYCEE",
+              "othersLabel": "Others"
+            },
+            "qOtherTotalSpec": {
+              "qOtherMode": "OTHER_OFF",
+              "qOtherCounted": {
+                "qv": "10"
+              },
+              "qOtherLimit": {
+                "qv": "0"
+              },
+              "qOtherLimitMode": "OTHER_GE_LIMIT",
+              "qSuppressOther": true,
+              "qForceBadValueKeeping": true,
+              "qApplyEvenWhenPossiblyWrongResult": true,
+              "qOtherSortMode": "OTHER_SORT_DESCENDING",
+              "qTotalMode": "TOTAL_OFF",
+              "qReferencedExpression": {}
+            },
+            "qOtherLabel": {
+              "qv": "Others"
+            },
+            "qTotalLabel": {},
+            "qCalcCond": {},
+            "qAttributeExpressions": [],
+            "qAttributeDimensions": [],
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            }
+          },
+          {
+            "qLibraryId": "nCpRzbt",
+            "qDef": {
+              "qGrouping": "N",
+              "qFieldDefs": [],
+              "qFieldLabels": [],
+              "qSortCriterias": [
+                {
+                  "qSortByNumeric": 1,
+                  "qSortByAscii": 1,
+                  "qSortByLoadOrder": 1,
+                  "qExpression": {}
+                }
+              ],
+              "qNumberPresentations": [],
+              "qActiveField": 0,
+              "autoSort": true,
+              "cId": "GdvCf",
+              "othersLabel": "Others"
+            },
+            "qOtherTotalSpec": {
+              "qOtherMode": "OTHER_OFF",
+              "qOtherCounted": {
+                "qv": "10"
+              },
+              "qOtherLimit": {
+                "qv": "0"
+              },
+              "qOtherLimitMode": "OTHER_GE_LIMIT",
+              "qSuppressOther": true,
+              "qForceBadValueKeeping": true,
+              "qApplyEvenWhenPossiblyWrongResult": true,
+              "qOtherSortMode": "OTHER_SORT_DESCENDING",
+              "qTotalMode": "TOTAL_OFF",
+              "qReferencedExpression": {}
+            },
+            "qOtherLabel": {
+              "qv": "Others"
+            },
+            "qTotalLabel": {},
+            "qCalcCond": {},
+            "qAttributeExpressions": [],
+            "qAttributeDimensions": [],
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            }
+          }
+        ],
+        "qMeasures": [
+          {
+            "qDef": {
+              "qTags": [],
+              "qGrouping": "N",
+              "qDef": "=aggr( If( Sum(Expression1) \u003c Rangemax(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 ) - ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Min( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )) or Sum(Expression1) \u003e Rangemin(Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) + ((Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.75 ) - Fractile( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] ) ,0.25 )) * 1.5), Max( total \u003c[Alpha]\u003e Aggr( Sum(Expression1), [Alpha], [Dim1] )  )), Sum(Expression1) ), [Dim1], [Alpha] )",
+              "qNumFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qAccumulate": 0,
+              "qActiveExpression": 0,
+              "qExpressions": [],
+              "autoSort": true,
+              "cId": "rHQvPWT",
+              "numFormatFromTemplate": true,
+              "quarantine": {
+                "qNumFormat": {},
+                "isCustomFormatted": false
+              }
+            },
+            "qSortBy": {
+              "qSortByNumeric": -1,
+              "qSortByLoadOrder": 1,
+              "qExpression": {}
+            },
+            "qAttributeExpressions": [],
+            "qAttributeDimensions": [],
+            "qCalcCond": {},
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            },
+            "qTrendLines": [],
+            "qMiniChartDef": {
+              "qSortBy": {
+                "qExpression": {}
+              },
+              "qOtherTotalSpec": {
+                "qOtherMode": "OTHER_OFF",
+                "qOtherCounted": {},
+                "qOtherLimit": {},
+                "qOtherLimitMode": "OTHER_GT_LIMIT",
+                "qForceBadValueKeeping": true,
+                "qApplyEvenWhenPossiblyWrongResult": true,
+                "qOtherSortMode": "OTHER_SORT_DESCENDING",
+                "qTotalMode": "TOTAL_OFF",
+                "qReferencedExpression": {}
+              },
+              "qMaxNumberPoints": -1,
+              "qAttributeExpressions": []
+            }
+          }
+        ],
+        "qInterColumnSortOrder": [
+          1,
+          0,
+          3,
+          2
+        ],
+        "qInitialDataFetch": [],
+        "qReductionMode": "N",
+        "qMode": "K",
+        "qPseudoDimPos": -1,
+        "qNoOfLeftDims": -1,
+        "qAlwaysFullyExpanded": true,
+        "qMaxStackedCells": 5000,
+        "qCalcCond": {},
+        "qTitle": {},
+        "qCalcCondition": {
+          "qCond": {},
+          "qMsg": {}
+        },
+        "qColumnOrder": [],
+        "qExpansionState": [],
+        "qDynamicScript": []
+      }
+    }
+  },
+  "masterVersion": 0.96
+}

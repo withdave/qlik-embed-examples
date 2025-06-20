@@ -1,0 +1,83 @@
+{
+  "qInfo": {
+    "qId": "24b48e1b-d427-4cdd-8805-bd18329b0e96",
+    "qType": "masterobject"
+  },
+  "qMetaDef": {
+    "title": "Text \u0026 image",
+    "description": "",
+    "tags": []
+  },
+  "qHyperCubeDef": {
+    "qDimensions": [],
+    "qMeasures": [],
+    "qInterColumnSortOrder": [],
+    "qInitialDataFetch": [],
+    "qReductionMode": "N",
+    "qMode": "S",
+    "qPseudoDimPos": -1,
+    "qNoOfLeftDims": -1,
+    "qMaxStackedCells": 5000,
+    "qCalcCond": {},
+    "qTitle": {},
+    "qCalcCondition": {
+      "qCond": {},
+      "qMsg": {}
+    },
+    "qColumnOrder": [],
+    "qExpansionState": [],
+    "qDynamicScript": [],
+    "qSuppressMeasureTotals": true,
+    "qLayoutExclude": {
+      "qHyperCubeDef": {
+        "qDimensions": [],
+        "qMeasures": [],
+        "qInterColumnSortOrder": [],
+        "qInitialDataFetch": [],
+        "qReductionMode": "N",
+        "qMode": "S",
+        "qPseudoDimPos": -1,
+        "qNoOfLeftDims": -1,
+        "qMaxStackedCells": 5000,
+        "qCalcCond": {},
+        "qTitle": {},
+        "qCalcCondition": {
+          "qCond": {},
+          "qMsg": {}
+        },
+        "qColumnOrder": [],
+        "qExpansionState": [],
+        "qDynamicScript": []
+      }
+    }
+  },
+  "script": "",
+  "showTitles": true,
+  "title": "Text \u0026 image",
+  "subtitle": "",
+  "footnote": "",
+  "disableNavMenu": false,
+  "showDetails": true,
+  "showDetailsExpression": false,
+  "components": null,
+  "responsive": "all",
+  "markdown": "This is a text and image box.^[![PKSnHg](/api/v1/apps/425b023a\\-8bb8\\-4c04\\-a6a2\\-fc255b7939d0/media/files/embed.png)^[\n](inherit)](inherit)",
+  "images": [
+    {
+      "id": "PKSnHg",
+      "url": {
+        "qStaticContentUrlDef": {
+          "qUrl": "/api/v1/apps/<appId>/media/files/embed.png"
+        }
+      }
+    }
+  ],
+  "background": {
+    "isUsed": false,
+    "size": "auto",
+    "position": "topLeft",
+    "url": {}
+  },
+  "visualization": "text-image",
+  "masterVersion": 0.96
+}

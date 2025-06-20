@@ -1,0 +1,585 @@
+{
+  "qProperty": {
+    "qInfo": {
+      "qId": "7dd685d5-529e-41ea-bbd5-87b4c0dbbf9f",
+      "qType": "sheet"
+    },
+    "qMetaDef": {
+      "title": "Charts: Native",
+      "description": ""
+    },
+    "rank": -1,
+    "thumbnail": {
+      "qStaticContentUrlDef": {}
+    },
+    "columns": 24,
+    "rows": 32,
+    "cells": [
+      {
+        "name": "QqEF",
+        "type": "barchart",
+        "col": 0,
+        "row": 0,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "HrPUsj",
+        "type": "boxplot",
+        "col": 8,
+        "row": 0,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 33.33333333333333,
+          "y": 0,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "jZWPH",
+        "type": "bulletchart",
+        "col": 16,
+        "row": 0,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 66.66666666666666,
+          "y": 0,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "SpDDAS",
+        "type": "action-button",
+        "col": 0,
+        "row": 4,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 0,
+          "y": 12.499999999999996,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "JdzdNQH",
+        "type": "combochart",
+        "col": 8,
+        "row": 4,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 33.33333333333333,
+          "y": 12.499999999999996,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "AsWuZRH",
+        "type": "distributionplot",
+        "col": 0,
+        "row": 8,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 0,
+          "y": 24.999999999999993,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "JtMxX",
+        "type": "filterpane",
+        "col": 8,
+        "row": 8,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 33.33333333333333,
+          "y": 24.999999999999993,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "HeXjsFQ",
+        "type": "gauge",
+        "col": 16,
+        "row": 8,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 66.66666666666666,
+          "y": 24.999999999999993,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "DdjzNA",
+        "type": "histogram",
+        "col": 0,
+        "row": 12,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 0,
+          "y": 37.49999999999999,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "jPEj",
+        "type": "kpi",
+        "col": 8,
+        "row": 12,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 33.33333333333333,
+          "y": 37.49999999999999,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "YpSNKqL",
+        "type": "linechart",
+        "col": 16,
+        "row": 12,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 66.66666666666666,
+          "y": 37.49999999999999,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "DcXhyZ",
+        "type": "map",
+        "col": 0,
+        "row": 16,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 0,
+          "y": 49.999999999999986,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "jJYrWg",
+        "type": "mekkochart",
+        "col": 8,
+        "row": 16,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 33.33333333333333,
+          "y": 49.999999999999986,
+          "width": 33.33333333333333,
+          "height": 12.499999999999996
+        }
+      },
+      {
+        "name": "nfsUzz",
+        "type": "container",
+        "col": 16,
+        "row": 4,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 66.66666666666666,
+          "y": 12.5,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "SwPQJB",
+        "type": "sn-nlg-chart",
+        "col": 16,
+        "row": 16,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 66.66666666666666,
+          "y": 50,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "ZpTCN",
+        "type": "piechart",
+        "col": 0,
+        "row": 20,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 0,
+          "y": 62.50000000000001,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "EUZjKH",
+        "type": "pivot-table",
+        "col": 8,
+        "row": 20,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 33.33333333333333,
+          "y": 62.50000000000001,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "UfjdY",
+        "type": "scatterplot",
+        "col": 16,
+        "row": 20,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 66.66666666666666,
+          "y": 62.50000000000001,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "nFDSnQ",
+        "type": "table",
+        "col": 0,
+        "row": 24,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 0,
+          "y": 75,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "GBHMGHJ",
+        "type": "text-image",
+        "col": 8,
+        "row": 24,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 33.33333333333333,
+          "y": 75,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "dJyxS",
+        "type": "treemap",
+        "col": 16,
+        "row": 24,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 66.66666666666666,
+          "y": 75,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "qNFpmkK",
+        "type": "waterfallchart",
+        "col": 0,
+        "row": 28,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "x": 0,
+          "y": 87.5,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      }
+    ],
+    "qChildListDef": {
+      "qData": {
+        "title": "/title"
+      }
+    },
+    "gridMode": "edit",
+    "gridResolution": "small",
+    "customRowBase": 24,
+    "layoutOptions": {
+      "extendable": true,
+      "sheetMode": "RESPONSIVE"
+    },
+    "height": 290
+  },
+  "qChildren": [
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "QqEF",
+          "qType": "barchart"
+        },
+        "qExtendsId": "d865afc7-3bbd-4c48-abd2-54327aed8fc3",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "HrPUsj",
+          "qType": "boxplot"
+        },
+        "qExtendsId": "87dbcb14-52c1-47f9-bd96-38e7c93b819b",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "jZWPH",
+          "qType": "bulletchart"
+        },
+        "qExtendsId": "f4ef1aed-31d9-43b5-9f20-b54365f6a6d8",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "SpDDAS",
+          "qType": "action-button"
+        },
+        "qExtendsId": "8410b35f-f8c9-4d5e-af99-e5ba94b92654",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "JdzdNQH",
+          "qType": "combochart"
+        },
+        "qExtendsId": "8064ee58-47e8-4d9e-95f6-42f66f3a40cd",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "jJYrWg",
+          "qType": "mekkochart"
+        },
+        "qExtendsId": "08a95ead-749a-49c1-9225-254137f2c0ac",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "AsWuZRH",
+          "qType": "distributionplot"
+        },
+        "qExtendsId": "06a7f814-a6e6-4d11-804c-ae05109031b6",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "JtMxX",
+          "qType": "filterpane"
+        },
+        "qExtendsId": "90d0298a-5c51-4482-b0e6-d22f5922d425",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "HeXjsFQ",
+          "qType": "gauge"
+        },
+        "qExtendsId": "cdad8bf4-489e-4cf5-ad26-d5191aa35a5c",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "DdjzNA",
+          "qType": "histogram"
+        },
+        "qExtendsId": "b9c340d9-4d30-4a77-8c58-3718fbc114af",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "jPEj",
+          "qType": "kpi"
+        },
+        "qExtendsId": "24a52c85-97e2-4c8e-a672-66c3d1985753",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "YpSNKqL",
+          "qType": "linechart"
+        },
+        "qExtendsId": "b92fa4d7-7e56-4a17-9d8e-9acf76931e9e",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "DcXhyZ",
+          "qType": "map"
+        },
+        "qExtendsId": "7fd2df74-666e-4a3d-aa5a-3e3b1194e443",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "nfsUzz",
+          "qType": "container"
+        },
+        "qExtendsId": "3ec37ae2-3ec1-4df5-b3ce-f19d676260fc",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "SwPQJB",
+          "qType": "sn-nlg-chart"
+        },
+        "qExtendsId": "e2ff4dcd-bf85-48ab-9378-aa3120af1458",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "ZpTCN",
+          "qType": "piechart"
+        },
+        "qExtendsId": "80b385e9-c92d-4cab-90c6-6cea49d3ea7a",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "EUZjKH",
+          "qType": "pivot-table"
+        },
+        "qExtendsId": "bfd2c0cc-fa89-4dae-89ac-094b7a9a7ebe",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "UfjdY",
+          "qType": "scatterplot"
+        },
+        "qExtendsId": "9c37c9e8-5a23-44bc-a5a9-5e45686db910",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "nFDSnQ",
+          "qType": "table"
+        },
+        "qExtendsId": "fa624b13-4cfb-40b5-aa15-06bdf1c4f241",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "GBHMGHJ",
+          "qType": "text-image"
+        },
+        "qExtendsId": "24b48e1b-d427-4cdd-8805-bd18329b0e96",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "dJyxS",
+          "qType": "treemap"
+        },
+        "qExtendsId": "9ad1c89a-cf49-4c7b-ae7d-953b7ed48ead",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "qNFpmkK",
+          "qType": "waterfallchart"
+        },
+        "qExtendsId": "fd4eede0-b77d-48f0-b8fe-013b433b8841",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "qInfo": {
+    "qId": "7fd2df74-666e-4a3d-aa5a-3e3b1194e443",
+    "qType": "masterobject"
+  },
+  "qMetaDef": {
+    "title": "Map",
+    "description": "",
+    "tags": []
+  },
+  "gaLayers": [],
+  "mapSettings": {
+    "_layerType": "",
+    "baseMap": "default",
+    "projection": "default",
+    "mapLanguage": "auto",
+    "useImperialUnits": false,
+    "selectionType": "lasso",
+    "initialView": null,
+    "showLegend": true,
+    "sidebarAlignment": "auto",
+    "showFindLocationButton": false,
+    "showScaleBar": true,
+    "zoomLimitSwitch": false,
+    "zoomLimit": {
+      "range": [
+        0,
+        20
+      ]
+    },
+    "panLimitSwitch": false,
+    "panLimits": null,
+    "showDebugInfo": false,
+    "labelColoring": "auto"
+  },
+  "autoZoomOnSelection": true,
+  "showTitles": true,
+  "title": "Map",
+  "subtitle": "",
+  "footnote": "",
+  "disableNavMenu": false,
+  "showDetails": true,
+  "showDetailsExpression": false,
+  "navigation": false,
+  "visualization": "map",
+  "gaVersion": 2,
+  "layers": [],
+  "qUndoExclude": {
+    "hashCode": 2051771294,
+    "gaLayers": []
+  },
+  "masterVersion": 0.96
+}

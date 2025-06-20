@@ -1,0 +1,75 @@
+[
+  {
+    "qInfo": {
+      "qId": "11a123c2-f20e-423d-acc7-70d0d77ad39a",
+      "qType": "variable"
+    },
+    "qMetaDef": {},
+    "qName": "vDateMin",
+    "qNumberPresentation": {
+      "qType": "U",
+      "qnDec": 10,
+      "qUseThou": 0
+    },
+    "qDefinition": "34514"
+  },
+  {
+    "qInfo": {
+      "qId": "694f6d8b-79eb-4f31-a213-67c67ef92009",
+      "qType": "variable"
+    },
+    "qMetaDef": {},
+    "qName": "vDateMax",
+    "qNumberPresentation": {
+      "qType": "U",
+      "qnDec": 10,
+      "qUseThou": 0
+    },
+    "qDefinition": "45626"
+  },
+  {
+    "qInfo": {
+      "qId": "cecd4fef-41a7-4244-bc56-df1b2b4511fa",
+      "qType": "variable"
+    },
+    "qMetaDef": {},
+    "qName": "variableInput",
+    "qComment": "Used in the Variable Input object",
+    "qNumberPresentation": {
+      "qType": "U",
+      "qnDec": 10,
+      "qUseThou": 0
+    },
+    "qDefinition": "1",
+    "tags": []
+  },
+  {
+    "qInfo": {
+      "qId": "878b459e-e6ef-4351-a97d-4fd36798144d",
+      "qType": "variable"
+    },
+    "qMetaDef": {},
+    "qName": "vEnabledFieldNo",
+    "qNumberPresentation": {
+      "qType": "U",
+      "qnDec": 10,
+      "qUseThou": 0
+    },
+    "qDefinition": "0"
+  },
+  {
+    "qInfo": {
+      "qId": "b16d3c62-cd37-458f-b400-321d6867a907",
+      "qType": "variable"
+    },
+    "qMetaDef": {},
+    "qName": "DISABLE_INSIGHTS",
+    "qNumberPresentation": {
+      "qType": "U",
+      "qnDec": 10,
+      "qUseThou": 0
+    },
+    "qDefinition": "1",
+    "tags": []
+  }
+]

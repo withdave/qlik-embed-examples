@@ -1,0 +1,52 @@
+[
+  {
+    "qInfo": {
+      "qId": "cvmtZV",
+      "qType": "measure"
+    },
+    "qMeasure": {
+      "qLabel": "Avg of Expression 2",
+      "qDef": "Avg(Expression2)",
+      "qGrouping": "N",
+      "qExpressions": [],
+      "qActiveExpression": 0,
+      "qNumFormat": {
+        "qType": "U",
+        "qnDec": 10,
+        "qUseThou": 0
+      },
+      "numFormatFromTemplate": true,
+      "coloring": {}
+    },
+    "qMetaDef": {
+      "title": "Avg of Expression 2",
+      "description": "",
+      "tags": []
+    }
+  },
+  {
+    "qInfo": {
+      "qId": "hZrZKqx",
+      "qType": "measure"
+    },
+    "qMeasure": {
+      "qLabel": "Sum of Expression 1",
+      "qDef": "Sum(Expression1)",
+      "qGrouping": "N",
+      "qExpressions": [],
+      "qActiveExpression": 0,
+      "qNumFormat": {
+        "qType": "U",
+        "qnDec": 10,
+        "qUseThou": 0
+      },
+      "numFormatFromTemplate": true,
+      "coloring": {}
+    },
+    "qMetaDef": {
+      "title": "Sum of Expression 1",
+      "description": "",
+      "tags": []
+    }
+  }
+]
