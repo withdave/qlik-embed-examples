@@ -1,0 +1,34 @@
+name: Playwright - update snapshots
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-snapshots:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+
+      - name: Install dependencies
+        run: npm install --no-save @playwright/test playwright
+
+      - name: Install Playwright Browsers
+        run: npx playwright install chromium firefox webkit --with-deps
+
+      - name: Run Playwright tests in all browsers
+        run: npx playwright test --project=chromium --project=firefox --project=webkit --update-snapshots
+
+      - name: Commit and push changes to update-snapshots branch
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout -b update-snapshots
+          git add tests/snapshots/
+          git commit -m "Update snapshots from CI"
+          git push origin update-snapshots

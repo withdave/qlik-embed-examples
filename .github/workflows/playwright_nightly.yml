@@ -1,4 +1,4 @@
-name: Playwright Visual Regression
+name: Playwright - nightly visual regression
 
 on:
   schedule:
@@ -14,13 +14,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: latest
       - name: Install Playwright dependencies
         run: npm install --no-save @playwright/test playwright
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npx playwright test
+        run: npx playwright install chromium firefox webkit --with-deps
+      - name: Run Playwright tests in all browsers
+        run: npx playwright test --project=chromium --project=firefox --project=webkit
       - name: Upload screenshot artifact
         uses: actions/upload-artifact@v4
         with:
