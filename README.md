@@ -1,11 +1,12 @@
 # qlik-sense-all-charts
-A simple app, with all charts, hosted.
+
+A simple app, with all charts, hosted in GitHub pages via Qlik anonymous access.
 
 ## Overview
 
 This repository provides a simple, hosted Qlik Sense app that demonstrates all available chart types. It includes:
 - An embeddable web app (`embed/index.html`) for viewing the Qlik Sense app via Qlik's web components.
-- Automated deployment to GitHub Pages for the embed app.
+- Automated deployment to GitHub Pages for the embed app. This is configured to deploy to a Qlik Cloud anonymous tenant (note this is why the NL object won't render).
 - Automated deployment of the Qlik Sense app (`src/*.qvf`) to your Qlik Cloud tenant using GitHub Actions.
 
 ---
@@ -28,7 +29,7 @@ The embed app uses Qlik's web components to display a Qlik Sense app in a modern
 
 - `{{qlikHost}}` — Your Qlik Cloud tenant host (e.g. `your-tenant.qlikcloud.com`)
 - `{{qlikClientId}}` — OAuth client ID for anonymous access
-- `{{qlikAccessCode}}` — Access code for the OAuth client
+- `{{qlikAccessCode}}` — Access code for the anonymous app share
 - `{{qlikAppId}}` — The Qlik Sense app ID to display
 
 These placeholders are replaced automatically during the GitHub Pages deployment workflow.
@@ -51,7 +52,7 @@ Workflow: `.github/workflows/pages.yml`
 #### Required Repository Variables (in GitHub repo settings > Variables):
 - `QLIK_HOST` — Your Qlik Cloud tenant host
 - `QLIK_CLIENT_ID` — OAuth client ID for anonymous access
-- `QLIK_ACCESS_CODE` — Access code for the OAuth client
+- `QLIK_ACCESS_CODE` — Access code for the anonymous app share
 - `QLIK_APP_ID` — The Qlik Sense app ID to embed
 
 ### 2. Qlik Sense App Workflows
@@ -78,8 +79,8 @@ There are two workflows for working with Qlik Sense apps in this repository:
 
 #### Required Repository Variables and Secrets:
 - `QLIK_HOST` — Your Qlik Cloud tenant host
-- `QLIK_ADMIN_CLIENT_ID` — OAuth client ID with admin rights
-- `QLIK_ADMIN_CLIENT_SECRET` (Secret) — OAuth client secret for admin client
+- `QLIK_ADMIN_CLIENT_ID` — Machine-to-machine OAuth client ID with `admin_classic` and `user_default` scopes
+- `QLIK_ADMIN_CLIENT_SECRET` (Secret) —  Machine-to-machine OAuth client secret
 
 ---
 
