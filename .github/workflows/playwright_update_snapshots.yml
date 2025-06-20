@@ -29,6 +29,6 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git checkout -b update-snapshots
-          git add tests/snapshots/
+          git add tests/visual.spec.ts-snapshots/
           git commit -m "Update snapshots from CI"
           git push origin update-snapshots
