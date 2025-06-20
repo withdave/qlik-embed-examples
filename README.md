@@ -114,3 +114,26 @@ MIT License. See [LICENSE](LICENSE).
 - [Qlik Embed Web Components](https://qlik.dev/embed/web-components/)
 - [Qlik API JS SDK](https://qlik.dev/apis/javascript/)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
+
+## Tests
+
+This repository includes automated visual regression tests using Playwright. These tests ensure that the Qlik Sense charts render correctly and match the expected visual output.
+
+### Running the Tests
+
+1. Install dependencies:
+   ```bash
+   npm install --no-save @playwright/test playwright
+   npx playwright install --with-deps
+   ```
+
+2. Run the tests:
+   ```bash
+   npx playwright test
+   ```
+
+### Test Details
+
+- The tests navigate to the hosted Qlik Sense app and verify the presence of key elements.
+- Visual regression checks are performed on the `.main-container` to ensure it matches the baseline image.
+- Timeout for rendering elements is set to 15 seconds to accommodate iframe loading delays.
