@@ -64,6 +64,10 @@ jobs:
           sed -i "s/{{qlikClientId}}/${QLIK_CLIENT_ID_ESC}/g" embed/index.html
           sed -i "s/{{qlikAccessCode}}/${QLIK_ACCESS_CODE_ESC}/g" embed/index.html
           sed -i "s/{{qlikAppId}}/${QLIK_APP_ID_ESC}/g" embed/index.html
+          sed -i "s/{{qlikHost}}/${QLIK_HOST_ESC}/g" embed/solo-classic-app.html
+          sed -i "s/{{qlikClientId}}/${QLIK_CLIENT_ID_ESC}/g" embed/solo-classic-app.html
+          sed -i "s/{{qlikAccessCode}}/${QLIK_ACCESS_CODE_ESC}/g" embed/solo-classic-app.html
+          sed -i "s/{{qlikAppId}}/${QLIK_APP_ID_ESC}/g" embed/solo-classic-app.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
