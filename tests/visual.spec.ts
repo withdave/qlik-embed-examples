@@ -5,11 +5,11 @@ import { test, expect } from '@playwright/test';
 test('Qlik Sense All Charts App visual regression', async ({ page }) => {
   await page.goto('https://withdave.github.io/qlik-sense-charts/');
   // Measure and log the page load time
-  const finishTime = await page.evaluate(() => {
+  const pageLoadTime = await page.evaluate(() => {
     const navigationEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
     return navigationEntry ? navigationEntry.loadEventEnd : 0;
   });
-  console.log('Page load finished at:', finishTime);
+  console.log('Page load finished at:', pageLoadTime);
   
   // Wait for the main header to appear
   await expect(page.locator('h1')).toHaveText('Qlik Sense All Charts App');
