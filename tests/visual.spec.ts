@@ -4,6 +4,13 @@ import { test, expect } from '@playwright/test';
 
 test('Qlik Sense All Charts App visual regression', async ({ page }) => {
   await page.goto('https://withdave.github.io/qlik-sense-charts/');
+  // Measure and log the page load time
+  const finishTime = await page.evaluate(() => {
+    const navigationEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
+    return navigationEntry ? navigationEntry.loadEventEnd : 0;
+  });
+  console.log('Page load finished at:', finishTime);
+  
   // Wait for the main header to appear
   await expect(page.locator('h1')).toHaveText('Qlik Sense All Charts App');
   // Wait for the qlik-embed element to be present
