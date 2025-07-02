@@ -1,4 +1,4 @@
-# qlik-sense-charts
+# qlik-embed-examples
 
 A simple app, with all charts, hosted in GitHub pages via Qlik anonymous access.
 

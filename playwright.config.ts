@@ -4,7 +4,7 @@ const config = {
   testDir: './tests',
   use: {
     screenshot: 'only-on-failure',
-    baseURL: 'https://withdave.github.io/qlik-sense-charts/',
+    baseURL: 'https://withdave.github.io/qlik-embed-examples/',
     trace: 'on-first-retry',
     viewport: { width: 1900, height: 1600 },
   },

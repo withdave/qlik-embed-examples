@@ -1,5 +1,5 @@
 {
-  "name": "qlik-sense-charts",
+  "name": "qlik-embed-examples",
   "version": "1.0.0",
   "description": "A simple app with all charts, hosted in GitHub pages via Qlik anonymous access",
   "main": "server.js",
@@ -21,7 +21,7 @@
   "author": "Dave Channon",
   "repository": {
     "type": "git",
-    "url": "https://github.com/withdave/qlik-sense-charts"
+    "url": "https://github.com/withdave/qlik-embed-examples"
   },
   "license": "MIT",
   "devDependencies": {
