@@ -15,7 +15,11 @@
     "embed",
     "visualization"
   ],
-  "author": "",
+  "author": "Dave Channon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/withdave/qlik-sense-charts"
+  },
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.40.0",
