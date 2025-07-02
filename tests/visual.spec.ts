@@ -3,7 +3,8 @@ import { test, expect } from '@playwright/test';
 // Visual regression test for the GitHub Pages site
 
 test('Qlik Sense All Charts App visual regression - qlik/embed-web-components and qlik/api', async ({ page }, testInfo) => {
-  await page.goto('/dual-classic-app.html');
+  await page.goto('dual-classic-app.html');
+  console.log('Page URL:', page.url());
   // Measure and log the page load time
   const pageLoadTime = await page.evaluate(() => {
     const navigationEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
@@ -13,7 +14,9 @@ test('Qlik Sense All Charts App visual regression - qlik/embed-web-components an
   testInfo.attach('Page Load Time', { body: `Page load finished at: ${pageLoadTime}`, contentType: 'text/plain' });
   
   // Wait for the main header to appear
+  const actualH1 = await page.locator('h1').textContent();
   await expect(page.locator('h1')).toHaveText('classic/chart via qlik/embed-web-components and qlik/api');
+  console.log('Actual <h1> text on page:', actualH1);
   // Wait for the qlik-embed element to be present
   await expect(page.locator('qlik-embed')).toBeVisible();
   // Access the iframe by its data-testid
@@ -29,7 +32,8 @@ test('Qlik Sense All Charts App visual regression - qlik/embed-web-components an
 });
 
 test('Qlik Sense All Charts App visual regression - qlik/embed-web-components', async ({ page }, testInfo) => {
-  await page.goto('/solo-classic-app.html');
+  await page.goto('solo-classic-app.html');
+  console.log('Page URL:', page.url());
   // Measure and log the page load time
   const pageLoadTime = await page.evaluate(() => {
     const navigationEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
@@ -39,6 +43,7 @@ test('Qlik Sense All Charts App visual regression - qlik/embed-web-components', 
   testInfo.attach('Page Load Time', { body: `Page load finished at: ${pageLoadTime}`, contentType: 'text/plain' });
   
   // Wait for the main header to appear
+  const actualH1 = await page.locator('h1').textContent();
   await expect(page.locator('h1')).toHaveText('classic/chart via qlik/embed-web-components');
   // Wait for the qlik-embed element to be present
   await expect(page.locator('qlik-embed')).toBeVisible();
