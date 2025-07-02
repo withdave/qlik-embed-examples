@@ -8,20 +8,6 @@ const PORT = process.env.PORT || 3000;
 // Serve static files from the embed directory
 app.use(express.static(embedDir));
 
-// Serve the main index.html file at the root
-app.get('/', (req, res) => {
-  res.sendFile(path.join(embedDir, 'index.html'));
-});
-
-// Serve other HTML files in the embed directory
-app.get('/dual-chart-config', (req, res) => {
-  res.sendFile(path.join(embedDir, 'dual-chart-config.html'));
-});
-
-app.get('/solo-classic-app', (req, res) => {
-  res.sendFile(path.join(embedDir, 'solo-classic-app.html'));
-});
-
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'Qlik Sense Charts development server is running' });
@@ -50,4 +36,4 @@ app.listen(PORT, () => {
   console.log(`   - {{qlikClientId}} → your-client-id`);
   console.log(`   - {{qlikAccessCode}} → your-access-code`);
   console.log(`   - {{qlikAppId}} → your-app-id`);
-}); 
+});
