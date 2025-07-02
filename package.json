@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A simple app with all charts, hosted in GitHub pages via Qlik anonymous access",
   "main": "server.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
