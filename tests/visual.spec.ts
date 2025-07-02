@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 // Visual regression test for the GitHub Pages site
 
 test('Qlik Sense All Charts App visual regression - qlik/embed-web-components and qlik/api', async ({ page }, testInfo) => {
-  await page.goto('https://withdave.github.io/qlik-embed-examples/dual-classic-app.html');
+  await page.goto('/dual-classic-app.html');
   // Measure and log the page load time
   const pageLoadTime = await page.evaluate(() => {
     const navigationEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
@@ -29,7 +29,7 @@ test('Qlik Sense All Charts App visual regression - qlik/embed-web-components an
 });
 
 test('Qlik Sense All Charts App visual regression - qlik/embed-web-components', async ({ page }, testInfo) => {
-  await page.goto('https://withdave.github.io/qlik-embed-examples/solo-classic-app.html');
+  await page.goto('/solo-classic-app.html');
   // Measure and log the page load time
   const pageLoadTime = await page.evaluate(() => {
     const navigationEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
