@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qlik Sense Embedded Chart Explorer</title>
+    <link rel="stylesheet" href="index.css">
+    <script crossorigin="anonymous" type="application/javascript"
+        src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
+        data-host="https://{{qlikHost}}" data-client-id="{{qlikClientId}}" data-access-code="{{qlikAccessCode}}"
+        data-auth-type="anonymous"></script>
+    <style>
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        .main-container {
+            padding: 0;
+            margin: 0;
+        }
+
+        .dual-chart-container,
+        .selections-container {
+            width: 95vw;
+            margin: 0 auto 1rem auto;
+        }
+
+        .dual-chart-container {
+            display: flex;
+            gap: 1rem;
+            border: none;
+        }
+
+        .selections-container {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .chart-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .chart-controls {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 0.5rem;
+            padding-right: 2.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .control-group label {
+            min-width: 120px;
+            text-align: right;
+            margin-right: 0.5rem;
+            margin-bottom: 0;
+            font-size: 0.85rem;
+        }
+
+        .control-group select,
+        .control-group input[type="text"] {
+            flex: 1;
+            margin-left: 0;
+        }
+
+        .control-group input[type="checkbox"] {
+            margin-left: 0;
+            margin-right: 0.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 120px;
+        }
+
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .chart-display {
+            flex: 1;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            min-height: 600px;
+            box-shadow: none;
+        }
+
+        .chart-display qlik-embed {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .code-copy-container {
+            position: absolute;
+            bottom: 0.5rem;
+            top: auto;
+            right: 0.5rem;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .copy-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+            color: #888;
+            transition: color 0.2s;
+            border: none;
+            background: none;
+            padding: 0.25rem;
+            border-radius: 4px;
+        }
+
+        .copy-icon:hover {
+            color: #222;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .copy-icon:focus {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+        }
+
+        .code-tooltip {
+            display: none;
+            position: absolute;
+            bottom: 2.2rem;
+            top: auto;
+            right: 0;
+            background: #222;
+            color: #fff;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.8rem;
+            min-width: 320px;
+            min-height: 0;
+            max-width: none;
+            max-height: none;
+            overflow-x: auto;
+            overflow-y: auto;
+            z-index: 1000;
+            white-space: pre-wrap;
+            box-sizing: border-box;
+        }
+
+        .code-tooltip-header {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95em;
+            color: #fff;
+        }
+
+        .code-copy-container:hover .code-tooltip,
+        .code-copy-container:focus-within .code-tooltip {
+            display: block;
+        }
+
+        .code-tooltip.copied {
+            background: #28a745;
+            color: #fff;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #666;
+            font-style: italic;
+        }
+
+        .error {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .help-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .help-link:hover {
+            text-decoration: underline;
+        }
+
+        .help-link:focus {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+        }
+
+        .property-info {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .ui-help-section {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #f0f8ff;
+            border-radius: 4px;
+            border-left: 3px solid #0066cc;
+        }
+
+        .ui-help-section h4 {
+            margin: 0 0 0.5rem 0;
+            color: #0066cc;
+            font-size: 0.9rem;
+        }
+
+        .ui-help-section p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .help-message {
+            color: #fff;
+            font-size: 0.95em;
+            padding: 0.5rem 0 0 0;
+            line-height: 1.5;
+        }
+
+        .unsupported-note {
+            color: #b00;
+            font-size: 0.95em;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #fff3f3;
+            border-radius: 4px;
+            border-left: 3px solid #b00;
+        }
+
+        @media (max-width: 1200px) {
+            .dual-chart-container {
+                flex-direction: column;
+                height: auto;
+                gap: 0.5rem;
+            }
+            
+            .chart-section {
+                height: 50vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dual-chart-container {
+                width: 95vw;
+                gap: 0.5rem;
+            }
+            
+            .selections-container {
+                width: 95vw;
+            }
+            
+            .chart-controls {
+                padding: 0.25rem;
+            }
+            
+            .chart-section {
+                height: 40vh;
+            }
+        }
+
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles for better accessibility */
+        select:focus,
+        input:focus {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>Qlik Sense Embedded Chart Explorer</h1>
+        </header>
+        
+        <!-- Selections object for refApi connection -->
+        <div class="selections-container">
+            <qlik-embed ui="analytics/selections" app-id="{{qlikAppId}}" style="width: 100%; height: 60px;"></qlik-embed>
+        </div>
+        
+        <main class="dual-chart-container" id="dual-chart-container">
+            <!-- Chart sections will be generated dynamically -->
+        </main>
+    </div>
+
+    <script type="module">
+        // App Configuration
+        const APP_CONFIG = {
+            // Qlik connection settings
+            qlik: {
+                host: 'https://{{qlikHost}}',
+                clientId: '{{qlikClientId}}',
+                accessCode: '{{qlikAccessCode}}',
+                appId: '{{qlikAppId}}'
+            },
+            
+            // UI configuration
+            ui: {
+                sides: ['left', 'right'],
+                defaultUI: 'analytics/chart',
+                uiTypes: [
+                    { value: 'analytics/chart', label: 'Chart: analytics/chart' },
+                    { value: 'classic/chart', label: 'Chart: classic/chart' },
+                    { value: 'analytics/sheet', label: 'Sheet: analytics/sheet' },
+                    { value: 'classic/app', label: 'Sheet: classic/app' }
+                ],
+                helpUrl: 'https://qlik.dev/embed/qlik-embed/parameters/#configurable-ui-parameters'
+            },
+            
+            // Property definitions
+            properties: {
+                iframe: {
+                    type: 'dropdown',
+                    label: 'Iframe mode',
+                    default: 'false',
+                    description: 'Render in iframe mode',
+                    options: [
+                        { label: 'Off', value: 'false' },
+                        { label: 'On', value: 'true' }
+                    ]
+                },
+                theme: { type: 'string', default: '', description: 'Theme name (sense, breeze, card, horizon, etc.)' },
+                language: {
+                    type: 'dropdown',
+                    default: '',
+                    description: 'Language code (en-US, sv-SE, etc.)',
+                    options: [
+                        { label: 'Brazilian Portuguese: pt-BR', value: 'pt-BR' },
+                        { label: 'Dutch: nl-NL', value: 'nl-NL' },
+                        { label: 'English: en-US', value: 'en-US' },
+                        { label: 'French: fr-FR', value: 'fr-FR' },
+                        { label: 'German: de-DE', value: 'de-DE' },
+                        { label: 'Italian: it-IT', value: 'it-IT' },
+                        { label: 'Japanese: ja-JP', value: 'ja-JP' },
+                        { label: 'Korean: ko-KR', value: 'ko-KR' },
+                        { label: 'Polish: pl-PL', value: 'pl-PL' },
+                        { label: 'Russian: ru-RU', value: 'ru-RU' },
+                        { label: 'Simplified Chinese: zh-CN', value: 'zh-CN' },
+                        { label: 'Spanish: es-ES', value: 'es-ES' },
+                        { label: 'Swedish: sv-SE', value: 'sv-SE' },
+                        { label: 'Traditional Chinese: zh-TW', value: 'zh-TW' },
+                        { label: 'Turkish: tr-TR', value: 'tr-TR' }
+                    ]
+                },
+                identity: { type: 'string', default: '', description: 'Not supported on anonymous sessions' }
+            },
+            
+            // Object filtering
+            excludedObjectTypes: ['childObject', 'masterobject', 'LoadModel', 'appprops', 'dimension', 'measure']
+        };
+
+        // Chart configurations
+        const chartConfigs = {};
+        APP_CONFIG.ui.sides.forEach(side => {
+            chartConfigs[side] = {
+                objectId: '',
+                ui: APP_CONFIG.ui.defaultUI,
+                properties: {}
+            };
+        });
+
+        // Property support mapping
+        const propertySupport = {
+            language: ['classic/app'],
+            identity: ['classic/app', 'classic/chart', 'analytics/chart', 'analytics/sheet'],
+            theme: ['classic/app', 'classic/chart', 'analytics/chart', 'analytics/sheet'],
+            iframe: ['classic/app', 'classic/chart', 'analytics/chart', 'analytics/sheet'],
+            context___json: ['analytics/chart', 'analytics/sheet']
+        };
+
+        // Context options for context___json
+        const contextOptions = [
+            { key: 'active', label: 'Active', default: '', options: [ { label: 'Off', value: 'false' }, { label: 'On', value: 'true' } ] },
+            { key: 'select', label: 'Select', default: '', options: [ { label: 'Off', value: 'false' }, { label: 'On', value: 'true' } ] },
+            { key: 'passive', label: 'Passive', default: '', options: [ { label: 'Off', value: 'false' }, { label: 'On', value: 'true' } ] }
+        ];
+
+        // Utility functions
+        const utils = {
+            escapeHtml: (str) => str.replace(/</g, '&lt;').replace(/>/g, '&gt;'),
+            
+            capitalizeFirst: (str) => str.charAt(0).toUpperCase() + str.slice(1),
+            
+            showError: (message, container = '.header') => {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error';
+                errorDiv.textContent = message;
+                document.querySelector(container).appendChild(errorDiv);
+            },
+            
+            validateObjectCompatibility: (object, ui) => {
+                if (ui === 'classic/app' && !object.isSheet) {
+                    return { valid: false, message: 'classic/app UI requires a sheet object. Please select a sheet or change the UI type.' };
+                }
+                if (ui === 'classic/chart' && object.isSheet) {
+                    return { valid: false, message: 'classic/chart UI requires a chart/visualization object. Please select a chart or change the UI type.' };
+                }
+                return { valid: true };
+            }
+        };
+
+        // Chart Manager Class
+        class ChartManager {
+            constructor() {
+                this.appObjects = {};
+                this.refApi = null;
+                this.doc = null;
+                this.initialized = false;
+            }
+
+            async initialize() {
+                try {
+                    this.generateChartSections();
+                    await this.waitForQlikEmbed();
+                    await this.connectToApp();
+                    await this.loadAppObjects();
+                    this.setupEventListeners();
+                    this.initialized = true;
+                } catch (error) {
+                    console.error('Initialization error:', error);
+                    utils.showError('Failed to initialize. Please refresh the page.');
+                }
+            }
+
+            generateChartSections() {
+                const container = document.getElementById('dual-chart-container');
+                if (!container) {
+                    throw new Error('Container element not found');
+                }
+                container.innerHTML = '';
+
+                APP_CONFIG.ui.sides.forEach(side => {
+                    const section = this.createChartSection(side);
+                    container.appendChild(section);
+                });
+            }
+
+            createChartSection(side) {
+                const section = document.createElement('div');
+                section.className = 'chart-section';
+                
+                section.innerHTML = `
+                    <div class="chart-controls">
+                        <div class="code-copy-container">
+                            <button class="copy-icon" id="${side}CopyIcon" tabindex="0" title="Copy code" aria-label="Copy code snippet">
+                                📋
+                            </button>
+                            <div class="code-tooltip" id="${side}CodeTooltip" role="tooltip">
+                                <div class='help-message'>Code example will be shown here once a UI and object have been selected.</div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="${side}UI">UI Type:</label>
+                            <select id="${side}UI" aria-describedby="${side}UIHelp">
+                                ${APP_CONFIG.ui.uiTypes.map(ui => 
+                                    `<option value="${ui.value}">${ui.label}</option>`
+                                ).join('')}
+                            </select>
+                            <a href="${APP_CONFIG.ui.helpUrl}" target="_blank" class="help-link" id="${side}UIHelp">📖 UI Parameters</a>
+                        </div>
+                        <div class="control-group">
+                            <label for="${side}Object">Object:</label>
+                            <select id="${side}Object">
+                                <option value="">Loading objects...</option>
+                            </select>
+                        </div>
+                        ${Object.entries(APP_CONFIG.properties).map(([propertyName, propertyDef]) => {
+                            const elementId = `${side}${utils.capitalizeFirst(propertyName)}`;
+                            if (propertyDef.type === 'dropdown') {
+                                const label = propertyDef.label || utils.capitalizeFirst(propertyName);
+                                return `
+                                    <div class="control-group">
+                                        <label for="${elementId}">${label}:</label>
+                                        <select id="${elementId}">
+                                            <option value=""></option>
+                                            ${propertyDef.options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('')}
+                                        </select>
+                                    </div>
+                                `;
+                            } else if (propertyDef.type === 'boolean') {
+                                return `
+                                    <div class="control-group">
+                                        <div class="checkbox-group">
+                                            <input type="checkbox" id="${elementId}">
+                                            <label for="${elementId}">${utils.capitalizeFirst(propertyName)}</label>
+                                        </div>
+                                    </div>
+                                `;
+                            } else {
+                                return `
+                                    <div class="control-group">
+                                        <label for="${elementId}">${utils.capitalizeFirst(propertyName)}:</label>
+                                        <input type="text" id="${elementId}" placeholder="${propertyDef.description}">
+                                    </div>
+                                `;
+                            }
+                        }).join('')}
+                        <div class="control-group context-group">
+                            ${contextOptions.map(opt => `
+                                <label for="${side}Context${utils.capitalizeFirst(opt.key)}">${opt.label}:</label>
+                                <select id="${side}Context${utils.capitalizeFirst(opt.key)}">
+                                    <option value=""></option>
+                                    ${opt.options.map(o => `<option value="${o.value}">${o.label}</option>`).join('')}
+                                </select>
+                            `).join('')}
+                        </div>
+                        <div class="unsupported-note" id="${side}UnsupportedNote" style="display:none;"></div>
+                    </div>
+                    
+                    <div class="chart-display">
+                        <div class="loading">Select an object to display chart</div>
+                    </div>
+                `;
+                
+                return section;
+            }
+
+            async waitForQlikEmbed() {
+                return new Promise((resolve, reject) => {
+                    let attempts = 0;
+                    const maxAttempts = 50; // 5 seconds max
+                    
+                    const checkEmbed = () => {
+                        attempts++;
+                        const selectionsElement = document.querySelector('.selections-container qlik-embed');
+                        if (selectionsElement && selectionsElement.getRefApi) {
+                            resolve();
+                        } else if (attempts >= maxAttempts) {
+                            reject(new Error('Qlik embed component failed to load within timeout'));
+                        } else {
+                            setTimeout(checkEmbed, 100);
+                        }
+                    };
+                    checkEmbed();
+                });
+            }
+
+            async connectToApp() {
+                const selectionsElement = document.querySelector('.selections-container qlik-embed');
+                if (!selectionsElement) {
+                    throw new Error('Selections element not found');
+                }
+                
+                try {
+                    this.refApi = await selectionsElement.getRefApi();
+                    this.doc = await this.refApi.getDoc();
+                } catch (error) {
+                    throw new Error(`Failed to connect to Qlik app: ${error.message}`);
+                }
+            }
+
+            async loadAppObjects() {
+                if (!this.doc) {
+                    throw new Error('Document not available');
+                }
+
+                try {
+                    const objectList = await this.doc.getAllInfos({});
+                    const excludedTypes = APP_CONFIG.excludedObjectTypes;
+                    
+                    const filteredObjects = objectList.filter(obj => 
+                        obj.qType && !excludedTypes.includes(obj.qType)
+                    );
+                    
+                    this.appObjects = {};
+                    
+                    for (const obj of filteredObjects) {
+                        try {
+                            const objectHandle = await this.doc.getObject(obj.qId);
+                            const objectDef = await objectHandle.getLayout();
+                            
+                            const objectEntry = {
+                                id: obj.qId,
+                                type: obj.qType,
+                                title: objectDef.qMeta?.title || 'Not set',
+                                isVisualization: !!objectDef.visualization,
+                                isSheet: obj.qType === 'sheet'
+                            };
+                            
+                            if (objectEntry.isSheet || objectEntry.isVisualization) {
+                                this.appObjects[obj.qId] = objectEntry;
+                            }
+                            
+                        } catch (error) {
+                            console.warn(`Failed to get layout for object ${obj.qId}:`, error);
+                        }
+                    }
+                    
+                    // Sort objects
+                    const sortedObjects = Object.values(this.appObjects)
+                        .sort((a, b) => {
+                            if (a.type !== b.type) {
+                                return a.type.localeCompare(b.type);
+                            }
+                            return a.title.localeCompare(b.title);
+                        });
+                    
+                    this.appObjects = {};
+                    sortedObjects.forEach(obj => {
+                        this.appObjects[obj.id] = obj;
+                    });
+                    
+                    console.log("App sheets and viz:", this.appObjects);
+                    this.populateObjectDropdowns();
+                } catch (error) {
+                    throw new Error(`Failed to load app objects: ${error.message}`);
+                }
+            }
+
+            populateObjectDropdowns() {
+                APP_CONFIG.ui.sides.forEach(side => {
+                    const select = document.getElementById(`${side}Object`);
+                    if (!select) return;
+                    
+                    select.innerHTML = '<option value="">Select an object...</option>';
+
+                    Object.values(this.appObjects).forEach(obj => {
+                        const option = document.createElement('option');
+                        option.value = obj.id;
+                        option.textContent = `${obj.type} [${obj.title}]`;
+                        option.title = obj.title;
+                        select.appendChild(option);
+                    });
+                });
+            }
+
+            setupEventListeners() {
+                APP_CONFIG.ui.sides.forEach(side => {
+                    // Object selection
+                    const objectSelect = document.getElementById(`${side}Object`);
+                    if (objectSelect) {
+                        objectSelect.addEventListener('change', (e) => {
+                            this.handleObjectSelection(side, e.target.value);
+                        });
+                    }
+
+                    // UI type change
+                    const uiSelect = document.getElementById(`${side}UI`);
+                    if (uiSelect) {
+                        uiSelect.addEventListener('change', (e) => {
+                            this.handleUIChange(side, e.target.value);
+                        });
+                    }
+
+                    // Property inputs
+                    Object.keys(APP_CONFIG.properties).forEach(propertyName => {
+                        const element = document.getElementById(`${side}${utils.capitalizeFirst(propertyName)}`);
+                        if (element) {
+                            const propertyDef = APP_CONFIG.properties[propertyName];
+                            const eventType = propertyDef.type === 'boolean' ? 'change' : (propertyDef.type === 'dropdown' ? 'change' : 'input');
+                            element.addEventListener(eventType, (e) => {
+                                let value = propertyDef.type === 'boolean' ? e.target.checked : e.target.value;
+                                
+                                // FIXED BUG: Proper iframe boolean handling
+                                if (propertyName === 'iframe') {
+                                    value = value === 'true' || value === true;
+                                }
+                                
+                                // For dropdowns, if value is blank, always delete the property, remove border, and log
+                                if (propertyDef.type === 'dropdown' && value === '') {
+                                    delete chartConfigs[side].properties[propertyName];
+                                    element.style.border = '';
+                                    console.log(`Deleted property ${propertyName} from chartConfigs[${side}].properties`);
+                                    this.updateChart(side);
+                                    this.validatePropertySupport(side);
+                                    return;
+                                }
+                                this.handlePropertyInput(side, propertyName, value);
+                            });
+                        }
+                    });
+
+                    // Copy functionality
+                    const copyIcon = document.getElementById(`${side}CopyIcon`);
+                    const codeTooltip = document.getElementById(`${side}CodeTooltip`);
+                    if (copyIcon && codeTooltip) {
+                        copyIcon.addEventListener('click', () => {
+                            const codePre = codeTooltip.querySelector('pre');
+                            if (!codePre || !codePre.textContent) return;
+                            
+                            navigator.clipboard.writeText(codePre.textContent).then(() => {
+                                codeTooltip.classList.add('copied');
+                                codeTooltip.innerHTML = `<div class='code-tooltip-header'>Copied!</div>`;
+                                setTimeout(() => {
+                                    codeTooltip.classList.remove('copied');
+                                    this.updateCodeTooltip(side, chartConfigs[side]);
+                                }, 1000);
+                            }).catch(err => {
+                                console.error('Failed to copy to clipboard:', err);
+                                utils.showError('Failed to copy to clipboard');
+                            });
+                        });
+                    }
+
+                    // Context dropdowns
+                    contextOptions.forEach(opt => {
+                        const el = document.getElementById(`${side}Context${utils.capitalizeFirst(opt.key)}`);
+                        if (el) {
+                            el.addEventListener('change', () => {
+                                // Assemble context___json
+                                const context = {};
+                                contextOptions.forEach(o => {
+                                    const v = document.getElementById(`${side}Context${utils.capitalizeFirst(o.key)}`).value;
+                                    if (v) {
+                                        if (!context.interactions) context.interactions = {};
+                                        context.interactions[o.key] = v === 'true';
+                                    }
+                                });
+                                if (Object.keys(context).length > 0) {
+                                    chartConfigs[side].properties['context___json'] = JSON.stringify(context);
+                                } else {
+                                    delete chartConfigs[side].properties['context___json'];
+                                }
+                                this.updateChart(side);
+                                this.validatePropertySupport(side);
+                            });
+                        }
+                    });
+
+                    this.validatePropertySupport(side);
+                });
+            }
+
+            handleObjectSelection(side, selectedObjectId) {
+                const selectedObject = this.appObjects[selectedObjectId];
+                
+                if (selectedObjectId && selectedObject) {
+                    const validation = utils.validateObjectCompatibility(selectedObject, chartConfigs[side].ui);
+                    if (!validation.valid) {
+                        alert(validation.message);
+                        document.getElementById(`${side}Object`).value = '';
+                        return;
+                    }
+                }
+                
+                chartConfigs[side].objectId = selectedObjectId;
+                this.updateChart(side);
+            }
+
+            handleUIChange(side, newUI) {
+                const currentObjectId = chartConfigs[side].objectId;
+                const currentObject = this.appObjects[currentObjectId];
+                chartConfigs[side].ui = newUI;
+                
+                if (currentObjectId && currentObject) {
+                    const validation = utils.validateObjectCompatibility(currentObject, newUI);
+                    if (!validation.valid) {
+                        chartConfigs[side].objectId = '';
+                        document.getElementById(`${side}Object`).value = '';
+                        alert(validation.message);
+                    }
+                }
+                this.updateChart(side);
+                this.validatePropertySupport(side);
+            }
+
+            handlePropertyInput(side, propertyName, value) {
+                const propertyDef = APP_CONFIG.properties[propertyName];
+                if (value !== '' && value !== propertyDef.default) {
+                    chartConfigs[side].properties[propertyName] = value;
+                } else {
+                    delete chartConfigs[side].properties[propertyName];
+                }
+                this.updateChart(side);
+                this.validatePropertySupport(side);
+            }
+
+            updateChart(side) {
+                const config = chartConfigs[side];
+                const chartDisplay = document.querySelector(`.chart-section:nth-child(${side === 'left' ? '1' : '2'}) .chart-display`);
+                
+                if (!chartDisplay) return;
+
+                chartDisplay.innerHTML = '<div class="loading">Loading chart...</div>';
+
+                // Allow classic/app to render without an object selected
+                if (!config.objectId && config.ui !== 'classic/app') {
+                    chartDisplay.innerHTML = '<div class="loading">Select an object to display chart</div>';
+                    return;
+                }
+
+                const embedElement = document.createElement('qlik-embed');
+                embedElement.setAttribute('ui', config.ui);
+                embedElement.setAttribute('app-id', APP_CONFIG.qlik.appId);
+                
+                if (config.ui === 'classic/app') {
+                    if (config.objectId) {
+                        embedElement.setAttribute('sheet-id', config.objectId);
+                    }
+                } else {
+                    embedElement.setAttribute('object-id', config.objectId);
+                }
+
+                Object.entries(config.properties).forEach(([key, value]) => {
+                    if (value !== '' && value !== null && value !== undefined) {
+                        embedElement.setAttribute(key, value.toString());
+                    }
+                });
+
+                chartDisplay.innerHTML = '';
+                chartDisplay.appendChild(embedElement);
+                this.updateCodeTooltip(side, config);
+            }
+
+            updateCodeTooltip(side, config) {
+                const codeTooltip = document.getElementById(`${side}CodeTooltip`);
+                if (!codeTooltip) return;
+                
+                // Only show code if a UI is selected and (object is selected or classic/app)
+                if (config.ui && (config.objectId || config.ui === 'classic/app')) {
+                    let code = `<qlik-embed\n`;
+                    code += `  ui=\"${config.ui}\"\n`;
+                    code += `  app-id=\"${APP_CONFIG.qlik.appId}\"`;
+                    if (config.ui === 'classic/app') {
+                        if (config.objectId) {
+                            code += `\n  sheet-id=\"${config.objectId}\"`;
+                        }
+                    } else {
+                        code += `\n  object-id=\"${config.objectId}\"`;
+                    }
+                    Object.entries(config.properties).forEach(([key, value]) => {
+                        if (value !== '' && value !== null && value !== undefined) {
+                            code += `\n  ${key}=\"${value}\"`;
+                        }
+                    });
+                    code += `\n/>`;
+                    
+                    codeTooltip.innerHTML = `<div class='code-tooltip-header'>This chart is rendered with this snippet. Click the clipboard to copy:</div><div><pre>${utils.escapeHtml(code)}</pre></div>`;
+                } else {
+                    // If not enough info, clear the code (leave the help message in place)
+                    codeTooltip.innerHTML = "";
+                }
+            }
+
+            validatePropertySupport(side) {
+                const config = chartConfigs[side];
+                const unsupported = [];
+                
+                Object.keys(config.properties).forEach(prop => {
+                    const el = document.getElementById(`${side}${utils.capitalizeFirst(prop)}`) || document.getElementById(`${side}ContextActive`);
+                    
+                    // For dropdowns, check the actual element value
+                    if (el && el.tagName === 'SELECT' && el.value === '') {
+                        el.style.border = '';
+                        return;
+                    }
+                    // For checkboxes, check if not checked
+                    if (el && el.type === 'checkbox' && !el.checked) {
+                        el.style.border = '';
+                        return;
+                    }
+                    // For other types, check config property value
+                    const value = config.properties[prop];
+                    if (value === '' || value === undefined || value === null) {
+                        if (el) el.style.border = '';
+                        return;
+                    }
+                    if (propertySupport[prop] && !propertySupport[prop].includes(config.ui)) {
+                        unsupported.push(prop);
+                        if (el) el.style.border = '1.5px solid #b00';
+                    } else {
+                        if (el) el.style.border = '';
+                    }
+                });
+                
+                // Special handling for context___json (multiple dropdowns)
+                if (config.properties['context___json'] && !propertySupport['context___json'].includes(config.ui)) {
+                    contextOptions.forEach(opt => {
+                        const el = document.getElementById(`${side}Context${utils.capitalizeFirst(opt.key)}`);
+                        if (el && el.value === '') {
+                            el.style.border = '';
+                            return;
+                        }
+                        if (el) el.style.border = '1.5px solid #b00';
+                    });
+                } else {
+                    contextOptions.forEach(opt => {
+                        const el = document.getElementById(`${side}Context${utils.capitalizeFirst(opt.key)}`);
+                        if (el) el.style.border = '';
+                    });
+                }
+                
+                // Show/hide note
+                const note = document.getElementById(`${side}UnsupportedNote`);
+                if (note) {
+                    if (unsupported.length > 0 || (config.properties['context___json'] && !propertySupport['context___json'].includes(config.ui))) {
+                        note.style.display = 'block';
+                        note.textContent = 'One or more properties are not supported in the selected UI type.';
+                    } else {
+                        note.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        // Initialize the application
+        const chartManager = new ChartManager();
+        document.addEventListener('DOMContentLoaded', () => chartManager.initialize());
+
+    </script>
+</body>
+
+</html> 

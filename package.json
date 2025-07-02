@@ -1,0 +1,27 @@
+{
+  "name": "qlik-sense-charts",
+  "version": "1.0.0",
+  "description": "A simple app with all charts, hosted in GitHub pages via Qlik anonymous access",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "test": "npx playwright test"
+  },
+  "keywords": [
+    "qlik",
+    "sense",
+    "charts",
+    "embed",
+    "visualization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "playwright": "^1.40.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+} 
