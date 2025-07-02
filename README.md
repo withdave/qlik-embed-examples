@@ -100,7 +100,32 @@ There are two workflows for working with Qlik Sense apps in this repository:
 
 ## Local Development
 
+### Option 1: Direct File Access
 You can preview the embed app locally by opening `embed/index.html` in your browser, but you must manually replace the `{{qlikHost}}`, `{{qlikClientId}}`, `{{qlikAccessCode}}`, and `{{qlikAppId}}` placeholders with your actual values.
+
+### Option 2: Local Development Server (Recommended)
+For a better development experience, use the included Node.js development server:
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   node server.js
+   ```
+
+3. Open your browser and navigate to:
+   - Main app: http://localhost:3000
+   - Dual chart config: http://localhost:3000/dual-chart-config
+   - Solo classic app: http://localhost:3000/solo-classic-app
+
+The server will serve all files from the `embed/` directory and provide helpful console output with available routes and placeholder information.
+
+**Note:** You'll still need to manually replace the Qlik placeholders in the HTML files with your actual values for the charts to render properly.
 
 ---
 
