@@ -25,11 +25,11 @@ test('Qlik Sense All Charts App visual regression - qlik/embed-web-components an
   await page.waitForTimeout(3000);
   // Take a screenshot of the main container and compare it with the baseline
   const screenshot = await page.locator('.main-container').screenshot();
-  expect(screenshot).toMatchSnapshot('main-container.png');
+  expect(screenshot).toMatchSnapshot('dual-classic-app.png');
 });
 
 test('Qlik Sense All Charts App visual regression - qlik/embed-web-components', async ({ page }, testInfo) => {
-  await page.goto('https://withdave.github.io/qlik-sense-charts/dual-classic-app.html');
+  await page.goto('https://withdave.github.io/qlik-sense-charts/solo-classic-app.html');
   // Measure and log the page load time
   const pageLoadTime = await page.evaluate(() => {
     const navigationEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
@@ -51,5 +51,5 @@ test('Qlik Sense All Charts App visual regression - qlik/embed-web-components', 
   await page.waitForTimeout(3000);
   // Take a screenshot of the main container and compare it with the baseline
   const screenshot = await page.locator('.main-container').screenshot();
-  expect(screenshot).toMatchSnapshot('main-container.png');
+  expect(screenshot).toMatchSnapshot('solo-classic-app.png');
 });
