@@ -27,7 +27,16 @@ This repository provides a simple, hosted Qlik Sense app that demonstrates all a
 
 ## Embed App (`embed/index.html`)
 
-The embed app uses Qlik's web components to display a Qlik Sense app in a modern, responsive UI. It requires several Qlik Cloud variables to be injected at build/deploy time:
+
+The `embed/` directory contains several example HTML pages that use Qlik's web components to display Qlik Sense apps and charts in different configurations:
+
+- `index.html` — Main embed page (uses Qlik web components)
+- `dual-classic-app.html` — Dual chart classic app example
+- `solo-classic-app.html` — Single classic app example
+- `solo-analytics-snapshot.html` — Analytics snapshot example (static data, no live backend required)
+- `configurator.html` — Interactive configuration UI for embedding charts
+
+These pages require several Qlik Cloud variables to be injected at build/deploy time:
 
 - `{{qlikHost}}` — Your Qlik Cloud tenant host (e.g. `your-tenant.qlikcloud.com`)
 - `{{qlikClientId}}` — OAuth client ID for anonymous access
@@ -122,8 +131,6 @@ For a better development experience, use the included Node.js development server
 
 3. Open your browser and navigate to:
    - Main app: http://localhost:3000
-   - Dual chart config: http://localhost:3000/dual-chart-config
-   - Solo classic app: http://localhost:3000/solo-classic-app
 
 The server will serve all files from the `embed/` directory and provide helpful console output with available routes and placeholder information.
 
@@ -136,11 +143,6 @@ The server will serve all files from the `embed/` directory and provide helpful 
 MIT License. See [LICENSE](LICENSE).
 
 ---
-
-## References
-- [Qlik Embed Web Components](https://qlik.dev/embed/web-components/)
-- [Qlik API JS SDK](https://qlik.dev/apis/javascript/)
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
 
 ## Tests
 
