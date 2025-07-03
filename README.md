@@ -1,6 +1,8 @@
 # qlik-embed-examples
 
-A simple app, with all charts, hosted in GitHub pages via Qlik anonymous access.
+A simple Qlik Sense app, with all charts, hosted in GitHub pages via Qlik anonymous access. Includes some basic tests.
+
+[![Playwright - nightly visual regression](https://github.com/withdave/qlik-embed-examples/actions/workflows/playwright_nightly.yml/badge.svg?event=schedule)](https://github.com/withdave/qlik-embed-examples/actions/workflows/playwright_nightly.yml)
 
 ## Overview
 
