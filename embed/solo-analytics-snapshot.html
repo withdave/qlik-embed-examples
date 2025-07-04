@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="index.css">
     <script crossorigin="anonymous" type="application/javascript"
         src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
-        data-host="http://localhost:3000/mock"
+        data-host="https://withdave.github.io/qlik-embed-examples/mock"
         data-auth-type="none" >
         </script>
     <script type="application/javascript">
@@ -817,6 +817,7 @@
             const snapshotEmbed = document.createElement("qlik-embed");
             snapshotEmbed.id = "snapshot";
             snapshotEmbed.setAttribute("ui", "analytics/snapshot");
+            snapshotEmbed.setAttribute("data-testid", "snapshot");
             snapshotEmbed.setAttribute("data___json", JSON.stringify(snapshotData));
             snapshotContainer.appendChild(snapshotEmbed);
         });

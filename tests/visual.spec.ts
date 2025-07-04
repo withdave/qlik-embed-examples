@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 // Visual regression test for the GitHub Pages site
 
-test('Qlik Sense All Charts App visual regression - qlik/embed-web-components and qlik/api', async ({ page }, testInfo) => {
+test('Visual regression - dual-classic-app', async ({ page }, testInfo) => {
   await page.goto('dual-classic-app.html');
   console.log('Page URL:', page.url());
   // Measure and log the page load time
@@ -31,7 +31,7 @@ test('Qlik Sense All Charts App visual regression - qlik/embed-web-components an
   expect(screenshot).toMatchSnapshot('dual-classic-app.png');
 });
 
-test('Qlik Sense All Charts App visual regression - qlik/embed-web-components', async ({ page }, testInfo) => {
+test('Visual regression - solo-classic-app', async ({ page }, testInfo) => {
   await page.goto('solo-classic-app.html');
   console.log('Page URL:', page.url());
   // Measure and log the page load time
@@ -57,4 +57,18 @@ test('Qlik Sense All Charts App visual regression - qlik/embed-web-components', 
   // Take a screenshot of the main container and compare it with the baseline
   const screenshot = await page.locator('.main-container').screenshot();
   expect(screenshot).toMatchSnapshot('solo-classic-app.png');
+});
+
+test('Visual regression - solo-analytics-snapshot', async ({ page }, testInfo) => {
+  await page.goto('solo-analytics-snapshot.html');
+  // Wait for the main header to appear
+  await expect(page.locator('h1')).toHaveText('analytics/snapshot via qlik/embed-web-components');
+  // Wait for the qlik-embed element with data-testid to be present
+  const qlikEmbed = page.locator('qlik-embed[data-testid="snapshot"]');
+  await expect(qlikEmbed).toBeVisible();
+  // Wait for 2 seconds to ensure rendering is complete
+  await page.waitForTimeout(2000);
+  // Take a screenshot of the main container and compare it with the baseline
+  const screenshot = await page.locator('.main-container').screenshot();
+  expect(screenshot).toMatchSnapshot('solo-analytics-snapshot.png');
 });
