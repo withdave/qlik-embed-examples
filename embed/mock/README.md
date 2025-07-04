@@ -1,0 +1,1 @@
+This directory is included to help render the analytics/snapshot without an authenticated connection to a Qlik Cloud tenant.
