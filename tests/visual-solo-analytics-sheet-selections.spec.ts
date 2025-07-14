@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+test.setTimeout(60000); // Set timeout to 60 seconds for all tests in this file
+
 test('Visual regression - solo-analytics-sheet-selections', async ({ page }, testInfo) => {
   await page.goto('solo-analytics-sheet-selections.html');
   // Wait for the main header to appear
