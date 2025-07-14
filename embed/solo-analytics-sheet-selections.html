@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analytics/sheet and analytics/selections via qlik/embed-web-components</title>
+    <link rel="stylesheet" href="index.css">
+    <script crossorigin="anonymous" type="application/javascript"
+        src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
+        data-host="https://{{qlikHost}}" data-client-id="{{qlikClientId}}" data-access-code="{{qlikAccessCode}}"
+        data-auth-type="anonymous"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>analytics/sheet and analytics/selections via qlik/embed-web-components</h1>
+            <p><a href="./" aria-label="Back to catalog">&lt; back to catalog</a></p>
+        </div>
+        <div class="qlik-selections-container" style="width: 80vw; margin-bottom: 1rem;">
+            <qlik-embed id="selectionsEmbed" ui="analytics/selections" app-id="{{qlikAppId}}" style="width: 100%; height: 100%;"></qlik-embed>
+        </div>
+        <div style="width: 80vw; margin-bottom: 1rem;">
+            <select id="sheetdrop" style="width: 100%; padding: 0.5rem; font-size: 1rem;"></select>
+        </div>
+        <div class="qlik-container" style="width: 80vw; height: 70vh; overflow: scroll;">
+            <!-- analytics/sheet will be rendered here dynamically -->
+            <div id="sheetEmbedContainer" style="width: 100%; height: 100%;"></div>
+        </div>
+    </div>
+</body>
+
+<script type="module">
+// Helper: sort sheets by published/approved, then sortOrder
+function sortSheets(sheets) {
+    console.log(sheets);
+    return sheets.sort((a, b) => {
+        // Published and approved first
+        const aPub = a.qMeta.published && a.qMeta.approved ? 0 : 1;
+        const bPub = b.qMeta.published && b.qMeta.approved ? 0 : 1;
+        if (aPub !== bPub) return aPub - bPub;
+        // Then by sheet rank
+        return (a.qData.rank ?? 0) - (b.qData.rank ?? 0);
+    });
+}
+
+async function init() {
+    // Wait for the selections embed to be ready
+    const selectionsEmbed = document.getElementById('selectionsEmbed');
+    if (!selectionsEmbed) return;
+    const refApi = await selectionsEmbed.getRefApi();
+    const doc = await refApi.getDoc();
+    const sheetList = await doc.getSheetList();
+    const sortedSheets = sortSheets(sheetList);
+
+    // Populate dropdown
+    const dd = document.getElementById('sheetdrop');
+    dd.length = 0;
+    const defaultOption = document.createElement('option');
+    defaultOption.text = "Select a sheet to navigate to";
+    dd.add(defaultOption);
+    dd.selectedIndex = 0;
+
+    sortedSheets.forEach(sheet => {
+        const option = document.createElement('option');
+        option.text = sheet.qMeta.title;
+        option.value = sheet.qMeta.id;
+        dd.add(option);
+    });
+
+    // Render analytics/sheet for the first sheet
+    if (sortedSheets.length > 0) {
+        renderSheetEmbed(sortedSheets[0].qMeta.id);
+        dd.selectedIndex = 1;
+    }
+
+    // Change handler
+    dd.addEventListener('change', function() {
+        if (dd.selectedIndex > 0) {
+            const selOption = dd.options[dd.selectedIndex];
+            renderSheetEmbed(selOption.value);
+        }
+    });
+}
+
+function renderSheetEmbed(sheetId) {
+    const container = document.getElementById('sheetEmbedContainer');
+    // Remove previous embed if any
+    container.innerHTML = '';
+    // Create new qlik-embed element
+    const embed = document.createElement('qlik-embed');
+    embed.setAttribute('id', 'appSheets');
+    embed.setAttribute('ui', 'analytics/sheet');
+    embed.setAttribute('app-id', '{{qlikAppId}}');
+    embed.setAttribute('sheet-id', sheetId);
+    container.appendChild(embed);
+}
+
+window.addEventListener('DOMContentLoaded', init);
+</script>
+</html>

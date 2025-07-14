@@ -30,11 +30,12 @@ This repository provides a simple, hosted Qlik Sense app that demonstrates all a
 
 The `embed/` directory contains several example HTML pages that use Qlik's web components to display Qlik Sense apps and charts in different configurations:
 
-- `index.html` — Main embed page (uses Qlik web components)
-- `dual-classic-app.html` — Dual chart classic app example
-- `solo-classic-app.html` — Single classic app example
-- `solo-analytics-snapshot.html` — Analytics snapshot example (static data, no live backend required)
-- `configurator.html` — Interactive configuration UI for embedding charts
+- `index.html` — Index page for examples.
+- `dual-classic-app.html` — Qlik Sense app overview using both @qlik/embed-web-components and @qlik/api.
+- `solo-classic-app.html` — Qlik Sense app overview using @qlik/embed-web-components.
+- `solo-analytics-sheet-selections.html` — Dynamic sheet loading for Qlik Sense sheets using @qlik/embed-web-components and Ref API.
+- `solo-analytics-snapshot.html` — Static chart rendering using <code>data___json</code> and @qlik/embed-web-components (no backend required).
+- `configurator.html` — Interactive Qlik Sense chart configurator using @qlik/embed-web-components.
 
 These pages require several Qlik Cloud variables to be injected at build/deploy time:
 
