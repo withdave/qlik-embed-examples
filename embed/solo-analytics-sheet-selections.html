@@ -73,10 +73,8 @@ async function init() {
 
     // Change handler
     dd.addEventListener('change', function() {
-        if (dd.selectedIndex > 0) {
-            const selOption = dd.options[dd.selectedIndex];
-            renderSheetEmbed(selOption.value);
-        }
+        const selOption = dd.options[dd.selectedIndex];
+        renderSheetEmbed(selOption.value);
     });
 }
 
