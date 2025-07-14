@@ -72,7 +72,7 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
 
   // Wait another moment for good measure/ slow compute
   // Not good practice, but necessary for some slow environments
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(5000);
 
   // Take a screenshot of the main container and compare it with the baseline (default state)
   const defaultScreenshot = await page.locator('.main-container').screenshot();
@@ -93,7 +93,7 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
 
     // Wait another moment for good measure/ slow compute
     // Not good practice, but necessary for some slow environments
-    await page.waitForTimeout(4000);
+    await page.waitForTimeout(5000);
 
     // Take a screenshot and compare with a snapshot for this option
     const screenshot = await page.locator('.main-container').screenshot();
