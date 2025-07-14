@@ -24,11 +24,12 @@ jobs:
       - name: Run Playwright tests in all browsers
         run: npx playwright test --project=chromium --project=firefox --project=webkit --update-snapshots
 
-      - name: Commit and push changes to update-snapshots branch
+      - name: Commit and force push changes to update-snapshots branch
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git checkout -b update-snapshots
+          git fetch origin update-snapshots || true
+          git checkout -B update-snapshots
           git add tests/visual.spec.ts-snapshots/
-          git commit -m "Update snapshots from CI"
-          git push origin update-snapshots
+          git commit -m "chore: update test snapshots" || echo "No changes to commit"
+          git push --force origin update-snapshots

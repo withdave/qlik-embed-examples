@@ -71,6 +71,9 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
   await expect(sheetEmbed).toBeVisible({ timeout: 10000 });
   // Wait until there are no ongoing network requests (network idle)
   await page.waitForLoadState('networkidle');
+  // Wait another moment for good measure/ slow compute
+  // Not good practice, but necessary for some slow environments
+  await page.waitForTimeout(2000);
   // Take a screenshot of the main container and compare it with the baseline (default state)
   const defaultScreenshot = await page.locator('.main-container').screenshot();
   expect(defaultScreenshot).toMatchSnapshot('solo-analytics-sheet-selections-default.png');
