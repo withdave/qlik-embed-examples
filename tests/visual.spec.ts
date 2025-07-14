@@ -95,7 +95,7 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
       const qmfeRoot = Array.from(qlikEmbed.children).find(
         (child) => child.tagName.toLowerCase() === 'qmfe-root'
       );
-      return qmfeRoot && qmfeRoot.children.length > 0;
+      return qmfeRoot && qmfeRoot.children.length > 2;
     }, {}, { timeout: 15000 });
 
     // Wait for Qlik WebSocket to be idle (no messages for 1s)
