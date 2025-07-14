@@ -69,11 +69,11 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
   // Wait for the sheetEmbed element to be visible
   const sheetEmbed = page.locator('[data-testid="sheetEmbed"]');
   await expect(sheetEmbed).toBeVisible({ timeout: 10000 });
-  // Wait until there are no ongoing network requests (network idle)
-  await page.waitForLoadState('networkidle');
+
   // Wait another moment for good measure/ slow compute
   // Not good practice, but necessary for some slow environments
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(4000);
+
   // Take a screenshot of the main container and compare it with the baseline (default state)
   const defaultScreenshot = await page.locator('.main-container').screenshot();
   expect(defaultScreenshot).toMatchSnapshot('solo-analytics-sheet-selections-default.png');
@@ -91,12 +91,9 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
     const sheetEmbed = page.locator('[data-testid="sheetEmbed"]');
     await expect(sheetEmbed).toBeVisible({ timeout: 10000 });
 
-    // Wait until there are no ongoing network requests (network idle)
-    await page.waitForLoadState('networkidle');
-
     // Wait another moment for good measure/ slow compute
     // Not good practice, but necessary for some slow environments
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(4000);
 
     // Take a screenshot and compare with a snapshot for this option
     const screenshot = await page.locator('.main-container').screenshot();
@@ -112,7 +109,7 @@ test('Visual regression - solo-analytics-snapshot', async ({ page }, testInfo) =
   const qlikEmbed = page.locator('qlik-embed[data-testid="snapshot"]');
   await expect(qlikEmbed).toBeVisible();
   // Wait for 2 seconds to ensure rendering is complete
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(3000);
   // Take a screenshot of the main container and compare it with the baseline
   const screenshot = await page.locator('.main-container').screenshot();
   expect(screenshot).toMatchSnapshot('solo-analytics-snapshot.png');
