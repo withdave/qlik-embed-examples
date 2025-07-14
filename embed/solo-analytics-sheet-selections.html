@@ -34,7 +34,6 @@
 <script type="module">
 // Helper: sort sheets by published/approved, then sortOrder
 function sortSheets(sheets) {
-    console.log(sheets);
     return sheets.sort((a, b) => {
         // Published and approved first
         const aPub = a.qMeta.published && a.qMeta.approved ? 0 : 1;
