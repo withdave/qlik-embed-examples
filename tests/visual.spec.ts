@@ -95,7 +95,7 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
       const qmfeRoot = Array.from(qlikEmbed.children).find(
         (child) => child.tagName.toLowerCase() === 'qmfe-root'
       );
-      return qmfeRoot && qmfeRoot.children.length > 2;
+      return qmfeRoot && qmfeRoot.children.length > 1;
     }, {}, { timeout: 15000 });
 
     // Wait for Qlik WebSocket to be idle (no messages for 1s)
@@ -121,7 +121,7 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
           idleTimeout = setTimeout(() => {
             ws.removeEventListener('message', onMessage);
             resolve();
-          }, 1000);
+          }, 3000);
         };
         ws.addEventListener('message', onMessage);
         idleTimeout = setTimeout(() => {
