@@ -88,48 +88,12 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
     const sheetEmbed = page.locator('[data-testid="sheetEmbed"]');
     await expect(sheetEmbed).toBeVisible({ timeout: 10000 });
 
-    // Wait for qmfe-root as direct child of qlik-embed, and it must have at least one child
-    await page.waitForFunction(() => {
-      const qlikEmbed = document.querySelector('qlik-embed');
-      if (!qlikEmbed) return false;
-      const qmfeRoot = Array.from(qlikEmbed.children).find(
-        (child) => child.tagName.toLowerCase() === 'qmfe-root'
-      );
-      return qmfeRoot && qmfeRoot.children.length > 0;
-    }, {}, { timeout: 15000 });
+    // Wait until there are no ongoing network requests (network idle)
+    await page.waitForLoadState('networkidle');
 
-    // Wait for Qlik WebSocket to be idle (no messages for 1s)
-    await page.evaluate(async () => {
-      const wsUrlPrefix = 'wss://oem.se.qlikcloud.com/app/';
-      // Find all WebSocket instances on the window
-      let ws;
-      for (const key of Object.getOwnPropertyNames(window)) {
-        try {
-          // @ts-ignore
-          const val = window[key];
-          if (val instanceof WebSocket && val.url && val.url.startsWith(wsUrlPrefix)) {
-            ws = val;
-            break;
-          }
-        } catch (e) { /* ignore */ }
-      }
-      if (!ws) return;
-      await new Promise<void>((resolve) => {
-        let idleTimeout;
-        const onMessage = () => {
-          clearTimeout(idleTimeout);
-          idleTimeout = setTimeout(() => {
-            ws.removeEventListener('message', onMessage);
-            resolve();
-          }, 3000);
-        };
-        ws.addEventListener('message', onMessage);
-        idleTimeout = setTimeout(() => {
-          ws.removeEventListener('message', onMessage);
-          resolve();
-        }, 1000);
-      });
-    });
+    // Wait another moment for good measure/ slow compute
+    // Not good practice, but necessary for some slow environments
+    await page.waitForTimeout(1500);
 
     // Take a screenshot and compare with a snapshot for this option
     const screenshot = await page.locator('.main-container').screenshot();
