@@ -68,3 +68,24 @@ LOAD
 	$(vDateMin) + IterNo() - 1 AS DateInt
 AUTOGENERATE 1
 WHILE $(vDateMin) + IterNo() - 1 <= $(vDateMax);
+
+// Map data
+Cities:
+LOAD *,
+ 	GeoMakePoint(Latitude, Longitude) AS CityLocation;
+LOAD * INLINE [
+    City, Country, Population, Latitude, Longitude
+    London, UK, 8982000, 51.5074, -0.1278
+    Birmingham, UK, 1141000, 52.4862, -1.8904
+    Manchester, UK, 553230, 53.4808, -2.2426
+    Glasgow, UK, 635640, 55.8642, -4.2518
+    Liverpool, UK, 498042, 53.4084, -2.9916
+    Leeds, UK, 789194, 53.8008, -1.5491
+    Edinburgh, UK, 536775, 55.9533, -3.1883
+    Sheffield, UK, 584853, 53.3811, -1.4701
+    Bristol, UK, 467099, 51.4545, -2.5879
+    Cardiff, UK, 362756, 51.4816, -3.1791
+    Belfast, UK, 345418, 54.5973, -5.9301
+    Nottingham, UK, 323632, 52.9548, -1.1581
+    Newcastle, UK, 300820, 54.9784, -1.6174
+];

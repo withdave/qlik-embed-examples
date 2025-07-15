@@ -8,7 +8,229 @@
     "description": "",
     "tags": []
   },
-  "gaLayers": [],
+  "gaLayers": [
+    {
+      "type": "PointLayer",
+      "locationOrLatitude": {
+        "key": "[CityLocation]",
+        "label": "CityLocation",
+        "type": "expression"
+      },
+      "locationDefault": "[CityLocation]",
+      "locationNamesAuto": true,
+      "locationType": "",
+      "locationCountry": {
+        "key": "",
+        "label": "",
+        "type": ""
+      },
+      "locationAdmin1": {
+        "key": "",
+        "label": "",
+        "type": ""
+      },
+      "locationAdmin2": {
+        "key": "",
+        "label": "",
+        "type": ""
+      },
+      "maxObjects": 4000,
+      "showLayer": true,
+      "hideCalcCond": false,
+      "exclFromAutozoom": false,
+      "layerSelectionsDisabled": false,
+      "color": {
+        "outline": {
+          "index": -1,
+          "color": "#7b7a78"
+        },
+        "outlineOpacity": 1,
+        "opacity": 1,
+        "auto": false,
+        "mode": "primary",
+        "paletteColor": {
+          "index": 6,
+          "color": "#ffffff"
+        },
+        "measureScheme": "sg",
+        "dimensionScheme": "12",
+        "colorExpression": "",
+        "expressionIsColor": true,
+        "measureMin": 0,
+        "measureMax": 10,
+        "useDimColVal": false,
+        "useMeasureGradient": false
+      },
+      "displayLegend": "auto",
+      "showSizeLegend": true,
+      "showToolTip": true,
+      "showInAllLevels": true,
+      "zoomRange": [
+        0,
+        20
+      ],
+      "showPopUp": true,
+      "displayUnselected": false,
+      "label": {
+        "show": false,
+        "expression": {
+          "key": "[CityLocation]",
+          "label": "dimension.qDef.qFieldDefs[0]",
+          "type": "expression"
+        },
+        "position": "TOP",
+        "showInAllLevels": true,
+        "visibleRange": [
+          0,
+          20
+        ],
+        "style": {
+          "color": {
+            "index": -1,
+            "color": ""
+          }
+        }
+      },
+      "drillDown": {
+        "auto": true,
+        "showLevel0": true,
+        "showLevel1": true,
+        "showLevel2": true,
+        "showLevel3": true,
+        "showLevel4": true,
+        "showLevel5": true,
+        "showLevel6": true,
+        "showLevel7": true
+      },
+      "qHyperCubeDef": {
+        "qDimensions": [
+          {
+            "qDef": {
+              "qGrouping": "N",
+              "qFieldDefs": [
+                "CityLocation"
+              ],
+              "qFieldLabels": [
+                ""
+              ],
+              "qSortCriterias": [
+                {
+                  "qSortByNumeric": 1,
+                  "qSortByAscii": 1,
+                  "qSortByLoadOrder": 1,
+                  "qExpression": {}
+                }
+              ],
+              "qNumberPresentations": [],
+              "qActiveField": 0,
+              "autoSort": true,
+              "cId": "SETWEp"
+            },
+            "qOtherTotalSpec": {
+              "qOtherMode": "OTHER_OFF",
+              "qOtherCounted": {},
+              "qOtherLimit": {},
+              "qOtherLimitMode": "OTHER_GT_LIMIT",
+              "qForceBadValueKeeping": true,
+              "qApplyEvenWhenPossiblyWrongResult": true,
+              "qOtherSortMode": "OTHER_SORT_DESCENDING",
+              "qTotalMode": "TOTAL_OFF",
+              "qReferencedExpression": {}
+            },
+            "qOtherLabel": {},
+            "qTotalLabel": {},
+            "qCalcCond": {},
+            "qAttributeExpressions": [],
+            "qAttributeDimensions": [],
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            }
+          }
+        ],
+        "qMeasures": [],
+        "qInterColumnSortOrder": [
+          0
+        ],
+        "qInitialDataFetch": [
+          {
+            "qLeft": 0,
+            "qTop": 0,
+            "qWidth": 1,
+            "qHeight": 0
+          }
+        ],
+        "qReductionMode": "N",
+        "qMode": "S",
+        "qPseudoDimPos": -1,
+        "qNoOfLeftDims": -1,
+        "qMaxStackedCells": 5000,
+        "qCalcCond": {},
+        "qTitle": {},
+        "qCalcCondition": {
+          "qCond": {},
+          "qMsg": {}
+        },
+        "qColumnOrder": [],
+        "qExpansionState": [],
+        "qDynamicScript": [],
+        "qLayoutExclude": {
+          "qHyperCubeDef": {
+            "qDimensions": [],
+            "qMeasures": [],
+            "qInterColumnSortOrder": [],
+            "qInitialDataFetch": [],
+            "qReductionMode": "N",
+            "qMode": "S",
+            "qPseudoDimPos": -1,
+            "qNoOfLeftDims": -1,
+            "qMaxStackedCells": 5000,
+            "qCalcCond": {},
+            "qTitle": {},
+            "qCalcCondition": {
+              "qCond": {},
+              "qMsg": {}
+            },
+            "qColumnOrder": [],
+            "qExpansionState": [],
+            "qDynamicScript": []
+          }
+        }
+      },
+      "tooltip": {
+        "auto": true
+      },
+      "size": {
+        "radiusMin": 12,
+        "radiusMax": 52,
+        "radiusValueMin": 0,
+        "radiusValueMax": 1,
+        "autoRadiusValueRange": true,
+        "expression": {
+          "label": "Sum(Population)",
+          "key": "Sum(Population)",
+          "type": "expression",
+          "qNumFormat": {
+            "qType": "U"
+          }
+        },
+        "label": "Population",
+        "slider": [
+          22,
+          51
+        ],
+        "sliderSingle": 16,
+        "shape": "points",
+        "formatting": {
+          "qNumFormat": {
+            "qType": "U"
+          }
+        }
+      },
+      "cId": "jFurGG",
+      "id": "jFurGG"
+    }
+  ],
   "mapSettings": {
     "_layerType": "",
     "baseMap": "default",
@@ -46,8 +268,139 @@
   "gaVersion": 2,
   "layers": [],
   "qUndoExclude": {
-    "hashCode": 2051771294,
-    "gaLayers": []
+    "hashCode": -1463520567,
+    "gaLayers": [
+      {
+        "qHyperCubeDef": {
+          "qDimensions": [
+            {
+              "qDef": {
+                "qGrouping": "N",
+                "qFieldDefs": [
+                  "CityLocation"
+                ],
+                "qFieldLabels": [
+                  ""
+                ],
+                "qSortCriterias": [
+                  {
+                    "qSortByNumeric": 1,
+                    "qSortByAscii": 1,
+                    "qSortByLoadOrder": 1,
+                    "qExpression": {}
+                  }
+                ],
+                "qNumberPresentations": [],
+                "qActiveField": 0,
+                "autoSort": true,
+                "cId": "SETWEp"
+              },
+              "qOtherTotalSpec": {
+                "qOtherMode": "OTHER_OFF",
+                "qOtherCounted": {},
+                "qOtherLimit": {},
+                "qOtherLimitMode": "OTHER_GT_LIMIT",
+                "qForceBadValueKeeping": true,
+                "qApplyEvenWhenPossiblyWrongResult": true,
+                "qOtherSortMode": "OTHER_SORT_DESCENDING",
+                "qTotalMode": "TOTAL_OFF",
+                "qReferencedExpression": {}
+              },
+              "qOtherLabel": {},
+              "qTotalLabel": {},
+              "qCalcCond": {},
+              "qAttributeExpressions": [
+                {
+                  "qExpression": "Sum(Population)",
+                  "qNumFormat": {
+                    "qType": "U",
+                    "qnDec": 10,
+                    "qUseThou": 0
+                  },
+                  "id": "size"
+                }
+              ],
+              "qAttributeDimensions": [],
+              "qCalcCondition": {
+                "qCond": {},
+                "qMsg": {}
+              }
+            }
+          ],
+          "qMeasures": [],
+          "qInterColumnSortOrder": [
+            0
+          ],
+          "qInitialDataFetch": [
+            {
+              "qLeft": 0,
+              "qTop": 0,
+              "qWidth": 1,
+              "qHeight": 1000
+            }
+          ],
+          "qReductionMode": "N",
+          "qMode": "S",
+          "qPseudoDimPos": -1,
+          "qNoOfLeftDims": -1,
+          "qMaxStackedCells": 5000,
+          "qCalcCond": {},
+          "qTitle": {},
+          "qCalcCondition": {
+            "qCond": {},
+            "qMsg": {}
+          },
+          "qColumnOrder": [],
+          "qExpansionState": [],
+          "qDynamicScript": [],
+          "qLayoutExclude": {
+            "qHyperCubeDef": {
+              "qDimensions": [],
+              "qMeasures": [],
+              "qInterColumnSortOrder": [],
+              "qInitialDataFetch": [],
+              "qReductionMode": "N",
+              "qMode": "S",
+              "qPseudoDimPos": -1,
+              "qNoOfLeftDims": -1,
+              "qMaxStackedCells": 5000,
+              "qCalcCond": {},
+              "qTitle": {},
+              "qCalcCondition": {
+                "qCond": {},
+                "qMsg": {}
+              },
+              "qColumnOrder": [],
+              "qExpansionState": [],
+              "qDynamicScript": []
+            }
+          }
+        },
+        "color": {
+          "outline": {
+            "index": -1,
+            "color": "#7b7a78"
+          },
+          "outlineOpacity": 1,
+          "opacity": 1,
+          "auto": false,
+          "mode": "primary",
+          "paletteColor": {
+            "index": 6,
+            "color": "#ffffff"
+          },
+          "measureScheme": "sg",
+          "dimensionScheme": "12",
+          "colorExpression": "",
+          "expressionIsColor": true,
+          "measureMin": 0,
+          "measureMax": 10,
+          "useDimColVal": false,
+          "useMeasureGradient": false
+        },
+        "useDimLoc1": 0
+      }
+    ]
   },
   "masterVersion": 0.96
 }

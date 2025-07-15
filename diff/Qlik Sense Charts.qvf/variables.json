@@ -1,7 +1,7 @@
 [
   {
     "qInfo": {
-      "qId": "11a123c2-f20e-423d-acc7-70d0d77ad39a",
+      "qId": "9653c1c0-76a6-4e9b-928e-2efadd7ad1b1",
       "qType": "variable"
     },
     "qMetaDef": {},
@@ -11,11 +11,11 @@
       "qnDec": 10,
       "qUseThou": 0
     },
-    "qDefinition": "34514"
+    "qDefinition": "34745"
   },
   {
     "qInfo": {
-      "qId": "694f6d8b-79eb-4f31-a213-67c67ef92009",
+      "qId": "df41d183-e668-4144-be2b-79ba909959db",
       "qType": "variable"
     },
     "qMetaDef": {},
@@ -25,7 +25,7 @@
       "qnDec": 10,
       "qUseThou": 0
     },
-    "qDefinition": "45626"
+    "qDefinition": "45869"
   },
   {
     "qInfo": {

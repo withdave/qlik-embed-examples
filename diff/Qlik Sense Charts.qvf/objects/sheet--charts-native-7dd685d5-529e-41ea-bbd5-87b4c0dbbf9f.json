@@ -8,7 +8,7 @@
       "title": "Charts: Native",
       "description": ""
     },
-    "rank": -1,
+    "rank": -1.000000,
     "thumbnail": {
       "qStaticContentUrlDef": {}
     },
@@ -270,13 +270,13 @@
       {
         "name": "nFDSnQ",
         "type": "table",
-        "col": 0,
+        "col": 8,
         "row": 24,
         "colspan": 8,
         "rowspan": 4,
         "bounds": {
-          "x": 0,
           "y": 75,
+          "x": 33.33333333333333,
           "width": 33.33333333333333,
           "height": 12.5
         }
@@ -284,13 +284,13 @@
       {
         "name": "GBHMGHJ",
         "type": "text-image",
-        "col": 8,
+        "col": 16,
         "row": 24,
         "colspan": 8,
         "rowspan": 4,
         "bounds": {
-          "x": 33.33333333333333,
           "y": 75,
+          "x": 66.66666666666666,
           "width": 33.33333333333333,
           "height": 12.5
         }
@@ -298,13 +298,13 @@
       {
         "name": "dJyxS",
         "type": "treemap",
-        "col": 16,
-        "row": 24,
+        "col": 0,
+        "row": 28,
         "colspan": 8,
         "rowspan": 4,
         "bounds": {
-          "x": 66.66666666666666,
-          "y": 75,
+          "y": 87.5,
+          "x": 0,
           "width": 33.33333333333333,
           "height": 12.5
         }
@@ -312,13 +312,27 @@
       {
         "name": "qNFpmkK",
         "type": "waterfallchart",
-        "col": 0,
+        "col": 8,
         "row": 28,
         "colspan": 8,
         "rowspan": 4,
         "bounds": {
-          "x": 0,
           "y": 87.5,
+          "x": 33.33333333333333,
+          "width": 33.33333333333333,
+          "height": 12.5
+        }
+      },
+      {
+        "name": "UyDxThT",
+        "type": "sn-table",
+        "col": 0,
+        "row": 24,
+        "colspan": 8,
+        "rowspan": 4,
+        "bounds": {
+          "y": 75,
+          "x": 0,
           "width": 33.33333333333333,
           "height": 12.5
         }
@@ -500,7 +514,15 @@
           "qType": "sn-nlg-chart"
         },
         "qExtendsId": "e2ff4dcd-bf85-48ab-9378-aa3120af1458",
-        "qMetaDef": {}
+        "qMetaDef": {},
+        "analysis": [
+          {
+            "value": "rank",
+            "label": "Ranking"
+          }
+        ],
+        "showDetails": false,
+        "isIncompleteViz": false
       },
       "qChildren": []
     },
@@ -577,6 +599,17 @@
           "qType": "waterfallchart"
         },
         "qExtendsId": "fd4eede0-b77d-48f0-b8fe-013b433b8841",
+        "qMetaDef": {}
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "UyDxThT",
+          "qType": "sn-table"
+        },
+        "qExtendsId": "89db4909-32f2-415d-bd95-e38ab6a5af82",
         "qMetaDef": {}
       },
       "qChildren": []

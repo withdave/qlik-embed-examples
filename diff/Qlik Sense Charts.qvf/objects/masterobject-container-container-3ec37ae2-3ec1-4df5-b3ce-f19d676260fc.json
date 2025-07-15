@@ -23,10 +23,19 @@
         "cId": "ADsgk"
       },
       {
-        "refId": "f07f2c9e-2fa9-410a-ad62-c91af16585f9",
-        "label": "Chart: Distribution plot",
-        "isMaster": true,
-        "cId": "mnSPft"
+        "refId": "8064ee58-47e8-4d9e-95f6-42f66f3a40cd",
+        "label": "Combo chart",
+        "isMaster": true
+      },
+      {
+        "refId": "06a7f814-a6e6-4d11-804c-ae05109031b6",
+        "label": "Distribution plot",
+        "isMaster": true
+      },
+      {
+        "refId": "cdad8bf4-489e-4cf5-ad26-d5191aa35a5c",
+        "label": "Gauge",
+        "isMaster": true
       }
     ],
     "showTitles": true,
@@ -41,7 +50,7 @@
     "useDropdown": true,
     "useScrollButton": true,
     "showIcons": false,
-    "activeTab": "",
+    "activeTab": "b12eacf5-9a9e-467b-a71c-c6eb66734637",
     "defaultTab": "",
     "visualization": "container",
     "qChildListDef": {
@@ -85,12 +94,36 @@
     {
       "qProperty": {
         "qInfo": {
-          "qId": "d8b9eec3-1cc1-4e4f-a99e-e806bf999130",
+          "qId": "49ed1146-14f5-4a3c-8b38-f241af8c72fd",
+          "qType": "combochart"
+        },
+        "qExtendsId": "8064ee58-47e8-4d9e-95f6-42f66f3a40cd",
+        "qMetaDef": {},
+        "visualization": "combochart"
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "d71da133-8e79-4dc0-bc1b-34425791a69b",
           "qType": "distributionplot"
         },
-        "qExtendsId": "f07f2c9e-2fa9-410a-ad62-c91af16585f9",
+        "qExtendsId": "06a7f814-a6e6-4d11-804c-ae05109031b6",
         "qMetaDef": {},
         "visualization": "distributionplot"
+      },
+      "qChildren": []
+    },
+    {
+      "qProperty": {
+        "qInfo": {
+          "qId": "9f30c79b-602b-433b-9499-75bb8b8f6592",
+          "qType": "gauge"
+        },
+        "qExtendsId": "cdad8bf4-489e-4cf5-ad26-d5191aa35a5c",
+        "qMetaDef": {},
+        "visualization": "gauge"
       },
       "qChildren": []
     }
