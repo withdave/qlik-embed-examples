@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>analytics/chart on-the-fly via qlik/embed-web-components</title>
+    <link rel="stylesheet" href="index.css" />
+    <script crossorigin="anonymous" type="application/javascript"
+        src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
+        data-host="https://oem.se.qlikcloud.com" data-client-id="677060b492ecad272978a75e3c6d81de"
+        data-access-code="7ef760bf-af6f-4de9-9d28-653734315505.7EMUe94X8FlqVbVdPcAbj0pJPL9wWEZK2p-A7vS1lB0"
+        data-auth-type="anonymous"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>analytics/chart on-the-fly via qlik/embed-web-components</h1>
+            <p><a href="./" aria-label="Back to catalog">&lt; back to catalog</a></p>
+        </div>
+        <div class="qlik-selections-container" style="width: 80vw; margin-bottom: 1rem;">
+            <qlik-embed id="selectionsEmbed" data-testid="selections" ui="analytics/selections"
+                app-id="c6957a84-0452-4544-a28f-640ab5511e6b" style="width: 100%; height: 100%;"></qlik-embed>
+        </div>
+
+        <div class="qlik-container" style="width: 80vw; height: 70vh; overflow: scroll;">
+            <qlik-embed ui="analytics/chart" app-id="c6957a84-0452-4544-a28f-640ab5511e6b" type="barchart"
+                title="Alpha Count" dimensions="[&quot;Dim1&quot;]" measures="[&quot;Sum(Expression1)&quot;,&quot;Sum(Expression2)&quot;]"
+                properties="{&quot;legend&quot;:{&quot;show&quot;:false},&quot;title&quot;:&quot;Alpha Count&quot;,&quot;orientation&quot;: &quot;horizontal&quot;,&quot;footnote&quot;:&quot;This is just a footnote&quot;,&quot;barGrouping&quot;:{&quot;mode&quot;:&quot;stacked&quot;},&quot;colors&quot;:{&quot;mode&quot;:&quot;byMeasure&quot;}}"
+                state-name="my_new_state" style="height: 400px; width: 600px;">
+            </qlik-embed>
+        </div>
+    </div>
+</body>
+
+</html>
