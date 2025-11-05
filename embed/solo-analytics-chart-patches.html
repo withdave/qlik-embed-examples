@@ -130,7 +130,6 @@
         let doc = null;
         let objectId = null;
         let objectHandle = null;
-        let originalProperties = {};
 
         // Main function to initialize chart
         async function initializeChart() {
@@ -205,9 +204,6 @@
                 // Clear soft patches
                 await objectHandle.clearSoftPatches();
                 
-                // Reset originalProperties to empty so patches will be applied for any changed values
-                originalProperties = {};
-                
                 console.log('✓ Soft patches cleared');
                 
                 // Re-enable button
@@ -250,19 +246,6 @@
 
                 // Apply patches
                 await objectHandle.applyPatches(patches, true);
-                
-                // Update originalProperties after successful patch application
-                Object.entries(propertyValues).forEach(([propertyName, value]) => {
-                    // Handle boolean and string properties separately
-                    const isBoolean = typeof value === 'boolean';
-                    const isEmpty = isBoolean ? false : (value === '');
-                    
-                    if (!isEmpty) {
-                        originalProperties[propertyName] = value;
-                    } else {
-                        delete originalProperties[propertyName];
-                    }
-                });
                 
                 console.log(`✓ Applied ${patches.length} patch(es)`);
                 

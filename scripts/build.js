@@ -74,7 +74,7 @@ function copyDirectory(src, dest) {
 /**
  * Main build function
  */
-async function build() {
+function build() {
   console.log('Starting build process...');
   
   // Check if embed directory exists
