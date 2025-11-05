@@ -1,30 +1,48 @@
 const express = require('express');
 const path = require('path');
+const { build } = require('./scripts/build');
 
-const embedDir = path.join(__dirname, 'embed');
+const buildDir = path.join(__dirname, 'build');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from the embed directory
-app.use(express.static(embedDir));
+// Run build process on startup
+async function startServer() {
+  console.log('Running build process...');
+  try {
+    await build();
+    console.log('Build completed successfully');
+  } catch (error) {
+    console.error('Build failed:', error.message);
+    process.exit(1);
+  }
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Qlik Sense Charts development server is running' });
-});
+  // Configure middleware after build completes to ensure build directory exists
+  // Serve static files from the build directory
+  app.use(express.static(buildDir));
 
-// 404 handler for undefined routes
-app.use((req, res) => {
-  res.status(404).send('Not Found');
-});
+  // Health check endpoint
+  app.get('/health', (req, res) => {
+    res.json({ status: 'ok', message: 'Qlik Sense Charts development server is running' });
+  });
 
-// Error-handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Internal Server Error');
-});
+  // 404 handler for undefined routes
+  app.use((req, res) => {
+    res.status(404).send('Not Found');
+  });
+
+  // Error-handling middleware
+  app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
+  });
+
+  // Start the server after build and middleware setup completes
+  app.listen(PORT, () => {
+    console.log(`Serving files from: ${buildDir}`);
+    console.log(`Main app: http://localhost:${PORT}`);
+  });
+}
+
 // Start the server
-app.listen(PORT, () => {
-  console.log(`🚀 Development server running at http://localhost:${PORT}`);
-  console.log(`📁 Serving files from: ${path.join(__dirname, 'embed')}`);
-});
+startServer();

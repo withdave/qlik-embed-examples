@@ -137,3 +137,6 @@ dist
 
 # Playwright
 test-results/*
+
+# Build output
+build/
