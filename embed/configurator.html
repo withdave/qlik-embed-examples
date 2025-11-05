@@ -337,7 +337,7 @@
                         obj.qType && !excludedTypes.includes(obj.qType)
                     );
                     
-                    // Load all objects in parallel
+                    // Create promises for loading all objects
                     const objectPromises = filteredObjects.map(async (obj) => {
                         try {
                             const objectHandle = await this.doc.getObject(obj.qId);
