@@ -121,12 +121,12 @@ The project includes a build system that automatically replaces Qlik placeholder
    npm install
    ```
 
-2. Set up your Qlik environment variables (optional for local development):
+2. Set up your Qlik environment variables using a `.env` file:
    ```bash
-   export QLIK_HOST="your-tenant.qlikcloud.com"
-   export QLIK_CLIENT_ID="your-client-id"
-   export QLIK_ACCESS_CODE="your-access-code"
-   export QLIK_APP_ID="your-app-id"
+   # Copy the template file
+   cp .env.template .env
+   
+   # Edit .env with your actual Qlik Cloud values
    ```
 
 3. Start the development server:
