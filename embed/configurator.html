@@ -364,7 +364,7 @@
                     // Wait for all objects to load in parallel
                     const objectResults = await Promise.all(objectPromises);
                     
-                    // Filter out null results and build objects map
+                    // Filter out null results
                     const validObjects = objectResults.filter(obj => obj !== null);
                     
                     // Sort objects
@@ -444,7 +444,7 @@
                             element.addEventListener(eventType, (e) => {
                                 let value = propertyDef.type === 'boolean' ? e.target.checked : e.target.value;
                                 
-                                // FIXED BUG: Proper iframe boolean handling
+                                // Convert iframe string values to boolean
                                 if (propertyName === 'iframe') {
                                     value = value === 'true' || value === true;
                                 }
@@ -452,7 +452,7 @@
                                 // For dropdowns, if value is blank, always delete the property, remove border, and log
                                 if (propertyDef.type === 'dropdown' && value === '') {
                                     delete chartConfigs[side].properties[propertyName];
-                                    element.style.border = '';
+                                    element.classList.remove('border-red-500');
                                     console.log(`Deleted property ${propertyName} from chartConfigs[${side}].properties`);
                                     this.updateChart(side);
                                     this.validatePropertySupport(side);
@@ -629,7 +629,7 @@
                     
                     codeTooltip.innerHTML = `<div class='font-semibold mb-2 text-white text-sm'>This chart is rendered with this snippet. Click the clipboard to copy:</div><div><pre class="text-xs">${utils.escapeHtml(code)}</pre></div>`;
                 } else {
-                    // If not enough info, clear the code (leave the help message in place)
+                    // If not enough info, clear the code
                     codeTooltip.innerHTML = "";
                 }
             }
