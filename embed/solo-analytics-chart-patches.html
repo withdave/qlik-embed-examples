@@ -82,9 +82,27 @@
 
         <!-- Controls for patching -->
         <div class="controls-box">
+            <div class="control-group" style="margin-bottom: 1rem;">
+                <label class="control-label" for="showTitles">Show Titles:</label>
+                <input type="checkbox" id="showTitles" class="control-input" checked style="width: auto; flex: none;">
+            </div>
+            <div class="control-group" style="margin-bottom: 1rem;">
+                <label class="control-label" for="showDetails">Show Details:</label>
+                <input type="checkbox" id="showDetails" class="control-input" checked style="width: auto; flex: none;">
+            </div>
+            <div class="control-group" style="margin-bottom: 1rem;">
+                <label class="control-label" for="chartTitle">Title:</label>
+                <input type="text" id="chartTitle" class="control-input" value="My new title">
+            </div>
+            <div class="control-group" style="margin-bottom: 1rem;">
+                <label class="control-label" for="subtitle">Subtitle:</label>
+                <input type="text" id="subtitle" class="control-input" value="My new subtitle">
+            </div>
+            <div class="control-group" style="margin-bottom: 1rem;">
+                <label class="control-label" for="footnote">Footnote:</label>
+                <input type="text" id="footnote" class="control-input" value="My new footnote">
+            </div>
             <div class="control-group">
-                <label class="control-label" for="chartTitle">Chart Title:</label>
-                <input type="text" id="chartTitle" class="control-input" value="Hello, world." placeholder="Hello, world.">
                 <button id="applyButton" class="apply-button" disabled>Apply Patch</button>
                 <button id="clearButton" class="clear-button" disabled>Clear Soft Patches</button>
             </div>
@@ -112,7 +130,7 @@
         let doc = null;
         let objectId = null;
         let objectHandle = null;
-        let originalTitle = null;
+        let originalProperties = {};
 
         // Main function to initialize chart
         async function initializeChart() {
@@ -160,15 +178,7 @@
                 // Get object handle for patching
                 objectHandle = await doc.getObject(objectId);
                 
-                // Get current properties to read the original title
-                const properties = await objectHandle.getProperties();
-                originalTitle = properties.qMetaDef?.title || properties.title || 'Hello, world.';
-                
-                // Update the input field with the chart's default title
-                const titleInput = document.getElementById('chartTitle');
-                titleInput.value = originalTitle;
-                
-                console.log(`Chart loaded successfully! Original title: "${originalTitle}"`);
+                console.log(`Chart loaded successfully!`);
                 
                 // Enable the apply and clear buttons
                 document.getElementById('applyButton').disabled = false;
@@ -195,12 +205,8 @@
                 // Clear soft patches
                 await objectHandle.clearSoftPatches();
                 
-                // Reset the input field to the original title
-                const titleInput = document.getElementById('chartTitle');
-                const properties = await objectHandle.getProperties();
-                const currentTitle = properties.qMetaDef?.title || properties.title || 'Hello, world.';
-                titleInput.value = currentTitle;
-                originalTitle = currentTitle;
+                // Reset originalProperties to empty so patches will be applied for any changed values
+                originalProperties = {};
                 
                 console.log('✓ Soft patches cleared');
                 
@@ -213,55 +219,73 @@
             }
         }
 
-        // Function to apply title patch
-        async function applyTitlePatch() {
+        // Function to apply patches for all properties
+        async function applyPatches() {
             try {
-                const newTitle = document.getElementById('chartTitle').value.trim();
-                
-                if (!newTitle) {
-                    console.warn('Please enter a title');
+                if (!objectHandle) {
+                    console.warn('Object handle not available');
                     return;
                 }
 
-                console.log(`Applying patch to update title to: "${newTitle}"`);
+                // Get all values from input fields
+                const propertyValues = {
+                    showTitles: document.getElementById('showTitles').checked,
+                    showDetails: document.getElementById('showDetails').checked,
+                    title: document.getElementById('chartTitle').value.trim(),
+                    subtitle: document.getElementById('subtitle').value.trim(),
+                    footnote: document.getElementById('footnote').value.trim()
+                };
+
+                console.log('Applying patches for all properties...');
                 
                 // Disable button while applying
                 document.getElementById('applyButton').disabled = true;
                 
-                // Create patch to update title
-                const patches = [
-                    {
-                        qOp: 'replace',
-                        qPath: '/title',
-                        qValue: JSON.stringify(newTitle)
-                    }
-                ];
+                // Create patches array with all property values
+                const patches = Object.entries(propertyValues).map(([propertyName, value]) => ({
+                    qOp: 'replace',
+                    qPath: `/${propertyName}`,
+                    qValue: JSON.stringify(value)
+                }));
 
-                // Apply the patch
+                // Apply patches
                 await objectHandle.applyPatches(patches, true);
                 
-                // Update originalTitle to reflect the new state
-                originalTitle = newTitle;
+                // Update originalProperties after successful patch application
+                Object.entries(propertyValues).forEach(([propertyName, value]) => {
+                    const isEmpty = value === false || value === '';
+                    if (!isEmpty) {
+                        originalProperties[propertyName] = value;
+                    } else {
+                        delete originalProperties[propertyName];
+                    }
+                });
                 
-                console.log(`✓ Title updated to: "${newTitle}"`);
+                console.log(`✓ Applied ${patches.length} patch(es)`);
                 
                 // Re-enable button
                 document.getElementById('applyButton').disabled = false;
 
             } catch (error) {
-                console.error('Error applying patch:', error);
+                console.error('Error applying patches:', error);
                 document.getElementById('applyButton').disabled = false;
             }
         }
 
         // Setup event listeners
-        document.getElementById('applyButton').addEventListener('click', applyTitlePatch);
+        document.getElementById('applyButton').addEventListener('click', applyPatches);
         document.getElementById('clearButton').addEventListener('click', clearSoftPatches);
         
-        // Allow Enter key to apply
-        document.getElementById('chartTitle').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !document.getElementById('applyButton').disabled) {
-                applyTitlePatch();
+        // Allow Enter key to apply from any input field
+        const inputFields = ['chartTitle', 'subtitle', 'footnote'];
+        inputFields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' && !document.getElementById('applyButton').disabled) {
+                        applyPatches();
+                    }
+                });
             }
         });
 
