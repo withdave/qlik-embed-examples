@@ -113,30 +113,44 @@ There are two workflows for working with Qlik Sense apps in this repository:
 
 ## Local Development
 
-### Option 1: Direct File Access
-You can preview the embed app locally by opening `embed/index.html` in your browser, but you must manually replace the `{{qlikHost}}`, `{{qlikClientId}}`, `{{qlikAccessCode}}`, and `{{qlikAppId}}` placeholders with your actual values.
-
-### Option 2: Local Development Server (Recommended)
-For a better development experience, use the included Node.js development server:
+### Development Server (Recommended)
+The project includes a build system that automatically replaces Qlik placeholders with environment variables, just like the GitHub workflow.
 
 1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the development server:
+2. Set up your Qlik environment variables (optional for local development):
    ```bash
-   npm run dev
-   # or
-   node server.js
+   export QLIK_HOST="your-tenant.qlikcloud.com"
+   export QLIK_CLIENT_ID="your-client-id"
+   export QLIK_ACCESS_CODE="your-access-code"
+   export QLIK_APP_ID="your-app-id"
    ```
 
-3. Open your browser and navigate to:
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+4. Open your browser and navigate to:
    - Main app: http://localhost:3000
 
-The server will serve all files from the `embed/` directory and provide helpful console output with available routes and placeholder information.
+The server will automatically:
+- Run the build process to replace Qlik placeholders
+- Serve files from the `build/` directory
+- Use fallback values if environment variables aren't set
 
-**Note:** You'll still need to manually replace the Qlik placeholders in the HTML files with your actual values for the charts to render properly.
+### Build Process
+The build system:
+- Copies all files from `embed/` to `build/`
+- Replaces `{{qlikHost}}`, `{{qlikClientId}}`, `{{qlikAccessCode}}`, and `{{qlikAppId}}` placeholders
+- Uses environment variables if available, otherwise falls back to placeholder values
+- Can be run independently with `npm run build`
+
+### Manual File Access (Not Recommended)
+You can still open `embed/index.html` directly in your browser, but you'll need to manually replace the Qlik placeholders for the charts to render properly.
 
 ---
 

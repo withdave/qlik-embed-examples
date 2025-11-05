@@ -1,12 +1,23 @@
 const express = require('express');
 const path = require('path');
+const { build } = require('./scripts/build');
 
-const embedDir = path.join(__dirname, 'embed');
+const buildDir = path.join(__dirname, 'build');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from the embed directory
-app.use(express.static(embedDir));
+// Run build process on startup
+console.log('Running build process...');
+try {
+  build();
+  console.log('Build completed successfully');
+} catch (error) {
+  console.error('Build failed:', error.message);
+  process.exit(1);
+}
+
+// Serve static files from the build directory
+app.use(express.static(buildDir));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -25,6 +36,6 @@ app.use((err, req, res, next) => {
 });
 // Start the server
 app.listen(PORT, () => {
-  console.log(`🚀 Development server running at http://localhost:${PORT}`);
-  console.log(`📁 Serving files from: ${path.join(__dirname, 'embed')}`);
+  console.log(`Serving files from: ${buildDir}`);
+  console.log(`Main app: http://localhost:${PORT}`);
 });

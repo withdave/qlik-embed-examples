@@ -6,324 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>qlik-embed chart configurator</title>
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script crossorigin="anonymous" type="application/javascript"
         src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
         data-host="https://{{qlikHost}}" data-client-id="{{qlikClientId}}" data-access-code="{{qlikAccessCode}}"
         data-auth-type="anonymous"></script>
     <style>
-        *, *:before, *:after {
-            box-sizing: border-box;
-        }
-
-        .main-container {
-            padding: 0;
-            margin: 0;
-        }
-
-        .dual-chart-container,
-        .selections-container {
-            width: 95vw;
-            margin: 0 auto 1rem auto;
-        }
-
-        .dual-chart-container {
-            display: flex;
-            gap: 1rem;
-            border: none;
-        }
-
-        .selections-container {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .chart-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .chart-controls {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 0.5rem;
-            padding-right: 2.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .control-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .control-group label {
-            min-width: 120px;
-            text-align: right;
-            margin-right: 0.5rem;
-            margin-bottom: 0;
-            font-size: 0.85rem;
-        }
-
-        .control-group select,
-        .control-group input[type="text"] {
-            flex: 1;
-            margin-left: 0;
-        }
-
-        .control-group input[type="checkbox"] {
-            margin-left: 0;
-            margin-right: 0.5rem;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-left: 120px;
-        }
-
-        .control-group:last-child {
-            margin-bottom: 0;
-        }
-
-        .chart-display {
-            flex: 1;
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            min-height: 600px;
-            box-shadow: none;
-        }
-
-        .chart-display qlik-embed {
+        /* Custom styles for qlik-embed components */
+        qlik-embed {
             width: 100%;
             height: 100%;
             display: block;
-        }
-
-        .code-copy-container {
-            position: absolute;
-            bottom: 0.5rem;
-            top: auto;
-            right: 0.5rem;
-            display: flex;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .copy-icon {
-            cursor: pointer;
-            font-size: 1.2rem;
-            margin-left: 0.5rem;
-            color: #888;
-            transition: color 0.2s;
-            border: none;
-            background: none;
-            padding: 0.25rem;
-            border-radius: 4px;
-        }
-
-        .copy-icon:hover {
-            color: #222;
-            background: rgba(0,0,0,0.1);
-        }
-
-        .copy-icon:focus {
-            outline: 2px solid #0066cc;
-            outline-offset: 2px;
-        }
-
-        .code-tooltip {
-            display: none;
-            position: absolute;
-            bottom: 2.2rem;
-            top: auto;
-            right: 0;
-            background: #222;
-            color: #fff;
-            padding: 0.75rem;
-            border-radius: 6px;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.8rem;
-            min-width: 320px;
-            min-height: 0;
-            max-width: none;
-            max-height: none;
-            overflow-x: auto;
-            overflow-y: auto;
-            z-index: 1000;
-            white-space: pre-wrap;
-            box-sizing: border-box;
-        }
-
-        .code-tooltip-header {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.95em;
-            color: #fff;
-        }
-
-        .code-copy-container:hover .code-tooltip,
-        .code-copy-container:focus-within .code-tooltip {
-            display: block;
-        }
-
-        .code-tooltip.copied {
-            background: #28a745;
-            color: #fff;
-        }
-
-        .loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: #666;
-            font-style: italic;
-        }
-
-        .error {
-            color: #dc3545;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .help-link {
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-        }
-
-        .help-link:hover {
-            text-decoration: underline;
-        }
-
-        .help-link:focus {
-            outline: 2px solid #0066cc;
-            outline-offset: 2px;
-        }
-
-        .property-info {
-            font-size: 0.75rem;
-            color: #666;
-            margin-top: 0.25rem;
-            font-style: italic;
-        }
-
-        .ui-help-section {
-            margin-top: 1rem;
-            padding: 0.75rem;
-            background: #f0f8ff;
-            border-radius: 4px;
-            border-left: 3px solid #0066cc;
-        }
-
-        .ui-help-section h4 {
-            margin: 0 0 0.5rem 0;
-            color: #0066cc;
-            font-size: 0.9rem;
-        }
-
-        .ui-help-section p {
-            margin: 0;
-            font-size: 0.8rem;
-            color: #555;
-        }
-
-        .help-message {
-            color: #fff;
-            font-size: 0.95em;
-            padding: 0.5rem 0 0 0;
-            line-height: 1.5;
-        }
-
-        .unsupported-note {
-            color: #b00;
-            font-size: 0.95em;
-            margin-top: 0.5rem;
-            padding: 0.5rem;
-            background: #fff3f3;
-            border-radius: 4px;
-            border-left: 3px solid #b00;
-        }
-
-        @media (max-width: 1200px) {
-            .dual-chart-container {
-                flex-direction: column;
-                height: auto;
-                gap: 0.5rem;
-            }
-            
-            .chart-section {
-                height: 50vh;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .dual-chart-container {
-                width: 95vw;
-                gap: 0.5rem;
-            }
-            
-            .selections-container {
-                width: 95vw;
-            }
-            
-            .chart-controls {
-                padding: 0.25rem;
-            }
-            
-            .chart-section {
-                height: 40vh;
-            }
-        }
-
-        /* Accessibility improvements */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Focus styles for better accessibility */
-        select:focus,
-        input:focus {
-            outline: 2px solid #0066cc;
-            outline-offset: 2px;
         }
     </style>
 </head>
 
 <body>
-    <div class="main-container">
-        <header class="header">
-            <h1>qlik-embed chart configurator</h1>
-            <p><a href="./" aria-label="Back to catalog">&lt; back to catalog</a></p>
+    <div class="min-h-screen bg-gray-50 p-4">
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">qlik-embed chart configurator</h1>
+            <p><a href="./" class="text-blue-600 hover:text-blue-800 underline" aria-label="Back to catalog">&lt; back to catalog</a></p>
         </header>
         
         <!-- Selections object for refApi connection -->
-        <div class="selections-container">
+        <div class="w-full max-w-7xl mx-auto mb-4 bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
             <qlik-embed ui="analytics/selections" app-id="{{qlikAppId}}" style="width: 100%; height: 60px;"></qlik-embed>
         </div>
         
-        <main class="dual-chart-container" id="dual-chart-container">
+        <main class="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-4" id="dual-chart-container">
             <!-- Chart sections will be generated dynamically -->
         </main>
     </div>
@@ -482,30 +192,30 @@
 
             createChartSection(side) {
                 const section = document.createElement('div');
-                section.className = 'chart-section';
+                section.className = 'flex-1 flex flex-col gap-4';
                 
                 section.innerHTML = `
-                    <div class="chart-controls">
-                        <div class="code-copy-container">
-                            <button class="copy-icon" id="${side}CopyIcon" tabindex="0" title="Copy code" aria-label="Copy code snippet">
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm relative">
+                        <div class="absolute bottom-4 right-4 flex items-center z-10">
+                            <button class="copy-icon bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 p-2 rounded-md transition-colors cursor-pointer text-lg border-none" id="${side}CopyIcon" tabindex="0" title="Copy code" aria-label="Copy code snippet">
                                 📋
                             </button>
-                            <div class="code-tooltip" id="${side}CodeTooltip" role="tooltip">
-                                <div class='help-message'>Code example will be shown here once a UI and object have been selected.</div>
+                            <div class="code-tooltip absolute bottom-12 right-0 bg-gray-900 text-white p-3 rounded-md font-mono text-sm min-w-80 max-w-none overflow-auto z-50 whitespace-pre-wrap hidden" id="${side}CodeTooltip" role="tooltip">
+                                <div class='text-white text-sm p-2'>Code example will be shown here once a UI and object have been selected.</div>
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label for="${side}UI">UI Type:</label>
-                            <select id="${side}UI" aria-describedby="${side}UIHelp">
+                        <div class="flex items-center mb-3">
+                            <label for="${side}UI" class="w-32 text-right mr-2 text-sm font-medium text-gray-700">UI Type:</label>
+                            <select class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" id="${side}UI" aria-describedby="${side}UIHelp">
                                 ${APP_CONFIG.ui.uiTypes.map(ui => 
                                     `<option value="${ui.value}">${ui.label}</option>`
                                 ).join('')}
                             </select>
-                            <a href="${APP_CONFIG.ui.helpUrl}" target="_blank" class="help-link" id="${side}UIHelp">📖 UI Parameters</a>
+                            <a href="${APP_CONFIG.ui.helpUrl}" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm ml-2 underline" id="${side}UIHelp">📖 UI Parameters</a>
                         </div>
-                        <div class="control-group">
-                            <label for="${side}Object">Object:</label>
-                            <select id="${side}Object">
+                        <div class="flex items-center mb-3">
+                            <label for="${side}Object" class="w-32 text-right mr-2 text-sm font-medium text-gray-700">Object:</label>
+                            <select class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" id="${side}Object">
                                 <option value="">Loading objects...</option>
                             </select>
                         </div>
@@ -514,9 +224,9 @@
                             if (propertyDef.type === 'dropdown') {
                                 const label = propertyDef.label || utils.capitalizeFirst(propertyName);
                                 return `
-                                    <div class="control-group">
-                                        <label for="${elementId}">${label}:</label>
-                                        <select id="${elementId}">
+                                    <div class="flex items-center mb-3">
+                                        <label for="${elementId}" class="w-32 text-right mr-2 text-sm font-medium text-gray-700">${label}:</label>
+                                        <select class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" id="${elementId}">
                                             <option value=""></option>
                                             ${propertyDef.options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('')}
                                         </select>
@@ -524,36 +234,36 @@
                                 `;
                             } else if (propertyDef.type === 'boolean') {
                                 return `
-                                    <div class="control-group">
-                                        <div class="checkbox-group">
-                                            <input type="checkbox" id="${elementId}">
-                                            <label for="${elementId}">${utils.capitalizeFirst(propertyName)}</label>
+                                    <div class="flex items-center mb-3">
+                                        <div class="flex items-center gap-2 ml-32">
+                                            <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" id="${elementId}">
+                                            <label for="${elementId}" class="text-sm font-medium text-gray-700">${utils.capitalizeFirst(propertyName)}</label>
                                         </div>
                                     </div>
                                 `;
                             } else {
                                 return `
-                                    <div class="control-group">
-                                        <label for="${elementId}">${utils.capitalizeFirst(propertyName)}:</label>
-                                        <input type="text" id="${elementId}" placeholder="${propertyDef.description}">
+                                    <div class="flex items-center mb-3">
+                                        <label for="${elementId}" class="w-32 text-right mr-2 text-sm font-medium text-gray-700">${utils.capitalizeFirst(propertyName)}:</label>
+                                        <input type="text" class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" id="${elementId}" placeholder="${propertyDef.description}">
                                     </div>
                                 `;
                             }
                         }).join('')}
-                        <div class="control-group context-group">
+                        <div class="flex items-center mb-3 context-group">
                             ${contextOptions.map(opt => `
-                                <label for="${side}Context${utils.capitalizeFirst(opt.key)}">${opt.label}:</label>
-                                <select id="${side}Context${utils.capitalizeFirst(opt.key)}">
+                                <label for="${side}Context${utils.capitalizeFirst(opt.key)}" class="w-32 text-right mr-2 text-sm font-medium text-gray-700">${opt.label}:</label>
+                                <select class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" id="${side}Context${utils.capitalizeFirst(opt.key)}">
                                     <option value=""></option>
                                     ${opt.options.map(o => `<option value="${o.value}">${o.label}</option>`).join('')}
                                 </select>
                             `).join('')}
                         </div>
-                        <div class="unsupported-note" id="${side}UnsupportedNote" style="display:none;"></div>
+                        <div class="bg-red-50 border-l-4 border-red-400 text-red-700 p-3 text-sm hidden" id="${side}UnsupportedNote"></div>
                     </div>
                     
-                    <div class="chart-display">
-                        <div class="loading">Select an object to display chart</div>
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden relative min-h-96 shadow-sm">
+                        <div class="flex items-center justify-center h-full text-gray-500 italic">Select an object to display chart</div>
                     </div>
                 `;
                 
@@ -724,16 +434,25 @@
                             if (!codePre || !codePre.textContent) return;
                             
                             navigator.clipboard.writeText(codePre.textContent).then(() => {
-                                codeTooltip.classList.add('copied');
-                                codeTooltip.innerHTML = `<div class='code-tooltip-header'>Copied!</div>`;
+                                codeTooltip.classList.add('bg-green-600');
+                                codeTooltip.innerHTML = `<div class='font-semibold text-white text-sm'>Copied!</div>`;
                                 setTimeout(() => {
-                                    codeTooltip.classList.remove('copied');
+                                    codeTooltip.classList.remove('bg-green-600');
                                     this.updateCodeTooltip(side, chartConfigs[side]);
                                 }, 1000);
                             }).catch(err => {
                                 console.error('Failed to copy to clipboard:', err);
                                 utils.showError('Failed to copy to clipboard');
                             });
+                        });
+
+                        // Hover functionality for tooltip
+                        copyIcon.addEventListener('mouseenter', () => {
+                            codeTooltip.classList.remove('hidden');
+                        });
+                        
+                        copyIcon.addEventListener('mouseleave', () => {
+                            codeTooltip.classList.add('hidden');
                         });
                     }
 
@@ -812,15 +531,15 @@
 
             updateChart(side) {
                 const config = chartConfigs[side];
-                const chartDisplay = document.querySelector(`.chart-section:nth-child(${side === 'left' ? '1' : '2'}) .chart-display`);
+                const chartDisplay = document.querySelector(`.chart-section:nth-child(${side === 'left' ? '1' : '2'}) .bg-white.border.border-gray-200.rounded-lg`);
                 
                 if (!chartDisplay) return;
 
-                chartDisplay.innerHTML = '<div class="loading">Loading chart...</div>';
+                chartDisplay.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500 italic">Loading chart...</div>';
 
                 // Allow classic/app to render without an object selected
                 if (!config.objectId && config.ui !== 'classic/app') {
-                    chartDisplay.innerHTML = '<div class="loading">Select an object to display chart</div>';
+                    chartDisplay.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500 italic">Select an object to display chart</div>';
                     return;
                 }
 
@@ -870,7 +589,7 @@
                     });
                     code += `\n/>`;
                     
-                    codeTooltip.innerHTML = `<div class='code-tooltip-header'>This chart is rendered with this snippet. Click the clipboard to copy:</div><div><pre>${utils.escapeHtml(code)}</pre></div>`;
+                    codeTooltip.innerHTML = `<div class='font-semibold mb-2 text-white text-sm'>This chart is rendered with this snippet. Click the clipboard to copy:</div><div><pre class="text-xs">${utils.escapeHtml(code)}</pre></div>`;
                 } else {
                     // If not enough info, clear the code (leave the help message in place)
                     codeTooltip.innerHTML = "";
@@ -886,25 +605,25 @@
                     
                     // For dropdowns, check the actual element value
                     if (el && el.tagName === 'SELECT' && el.value === '') {
-                        el.style.border = '';
+                        el.classList.remove('border-red-500');
                         return;
                     }
                     // For checkboxes, check if not checked
                     if (el && el.type === 'checkbox' && !el.checked) {
-                        el.style.border = '';
+                        el.classList.remove('border-red-500');
                         return;
                     }
                     // For other types, check config property value
                     const value = config.properties[prop];
                     if (value === '' || value === undefined || value === null) {
-                        if (el) el.style.border = '';
+                        if (el) el.classList.remove('border-red-500');
                         return;
                     }
                     if (propertySupport[prop] && !propertySupport[prop].includes(config.ui)) {
                         unsupported.push(prop);
-                        if (el) el.style.border = '1.5px solid #b00';
+                        if (el) el.classList.add('border-red-500');
                     } else {
-                        if (el) el.style.border = '';
+                        if (el) el.classList.remove('border-red-500');
                     }
                 });
                 
@@ -913,15 +632,15 @@
                     contextOptions.forEach(opt => {
                         const el = document.getElementById(`${side}Context${utils.capitalizeFirst(opt.key)}`);
                         if (el && el.value === '') {
-                            el.style.border = '';
+                            el.classList.remove('border-red-500');
                             return;
                         }
-                        if (el) el.style.border = '1.5px solid #b00';
+                        if (el) el.classList.add('border-red-500');
                     });
                 } else {
                     contextOptions.forEach(opt => {
                         const el = document.getElementById(`${side}Context${utils.capitalizeFirst(opt.key)}`);
-                        if (el) el.style.border = '';
+                        if (el) el.classList.remove('border-red-500');
                     });
                 }
                 
@@ -929,10 +648,10 @@
                 const note = document.getElementById(`${side}UnsupportedNote`);
                 if (note) {
                     if (unsupported.length > 0 || (config.properties['context___json'] && !propertySupport['context___json'].includes(config.ui))) {
-                        note.style.display = 'block';
+                        note.classList.remove('hidden');
                         note.textContent = 'One or more properties are not supported in the selected UI type.';
                     } else {
-                        note.style.display = 'none';
+                        note.classList.add('hidden');
                     }
                 }
             }
