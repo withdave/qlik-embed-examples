@@ -253,7 +253,10 @@
                 
                 // Update originalProperties after successful patch application
                 Object.entries(propertyValues).forEach(([propertyName, value]) => {
-                    const isEmpty = value === false || value === '';
+                    // Handle boolean and string properties separately
+                    const isBoolean = typeof value === 'boolean';
+                    const isEmpty = isBoolean ? false : (value === '');
+                    
                     if (!isEmpty) {
                         originalProperties[propertyName] = value;
                     } else {

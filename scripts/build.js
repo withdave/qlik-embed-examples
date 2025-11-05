@@ -29,13 +29,6 @@ const QLIK_CONFIG = {
 };
 
 /**
- * Escape special characters for sed replacement
- */
-function escapeForSed(str) {
-  return str.replace(/[&/\\]/g, '\\$&');
-}
-
-/**
  * Replace placeholders in a file
  */
 function replacePlaceholders(filePath) {
@@ -81,7 +74,7 @@ function copyDirectory(src, dest) {
 /**
  * Main build function
  */
-function build() {
+async function build() {
   console.log('Starting build process...');
   
   // Check if embed directory exists

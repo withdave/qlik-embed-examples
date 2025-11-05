@@ -29,12 +29,19 @@
         </header>
         
         <!-- Selections object for refApi connection -->
-        <div class="w-full max-w-7xl mx-auto mb-4 bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+        <div class="w-full max-w-7xl mx-auto mb-4 bg-white border border-gray-200 rounded-lg p-4 shadow-sm selections-container">
             <qlik-embed ui="analytics/selections" app-id="{{qlikAppId}}" style="width: 100%; height: 60px;"></qlik-embed>
         </div>
         
         <main class="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-4" id="dual-chart-container">
             <!-- Chart sections will be generated dynamically -->
+            <!-- Loading indicator -->
+            <div id="loadingIndicator" class="w-full flex items-center justify-center py-20">
+                <div class="text-center">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+                    <p class="text-gray-700 text-lg font-medium">Loading objects from app...</p>
+                </div>
+            </div>
         </main>
     </div>
 
@@ -173,6 +180,11 @@
                     this.initialized = true;
                 } catch (error) {
                     console.error('Initialization error:', error);
+                    // Hide loading indicator on error
+                    const loadingIndicator = document.getElementById('loadingIndicator');
+                    if (loadingIndicator) {
+                        loadingIndicator.style.display = 'none';
+                    }
                     utils.showError('Failed to initialize. Please refresh the page.');
                 }
             }
@@ -182,7 +194,13 @@
                 if (!container) {
                     throw new Error('Container element not found');
                 }
+                
+                // Keep the loading indicator, remove everything else
+                const loadingIndicator = document.getElementById('loadingIndicator');
                 container.innerHTML = '';
+                if (loadingIndicator) {
+                    container.appendChild(loadingIndicator);
+                }
 
                 APP_CONFIG.ui.sides.forEach(side => {
                     const section = this.createChartSection(side);
@@ -192,10 +210,12 @@
 
             createChartSection(side) {
                 const section = document.createElement('div');
-                section.className = 'flex-1 flex flex-col gap-4';
+                section.className = 'flex-1 flex flex-col gap-4 chart-section';
+                section.setAttribute('data-side', side);
+                section.style.display = 'none'; // Hide until objects are loaded
                 
                 section.innerHTML = `
-                    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm relative">
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 pr-20 shadow-sm relative">
                         <div class="absolute bottom-4 right-4 flex items-center z-10">
                             <button class="copy-icon bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 p-2 rounded-md transition-colors cursor-pointer text-lg border-none" id="${side}CopyIcon" tabindex="0" title="Copy code" aria-label="Copy code snippet">
                                 📋
@@ -262,7 +282,7 @@
                         <div class="bg-red-50 border-l-4 border-red-400 text-red-700 p-3 text-sm hidden" id="${side}UnsupportedNote"></div>
                     </div>
                     
-                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden relative min-h-96 shadow-sm">
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden relative min-h-96 shadow-sm chart-display" data-side="${side}">
                         <div class="flex items-center justify-center h-full text-gray-500 italic">Select an object to display chart</div>
                     </div>
                 `;
@@ -317,9 +337,8 @@
                         obj.qType && !excludedTypes.includes(obj.qType)
                     );
                     
-                    this.appObjects = {};
-                    
-                    for (const obj of filteredObjects) {
+                    // Load all objects in parallel
+                    const objectPromises = filteredObjects.map(async (obj) => {
                         try {
                             const objectHandle = await this.doc.getObject(obj.qId);
                             const objectDef = await objectHandle.getLayout();
@@ -333,16 +352,23 @@
                             };
                             
                             if (objectEntry.isSheet || objectEntry.isVisualization) {
-                                this.appObjects[obj.qId] = objectEntry;
+                                return objectEntry;
                             }
-                            
+                            return null;
                         } catch (error) {
                             console.warn(`Failed to get layout for object ${obj.qId}:`, error);
+                            return null;
                         }
-                    }
+                    });
+                    
+                    // Wait for all objects to load in parallel
+                    const objectResults = await Promise.all(objectPromises);
+                    
+                    // Filter out null results and build objects map
+                    const validObjects = objectResults.filter(obj => obj !== null);
                     
                     // Sort objects
-                    const sortedObjects = Object.values(this.appObjects)
+                    const sortedObjects = validObjects
                         .sort((a, b) => {
                             if (a.type !== b.type) {
                                 return a.type.localeCompare(b.type);
@@ -376,7 +402,19 @@
                         option.title = obj.title;
                         select.appendChild(option);
                     });
+                    
+                    // Show the section after objects are loaded
+                    const section = document.querySelector(`.chart-section[data-side="${side}"]`);
+                    if (section) {
+                        section.style.display = '';
+                    }
                 });
+                
+                // Hide loading indicator after all sections are shown
+                const loadingIndicator = document.getElementById('loadingIndicator');
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
             }
 
             setupEventListeners() {
@@ -531,7 +569,7 @@
 
             updateChart(side) {
                 const config = chartConfigs[side];
-                const chartDisplay = document.querySelector(`.chart-section:nth-child(${side === 'left' ? '1' : '2'}) .bg-white.border.border-gray-200.rounded-lg`);
+                const chartDisplay = document.querySelector(`.chart-display[data-side="${side}"]`);
                 
                 if (!chartDisplay) return;
 

@@ -7,13 +7,21 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Run build process on startup
-console.log('Running build process...');
-try {
-  build();
-  console.log('Build completed successfully');
-} catch (error) {
-  console.error('Build failed:', error.message);
-  process.exit(1);
+async function startServer() {
+  console.log('Running build process...');
+  try {
+    await build();
+    console.log('Build completed successfully');
+  } catch (error) {
+    console.error('Build failed:', error.message);
+    process.exit(1);
+  }
+
+  // Start the server after build completes
+  app.listen(PORT, () => {
+    console.log(`Serving files from: ${buildDir}`);
+    console.log(`Main app: http://localhost:${PORT}`);
+  });
 }
 
 // Serve static files from the build directory
@@ -34,8 +42,6 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Internal Server Error');
 });
+
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Serving files from: ${buildDir}`);
-  console.log(`Main app: http://localhost:${PORT}`);
-});
+startServer();
