@@ -14,8 +14,8 @@ test('Visual regression - dual-classic-app', async ({ page }, testInfo) => {
   // Wait for the main header to appear
   const actualH1 = await page.locator('h1').textContent();
   await expect(page.locator('h1')).toHaveText('classic/chart via qlik/embed-web-components and qlik/api');
-  // Wait for the qlik-embed element to be present
-  await expect(page.locator('qlik-embed')).toBeVisible();
+  // Wait for the qlik-embed element to be present (first load establishes the engine session, so give it longer)
+  await expect(page.locator('qlik-embed')).toBeVisible({ timeout: 15_000 });
   // Access the iframe by its data-testid
   const iframe = await page.frameLocator('[data-testid="qlik-embed-iframe"]');
   // Check for the specific data-test-id within the iframe
