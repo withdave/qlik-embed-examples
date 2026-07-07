@@ -10,6 +10,65 @@
         src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
         data-host="https://{{qlikHost}}" data-client-id="{{qlikClientId}}" data-access-code="{{qlikAccessCode}}"
         data-auth-type="anonymous"></script>
+    <style>
+        .controls-box {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            width: 80vw;
+        }
+        .controls-box fieldset {
+            border: none;
+            margin: 0 0 1rem 0;
+            padding: 0;
+        }
+        .controls-box legend {
+            font-weight: 600;
+            color: #323130;
+            margin-bottom: 0.5rem;
+            padding: 0;
+        }
+        .controls-box label {
+            display: block;
+            margin-bottom: 0.4rem;
+            cursor: pointer;
+        }
+        .control-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 0.75rem;
+        }
+        .control-label {
+            font-weight: 600;
+            color: #323130;
+            min-width: 140px;
+        }
+        .control-input {
+            padding: 0.4rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .code-box {
+            width: 80vw;
+            margin-top: 1.5rem;
+        }
+        .code-box h3 {
+            margin-bottom: 0.5rem;
+        }
+        .code-box pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,19 +77,179 @@
             <h1>analytics/chart on-the-fly via qlik/embed-web-components</h1>
             <p><a href="./" aria-label="Back to catalog">&lt; back to catalog</a></p>
         </div>
+
+        <div class="controls-box">
+            <fieldset>
+                <legend>Dimension &amp; measure technique</legend>
+                <label>
+                    <input type="radio" name="technique" value="simple" checked>
+                    Simple attributes — field names and expression strings
+                </label>
+                <label>
+                    <input type="radio" name="technique" value="qdef">
+                    qDef array on the <code>dimensions</code> attribute — custom labels
+                </label>
+                <label>
+                    <input type="radio" name="technique" value="calculated">
+                    Calculated dimension — qDef array with an expression
+                </label>
+                <label>
+                    <input type="radio" name="technique" value="properties">
+                    Full <code>properties.qHyperCubeDef</code> override — plus chart styling
+                </label>
+            </fieldset>
+
+            <div class="control-group">
+                <label class="control-label" for="chartType">Chart type:</label>
+                <select id="chartType" class="control-input">
+                    <option value="barchart" selected>Bar chart</option>
+                    <option value="linechart">Line chart</option>
+                    <option value="piechart">Pie chart</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="altState">Alternate state:</label>
+                <input type="checkbox" id="altState" style="width: auto;">
+                <span>use <code>my_new_state</code> instead of the default state</span>
+            </div>
+        </div>
+
         <div class="qlik-selections-container" style="width: 80vw; margin-bottom: 1rem;">
             <qlik-embed id="selectionsEmbed" data-testid="selections" ui="analytics/selections"
                 app-id="{{qlikAppId}}" style="width: 100%; height: 100%;"></qlik-embed>
         </div>
 
         <div class="qlik-container" style="width: 80vw; height: 70vh; overflow: scroll;">
-            <qlik-embed ui="analytics/chart" app-id="{{qlikAppId}}" type="barchart"
-                title="Alpha Count" dimensions="[&quot;Dim1&quot;]" measures="[&quot;Sum(Expression1)&quot;,&quot;Sum(Expression2)&quot;]"
-                properties="{&quot;legend&quot;:{&quot;show&quot;:false},&quot;title&quot;:&quot;Alpha Count&quot;,&quot;orientation&quot;: &quot;horizontal&quot;,&quot;footnote&quot;:&quot;This is just a footnote&quot;,&quot;barGrouping&quot;:{&quot;mode&quot;:&quot;stacked&quot;},&quot;colors&quot;:{&quot;mode&quot;:&quot;byMeasure&quot;}}"
-                state-name="my_new_state" style="height: 400px; width: 600px;">
+            <qlik-embed id="chartEmbed" ui="analytics/chart" app-id="{{qlikAppId}}"
+                style="height: 400px; width: 600px;">
             </qlik-embed>
         </div>
+
+        <div class="code-box">
+            <h3>Attributes set for this technique</h3>
+            <pre id="codeDisplay"></pre>
+        </div>
     </div>
+
+    <script>
+        const embed = document.getElementById('chartEmbed');
+        const techniqueRadios = document.querySelectorAll('input[name="technique"]');
+        const chartTypeSelect = document.getElementById('chartType');
+        const altStateCheckbox = document.getElementById('altState');
+        const codeDisplay = document.getElementById('codeDisplay');
+
+        // Each technique is a self-contained way to define dimensions/measures for a
+        // charts-on-the-fly viz. Only one technique's attributes should be set at a time —
+        // 'properties.qHyperCubeDef' silently wins over the 'dimensions' attribute if both
+        // are present, so render() clears all three before applying the active one.
+        const TECHNIQUES = {
+            simple: {
+                apply(el) {
+                    el.setAttribute('dimensions', JSON.stringify(['[Dim2]']));
+                    el.setAttribute('measures', JSON.stringify(['Sum(Expression1)', 'Sum(Expression2)']));
+                },
+                code:
+`// Field names and expression strings. Fastest way to get a chart on screen,
+// but there's no way to set a custom dimension/measure label this way.
+embed.setAttribute('dimensions', JSON.stringify(['[Dim2]']));
+embed.setAttribute('measures', JSON.stringify(['Sum(Expression1)', 'Sum(Expression2)']));`,
+            },
+            qdef: {
+                apply(el) {
+                    const fields = [
+                        { qDef: { qFieldDefs: ['[Dim2]'], qFieldLabels: ['Category'] } },
+                        { qDef: { qLabel: 'Total Expression1', qDef: 'Sum(Expression1)' } },
+                        { qDef: { qLabel: 'Total Expression2', qDef: 'Sum(Expression2)' } },
+                    ];
+                    el.setAttribute('dimensions', JSON.stringify(fields));
+                },
+                code:
+`// Complete dimension + measure qDef objects in ONE ordered array — dimensions
+// first, then measures — all passed through the 'dimensions' attribute.
+// Do not also set 'measures' or 'properties.qHyperCubeDef' with this technique.
+const fields = [
+  { qDef: { qFieldDefs: ['[Dim2]'], qFieldLabels: ['Category'] } },
+  { qDef: { qLabel: 'Total Expression1', qDef: 'Sum(Expression1)' } },
+  { qDef: { qLabel: 'Total Expression2', qDef: 'Sum(Expression2)' } },
+];
+embed.setAttribute('dimensions', JSON.stringify(fields));`,
+            },
+            calculated: {
+                apply(el) {
+                    const fields = [
+                        { qDef: { qFieldDefs: ["=If(Len([Dim2])>3,'Long','Short')"], qFieldLabels: ['Name length'] } },
+                        { qDef: { qLabel: 'Total Expression1', qDef: 'Sum(Expression1)' } },
+                    ];
+                    el.setAttribute('dimensions', JSON.stringify(fields));
+                },
+                code:
+`// A calculated dimension groups by an expression instead of a raw field.
+// The expression lives in qFieldDefs, prefixed with '='.
+const fields = [
+  { qDef: { qFieldDefs: ["=If(Len([Dim2])>3,'Long','Short')"], qFieldLabels: ['Name length'] } },
+  { qDef: { qLabel: 'Total Expression1', qDef: 'Sum(Expression1)' } },
+];
+embed.setAttribute('dimensions', JSON.stringify(fields));`,
+            },
+            properties: {
+                apply(el) {
+                    el.setAttribute('measures', JSON.stringify(['Sum(Expression1)', 'Sum(Expression2)']));
+                    el.setAttribute('properties', JSON.stringify({
+                        legend: { show: false },
+                        title: 'Alpha Count',
+                        orientation: 'horizontal',
+                        footnote: 'This is just a footnote',
+                        barGrouping: { mode: 'stacked' },
+                        colors: { mode: 'byMeasure' },
+                        qHyperCubeDef: {
+                            qDimensions: [
+                                { qDef: { qFieldDefs: ['[Dim2]'], qLabel: 'Category' } },
+                            ],
+                        },
+                    }));
+                },
+                code:
+`// Drop to the raw hypercube plus full viz properties when a labeled dimension
+// needs to sit alongside chart-level styling (legend, colors, footnote, ...).
+// Leave the 'dimensions' attribute unset — 'properties.qHyperCubeDef' wins if both are set.
+embed.setAttribute('measures', JSON.stringify(['Sum(Expression1)', 'Sum(Expression2)']));
+embed.setAttribute('properties', JSON.stringify({
+  legend: { show: false },
+  title: 'Alpha Count',
+  orientation: 'horizontal',
+  footnote: 'This is just a footnote',
+  barGrouping: { mode: 'stacked' },
+  colors: { mode: 'byMeasure' },
+  qHyperCubeDef: {
+    qDimensions: [
+      { qDef: { qFieldDefs: ['[Dim2]'], qLabel: 'Category' } },
+    ],
+  },
+}));`,
+            },
+        };
+
+        function render() {
+            const key = document.querySelector('input[name="technique"]:checked').value;
+            const technique = TECHNIQUES[key];
+
+            ['dimensions', 'measures', 'properties'].forEach((attr) => embed.removeAttribute(attr));
+
+            embed.setAttribute('type', chartTypeSelect.value);
+            embed.setAttribute('state-name', altStateCheckbox.checked ? 'my_new_state' : '$');
+
+            technique.apply(embed);
+            codeDisplay.textContent = technique.code;
+        }
+
+        customElements.whenDefined('qlik-embed').then(() => {
+            render();
+            techniqueRadios.forEach((radio) => radio.addEventListener('change', render));
+            chartTypeSelect.addEventListener('change', render);
+            altStateCheckbox.addEventListener('change', render);
+        });
+    </script>
 </body>
 
 </html>
