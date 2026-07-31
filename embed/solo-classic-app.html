@@ -19,9 +19,25 @@
             <p><a href="./" aria-label="Back to catalog">&lt; back to catalog</a></p>
         </div>
         <div class="qlik-container">
-            <qlik-embed ui="classic/app" app-id="{{qlikAppId}}" />
+            <qlik-embed id="classicApp" ui="classic/app" app-id="{{qlikAppId}}" />
         </div>
     </div>
 </body>
+
+<script type="module">
+    const classicApp = document.getElementById('classicApp');
+
+    classicApp.addEventListener('qlik-embed:ready', () => {
+        console.log('qlik-embed:ready');
+    });
+
+    classicApp.addEventListener('qlik-embed:sheet-changed', (event) => {
+        console.log('qlik-embed:sheet-changed', event.detail);
+    });
+
+    classicApp.addEventListener('qlik-embed:sheet-ready', (event) => {
+        console.log('qlik-embed:sheet-ready', event.detail);
+    });
+</script>
 
 </html>

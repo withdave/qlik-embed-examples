@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>classic/chart via qlik/embed-web-components and qlik/api</title>
+  <title>classic/app via qlik/embed-web-components and qlik/api</title>
   <link rel="stylesheet" href="index.css">
   <script type="importmap">
   {
@@ -31,13 +31,29 @@
 <body>
   <div class="main-container">
     <div class="header">
-      <h1>classic/chart via qlik/embed-web-components and qlik/api</h1>
+      <h1>classic/app via qlik/embed-web-components and qlik/api</h1>
       <p><a href="./" aria-label="Back to catalog">&lt; back to catalog</a></p>
     </div>
     <div class="qlik-container">
-      <qlik-embed ui="classic/app" app-id="{{qlikAppId}}" host-config="anon" />
+      <qlik-embed id="classicApp" ui="classic/app" app-id="{{qlikAppId}}" sheet-id="7dd685d5-529e-41ea-bbd5-87b4c0dbbf9f" host-config="anon" />
     </div>
   </div>
 </body>
+
+<script type="module">
+  const classicApp = document.getElementById('classicApp');
+
+  classicApp.addEventListener('qlik-embed:ready', () => {
+    console.log('qlik-embed:ready');
+  });
+
+  classicApp.addEventListener('qlik-embed:sheet-changed', (event) => {
+    console.log('qlik-embed:sheet-changed', event.detail);
+  });
+
+  classicApp.addEventListener('qlik-embed:sheet-ready', (event) => {
+    console.log('qlik-embed:sheet-ready', event.detail);
+  });
+</script>
 
 </html>
