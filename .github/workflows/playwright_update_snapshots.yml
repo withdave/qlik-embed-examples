@@ -6,6 +6,10 @@ on:
 jobs:
   update-snapshots:
     runs-on: ubuntu-latest
+    # Browsers ship pre-installed in this image, matching the pinned playwright
+    # version in package.json/package-lock.json — keep both in sync when bumping.
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.1-noble
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -13,16 +17,23 @@ jobs:
       - name: Ensure visual.spec.ts-snapshots directory exists
         run: mkdir -p tests/visual.spec.ts-snapshots
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: latest
-
       - name: Install dependencies
-        run: npm install --no-save @playwright/test playwright
+        run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install chromium firefox webkit --with-deps
+      - name: Start app server
+        env:
+          QLIK_HOST: ${{ vars.QLIK_HOST }}
+          QLIK_CLIENT_ID: ${{ vars.QLIK_CLIENT_ID }}
+          QLIK_ACCESS_CODE: ${{ vars.QLIK_ACCESS_CODE }}
+          QLIK_APP_ID: ${{ vars.QLIK_APP_ID }}
+        run: |
+          npm start &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000 > /dev/null && exit 0
+            sleep 1
+          done
+          echo "::error::Server did not become ready in time"
+          exit 1
 
       - name: Run Playwright tests in all browsers
         run: npx playwright test --project=chromium --project=firefox --project=webkit --update-snapshots
