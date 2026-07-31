@@ -40,6 +40,11 @@ jobs:
 
       - name: Commit and force push changes to update-snapshots branch
         run: |
+          # actions/checkout only marks the workspace as a safe.directory in its own
+          # temporary $HOME; the runner mounts it into this container owned by a
+          # different UID, so git commands in later steps need to set this themselves.
+          # See https://github.com/actions/checkout/issues/766
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git fetch origin update-snapshots || true
