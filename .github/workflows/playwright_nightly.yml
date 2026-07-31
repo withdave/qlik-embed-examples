@@ -11,7 +11,7 @@ jobs:
     # Browsers ship pre-installed in this image, matching the pinned playwright
     # version in package.json/package-lock.json — keep both in sync when bumping.
     container:
-      image: mcr.microsoft.com/playwright:v1.53.2-noble
+      image: mcr.microsoft.com/playwright:v1.61.1-noble
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
