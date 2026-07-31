@@ -249,6 +249,16 @@ embed.setAttribute('properties', JSON.stringify({
             chartTypeSelect.addEventListener('change', render);
             altStateCheckbox.addEventListener('change', render);
         });
+
+        const selectionsEmbed = document.getElementById('selectionsEmbed');
+
+        selectionsEmbed.addEventListener('qlik-embed:ready', () => {
+            console.log('qlik-embed:ready (selections)');
+        });
+
+        embed.addEventListener('qlik-embed:ready', () => {
+            console.log('qlik-embed:ready (chart)');
+        });
     </script>
 </body>
 

@@ -281,6 +281,14 @@
         } else {
             initializeChart();
         }
+
+        document.getElementById('selectionsEmbed').addEventListener('qlik-embed:ready', () => {
+            console.log('qlik-embed:ready (selections)');
+        });
+
+        document.getElementById('chart').addEventListener('qlik-embed:ready', () => {
+            console.log('qlik-embed:ready (chart)');
+        });
     </script>
 </body>
 

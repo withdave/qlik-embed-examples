@@ -75,6 +75,10 @@ async function init() {
         const selOption = dd.options[dd.selectedIndex];
         renderSheetEmbed(selOption.value);
     });
+
+    selectionsEmbed.addEventListener('qlik-embed:ready', () => {
+        console.log('qlik-embed:ready (selections)');
+    });
 }
 
 function renderSheetEmbed(sheetId) {
@@ -88,6 +92,9 @@ function renderSheetEmbed(sheetId) {
     embed.setAttribute('app-id', '{{qlikAppId}}');
     embed.setAttribute('sheet-id', sheetId);
     embed.setAttribute('data-testid', 'sheetEmbed');
+    embed.addEventListener('qlik-embed:ready', () => {
+        console.log('qlik-embed:ready (sheet)', sheetId);
+    });
     container.appendChild(embed);
 }
 
