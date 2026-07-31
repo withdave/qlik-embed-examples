@@ -121,9 +121,9 @@
         </div>
 
         <div class="qlik-container" style="width: 80vw; height: 70vh; overflow: scroll;">
-            <qlik-embed id="chartEmbed" ui="analytics/chart" app-id="{{qlikAppId}}"
-                style="height: 400px; width: 600px;">
-            </qlik-embed>
+            <div id="chartEmbedContainer" style="height: 100%; width: 100%;">
+                <!-- chart embed is fully recreated here on every technique/type/state change -->
+            </div>
         </div>
 
         <div class="code-box">
@@ -133,7 +133,7 @@
     </div>
 
     <script>
-        const embed = document.getElementById('chartEmbed');
+        const chartEmbedContainer = document.getElementById('chartEmbedContainer');
         const techniqueRadios = document.querySelectorAll('input[name="technique"]');
         const chartTypeSelect = document.getElementById('chartType');
         const altStateCheckbox = document.getElementById('altState');
@@ -142,7 +142,8 @@
         // Each technique is a self-contained way to define dimensions/measures for a
         // charts-on-the-fly viz. Only one technique's attributes should be set at a time —
         // 'properties.qHyperCubeDef' silently wins over the 'dimensions' attribute if both
-        // are present, so render() clears all three before applying the active one.
+        // are present, so render() recreates the embed from scratch before applying the
+        // active one, rather than clearing attributes off a live element.
         const TECHNIQUES = {
             simple: {
                 apply(el) {
@@ -230,16 +231,32 @@ embed.setAttribute('properties', JSON.stringify({
             },
         };
 
+        // qlik-embed only fires 'qlik-embed:ready' once per mount — changing attributes on a
+        // live element does not re-fire it. Recreating the element on every change gives hosts
+        // (and our own visual regression tests) a real 'ready' signal to wait on for each render,
+        // instead of a fixed delay. All attributes must be set BEFORE the element is attached to
+        // the DOM — attaching first and mutating attributes afterward makes the component fall
+        // back to `display: contents` on itself, collapsing it to a 0x0 box.
         function render() {
             const key = document.querySelector('input[name="technique"]:checked').value;
             const technique = TECHNIQUES[key];
 
-            ['dimensions', 'measures', 'properties'].forEach((attr) => embed.removeAttribute(attr));
-
+            const embed = document.createElement('qlik-embed');
+            embed.setAttribute('id', 'chartEmbed');
+            embed.setAttribute('ui', 'analytics/chart');
+            embed.setAttribute('app-id', '{{qlikAppId}}');
             embed.setAttribute('type', chartTypeSelect.value);
             embed.setAttribute('state-name', altStateCheckbox.checked ? 'my_new_state' : '$');
-
+            embed.style.height = '100%';
+            embed.style.width = '100%';
             technique.apply(embed);
+            embed.addEventListener('qlik-embed:ready', () => {
+                console.log('qlik-embed:ready (chart)');
+            });
+
+            chartEmbedContainer.innerHTML = '';
+            chartEmbedContainer.appendChild(embed);
+
             codeDisplay.textContent = technique.code;
         }
 
@@ -254,10 +271,6 @@ embed.setAttribute('properties', JSON.stringify({
 
         selectionsEmbed.addEventListener('qlik-embed:ready', () => {
             console.log('qlik-embed:ready (selections)');
-        });
-
-        embed.addEventListener('qlik-embed:ready', () => {
-            console.log('qlik-embed:ready (chart)');
         });
     </script>
 </body>
