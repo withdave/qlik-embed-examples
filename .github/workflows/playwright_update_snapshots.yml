@@ -35,8 +35,8 @@ jobs:
           echo "::error::Server did not become ready in time"
           exit 1
 
-      - name: Run Playwright tests in all browsers
-        run: npx playwright test --project=chromium --project=firefox --project=webkit --update-snapshots
+      - name: Run Playwright tests
+        run: npx playwright test --project=chromium --update-snapshots
 
       - name: Commit and force push changes to update-snapshots branch
         run: |
