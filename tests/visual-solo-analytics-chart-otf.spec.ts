@@ -22,6 +22,9 @@ test('Visual regression - solo-analytics-chart-otf', async ({ page }) => {
   // once per mount, so subsequent attribute changes below still rely on a fixed wait.
   await page.waitForFunction(() => (window as any).__qlikEvents.has('chartEmbed'), { timeout: 30_000 });
 
+  // Small buffer for rendering to settle after the ready event fires
+  await page.waitForTimeout(1000);
+
   // Take a screenshot of the main container and compare it with the baseline (default 'simple' technique)
   const defaultScreenshot = await page.locator('.main-container').screenshot();
   expect(defaultScreenshot).toMatchSnapshot('solo-analytics-chart-otf-default.png');

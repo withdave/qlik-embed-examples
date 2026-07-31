@@ -23,6 +23,9 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
   // (first load establishes the engine session, so give it longer)
   await page.waitForFunction(() => (window as any).__qlikReadyCount.appSheets >= 1, { timeout: 30_000 });
 
+  // Small buffer for rendering to settle after the ready event fires
+  await page.waitForTimeout(1000);
+
   // Take a screenshot of the main container and compare it with the baseline (default state)
   const defaultScreenshot = await page.locator('.main-container').screenshot();
   expect(defaultScreenshot).toMatchSnapshot('solo-analytics-sheet-selections-default.png');
@@ -43,6 +46,9 @@ test('Visual regression - solo-analytics-sheet-selections', async ({ page }, tes
       readyCountBefore,
       { timeout: 30_000 },
     );
+
+    // Small buffer for rendering to settle after the ready event fires
+    await page.waitForTimeout(1000);
 
     // Take a screenshot and compare with a snapshot for this option
     const screenshot = await page.locator('.main-container').screenshot();

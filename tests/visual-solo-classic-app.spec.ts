@@ -23,6 +23,8 @@ test('Visual regression - solo-classic-app', async ({ page }, testInfo) => {
   // Wait for the classic/app embed to report it has finished its first render
   // (first load establishes the engine session, so give it longer)
   await page.waitForFunction(() => (window as any).__qlikEvents.has('ready'), { timeout: 15_000 });
+  // Small buffer for rendering to settle after the ready event fires
+  await page.waitForTimeout(1000);
   // Take a screenshot of the main container and compare it with the baseline
   const screenshot = await page.locator('.main-container').screenshot();
   expect(screenshot).toMatchSnapshot('solo-classic-app.png');
