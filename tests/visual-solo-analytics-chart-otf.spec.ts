@@ -3,16 +3,24 @@ import { test, expect } from '@playwright/test';
 test.setTimeout(300000); // Set timeout to 300s to cover all technique/type/state combinations
 
 test('Visual regression - solo-analytics-chart-otf', async ({ page }) => {
+  // Capture qlik-embed lifecycle events before navigating, so we don't miss events
+  // that fire early during page load.
+  await page.addInitScript(() => {
+    (window as any).__qlikEvents = new Set<string>();
+    document.addEventListener('qlik-embed:ready', (e) => {
+      const target = e.target as HTMLElement;
+      (window as any).__qlikEvents.add(target?.id);
+    }, true);
+  });
+
   await page.goto('solo-analytics-chart-otf.html');
   // Wait for the main header to appear
   await expect(page.locator('h1')).toHaveText('analytics/chart on-the-fly via qlik/embed-web-components');
 
-  // Wait for the chart embed to be present (first load establishes the engine session, so give it longer)
-  await expect(page.locator('#chartEmbed')).toBeVisible({ timeout: 30000 });
-
-  // Wait another moment for good measure/ slow compute
-  // Not good practice, but necessary for some slow environments
-  await page.waitForTimeout(20000);
+  // Wait for the chart embed to report it has finished its first render
+  // (first load establishes the engine session, so give it longer). 'ready' only fires
+  // once per mount, so subsequent attribute changes below still rely on a fixed wait.
+  await page.waitForFunction(() => (window as any).__qlikEvents.has('chartEmbed'), { timeout: 30_000 });
 
   // Take a screenshot of the main container and compare it with the baseline (default 'simple' technique)
   const defaultScreenshot = await page.locator('.main-container').screenshot();
