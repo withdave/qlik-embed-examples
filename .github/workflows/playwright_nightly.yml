@@ -35,9 +35,35 @@ jobs:
           exit 1
       - name: Run Playwright tests
         run: npx playwright test --project=chromium
-      - name: Upload all visual regression screenshots
+      - name: Upload visual regression artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: visual-regression-screenshots
-          path: test-results/visual-Visual-regression-*/
+          name: visual-regression-artifacts
+          path: |
+            test-results/**/diff.png
+            test-results/**/actual.png
+            test-results/**/expected.png
+            test-results/visual-Visual-regression-*/
+            playwright-report/**
           if-no-files-found: warn
+      - name: Upload visual regression summary
+        if: always()
+        run: |
+          {
+            echo "## Nightly visual regression triage"
+            echo ""
+            echo "- Workflow run: [${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+            echo "- Job status: ${{ job.status }}"
+            echo ""
+            if [ "${{ job.status }}" != "success" ]; then
+              echo "### Failure summary"
+              echo "- Visual regression failed."
+              echo "- Download the \`visual-regression-artifacts\` artifact from this run."
+              echo "- Check delta images at \`test-results/**/diff.png\` (with matching \`actual.png\` and \`expected.png\`)."
+            else
+              echo "### Result"
+              echo "- Visual regression passed."
+              echo "- Any generated visual artifacts (if present) are still available in \`visual-regression-artifacts\`."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
