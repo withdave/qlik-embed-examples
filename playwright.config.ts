@@ -2,6 +2,9 @@
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
   testDir: './tests',
+  // Without an explicit reporter, Playwright only prints to the console and never
+  // writes an HTML report, so the CI workflow has nothing to upload as an artifact.
+  reporter: [['list'], ['html', { open: 'never' }]],
   use: {
     screenshot: 'only-on-failure',
     baseURL: 'http://localhost:3000/',
