@@ -40,11 +40,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: visual-regression-artifacts
+          # Tests use expect(...).toMatchSnapshot('<name>.png'), so Playwright names
+          # failure files `<name>-actual.png`/`<name>-expected.png`/`<name>-diff.png`
+          # (never the bare `actual.png`/etc.), inside per-test folders under
+          # test-results/ whose names don't follow a fixed "visual-Visual-regression-*"
+          # prefix. Upload the whole directories rather than brittle glob patterns.
           path: |
-            test-results/**/diff.png
-            test-results/**/actual.png
-            test-results/**/expected.png
-            test-results/visual-Visual-regression-*/
+            test-results/**
             playwright-report/**
           if-no-files-found: warn
       - name: Upload visual regression summary
@@ -60,7 +62,7 @@ jobs:
               echo "### Failure summary"
               echo "- Visual regression failed."
               echo "- Download the \`visual-regression-artifacts\` artifact from this run."
-              echo "- Check delta images at \`test-results/**/diff.png\` (with matching \`actual.png\` and \`expected.png\`)."
+              echo "- Check delta images inside \`test-results/\` (files named \`<name>-diff.png\`, with matching \`<name>-actual.png\` and \`<name>-expected.png\`)."
             else
               echo "### Result"
               echo "- Visual regression passed."
