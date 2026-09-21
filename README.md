@@ -33,6 +33,10 @@ The `embed/` directory contains several example HTML pages that use Qlik's web c
 - `index.html` — Index page for examples.
 - `dual-classic-app.html` — Qlik Sense app overview using both @qlik/embed-web-components and @qlik/api.
 - `solo-classic-app.html` — Qlik Sense app overview using @qlik/embed-web-components.
+- `solo-classic-chart.html` — Qlik Sense chart object using the classic/chart UI.
+- `solo-analytics-chart.html` — Qlik Sense chart object using the analytics/chart UI.
+- `solo-analytics-chart-preview.html` — Qlik Sense chart object using analytics/chart with preview enabled.
+- `solo-analytics-sheet-preview.html` — Qlik Sense sheet using analytics/sheet with preview enabled.
 - `solo-analytics-sheet-selections.html` — Dynamic sheet loading for Qlik Sense sheets using @qlik/embed-web-components and Ref API.
 - `solo-analytics-chart-otf.html` — On-the-fly analytics chart using @qlik/embed-web-components — switch between dimension/measure techniques, chart types, and states live.
 - `solo-analytics-snapshot.html` — Static chart rendering using <code>data___json</code> and @qlik/embed-web-components (no backend required).
