@@ -38,6 +38,16 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test --project=chromium --update-snapshots
 
+      - name: Upload visual regression artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snapshot-update-artifacts
+          path: |
+            test-results/**
+            playwright-report/**
+          if-no-files-found: warn
+
       - name: Commit and force push changes to update-snapshots branch
         run: |
           # actions/checkout only marks the workspace as a safe.directory in its own
