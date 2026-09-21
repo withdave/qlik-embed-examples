@@ -12,7 +12,7 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.61.1-noble
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Ensure visual.spec.ts-snapshots directory exists
         run: mkdir -p tests/visual.spec.ts-snapshots
@@ -40,7 +40,7 @@ jobs:
 
       - name: Upload visual regression artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: snapshot-update-artifacts
           path: |
