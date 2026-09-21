@@ -25,4 +25,12 @@
     </div>
 </body>
 
+<script type="module">
+    const analyticsSheetPreview = document.getElementById('analyticsSheetPreview');
+
+    analyticsSheetPreview.addEventListener('qlik-embed:ready', () => {
+        console.log('qlik-embed:ready (sheet)');
+    });
+</script>
+
 </html>

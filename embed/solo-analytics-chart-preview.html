@@ -25,4 +25,12 @@
     </div>
 </body>
 
+<script type="module">
+    const analyticsChartPreview = document.getElementById('analyticsChartPreview');
+
+    analyticsChartPreview.addEventListener('qlik-embed:ready', () => {
+        console.log('qlik-embed:ready (chart)');
+    });
+</script>
+
 </html>
