@@ -40,11 +40,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: visual-regression-artifacts
-          # Tests use expect(...).toMatchSnapshot('<name>.png'), so Playwright names
-          # failure files `<name>-actual.png`/`<name>-expected.png`/`<name>-diff.png`
-          # (never the bare `actual.png`/etc.), inside per-test folders under
-          # test-results/ whose names don't follow a fixed "visual-Visual-regression-*"
-          # prefix. Upload the whole directories rather than brittle glob patterns.
           path: |
             test-results/**
             playwright-report/**

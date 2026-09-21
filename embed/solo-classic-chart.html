@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>classic/app via qlik/embed-web-components</title>
+    <title>classic/chart via qlik/embed-web-components</title>
     <link rel="stylesheet" href="index.css">
     <script crossorigin="anonymous" type="application/javascript"
         src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components@1/dist/index.min.js"
@@ -15,29 +15,20 @@
 <body>
     <div class="main-container">
         <div class="header">
-            <h1>classic/app via qlik/embed-web-components</h1>
+            <h1>classic/chart via qlik/embed-web-components</h1>
             <p><a href="./" aria-label="Back to catalog">&lt; back to catalog</a></p>
         </div>
         <div class="qlik-container">
-            <qlik-embed id="classicApp" ui="classic/app" app-id="{{qlikAppId}}"
-                sheet-id="7dd685d5-529e-41ea-bbd5-87b4c0dbbf9f"></qlik-embed>
+            <qlik-embed id="classicChart" ui="classic/chart" app-id="{{qlikAppId}}" object-id="UyDxThT"></qlik-embed>
         </div>
     </div>
 </body>
 
 <script type="module">
-    const classicApp = document.getElementById('classicApp');
+    const classicChart = document.getElementById('classicChart');
 
-    classicApp.addEventListener('qlik-embed:ready', () => {
+    classicChart.addEventListener('qlik-embed:ready', () => {
         console.log('qlik-embed:ready');
-    });
-
-    classicApp.addEventListener('qlik-embed:sheet-changed', (event) => {
-        console.log('qlik-embed:sheet-changed', event.detail);
-    });
-
-    classicApp.addEventListener('qlik-embed:sheet-ready', (event) => {
-        console.log('qlik-embed:sheet-ready', event.detail);
     });
 </script>
 
