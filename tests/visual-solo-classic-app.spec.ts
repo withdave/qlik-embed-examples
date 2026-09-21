@@ -19,7 +19,8 @@ test('Visual regression - solo-classic-app', async ({ page }, testInfo) => {
   testInfo.attach('Page Load Time', { body: `Page load finished at: ${pageLoadTime}`, contentType: 'text/plain' });
 
   // Wait for the main header to appear
-  await expect(page.locator('h1')).toHaveText('classic/chart via qlik/embed-web-components');
+  await expect(page).toHaveTitle('classic/app via qlik/embed-web-components');
+  await expect(page.locator('h1')).toHaveText('classic/app via qlik/embed-web-components');
   // Wait for the classic/app embed to report it has finished its first render
   // (first load establishes the engine session, so give it longer)
   await page.waitForFunction(() => (window as any).__qlikEvents.has('ready'), { timeout: 15_000 });

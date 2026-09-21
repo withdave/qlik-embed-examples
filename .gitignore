@@ -137,6 +137,7 @@ dist
 
 # Playwright
 test-results/*
+playwright-report/*
 
 # Build output
 build/
