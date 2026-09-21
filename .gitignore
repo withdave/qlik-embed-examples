@@ -140,3 +140,4 @@ test-results/*
 
 # Build output
 build/
+.DS_Store
