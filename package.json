@@ -25,11 +25,11 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "1.61.1",
-    "playwright": "1.61.1"
+    "@playwright/test": "1.63.0",
+    "playwright": "1.63.0"
   },
   "dependencies": {
-    "dotenv": "^17.2.3",
-    "express": "^4.22.3"
+    "dotenv": "^18.0.0",
+    "express": "^5.2.1"
   }
 }
