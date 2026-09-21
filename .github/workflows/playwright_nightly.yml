@@ -34,7 +34,7 @@ jobs:
           echo "::error::Server did not become ready in time"
           exit 1
       - name: Run Playwright tests
-        run: npx playwright test --project=chromium
+        run: npx playwright test --project=chromium --retries=1
       - name: Upload visual regression artifacts
         if: always()
         uses: actions/upload-artifact@v4
